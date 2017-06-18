@@ -28,7 +28,7 @@ namespace Winform_ShopGao
         private void tabPane1_Click(object sender, EventArgs e)
         {
             var suppliers = _supplierBusinessLogic.GetallSupplier();
-            supplierGridControl.DataSource = suppliers.Select(x => new { Id = x.GetId(), Name = x.GetName(), Address = x.GetAddress() }).ToList();
+            supplierGridControl.DataSource = suppliers.ToList();
             supplierGridControl.Refresh();
         }
 

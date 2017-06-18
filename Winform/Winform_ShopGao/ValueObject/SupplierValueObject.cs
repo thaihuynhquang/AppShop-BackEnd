@@ -2,11 +2,11 @@
 {
     public class SupplierValueObject
     {
-        private int _id;
-        private string _name;
-        private string _address;
-        private string _email;
-        private string _phone;
+        public int _id { get; set; }
+        public string _name { get; set; }
+        public string _address { get; set; }
+        public string _email { get; set; }
+        public string _phone { get; set; }
 
         public SupplierValueObject(int id,string name, string add, string mail, string phone)
         {
@@ -17,20 +17,7 @@
             this._phone = phone;
         }
 
-        public string GetName()
-        {
-            return _name;
-        }
-
-        public string GetAddress()
-        {
-            return _address;
-        }
-
-        public int GetId()
-        {
-            return _id;
-        }
+      
 
 
     }
