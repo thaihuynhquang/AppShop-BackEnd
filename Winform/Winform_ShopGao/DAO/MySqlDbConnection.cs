@@ -32,9 +32,8 @@ namespace DAO
         public DataTable ExecuteSelectQuery(string query, MySqlParameter[] sqlParameter = null)
         {
             var myCommand = new MySqlCommand();
-            var dataTable = new DataTable();
+            DataTable dataTable;
             _myAdapter = new MySqlDataAdapter();
-            dataTable = null;
             var ds = new DataSet();
             try
             {

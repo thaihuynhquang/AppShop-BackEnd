@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 
@@ -28,6 +29,26 @@ namespace DAO
             sqlParameters[2] = new MySqlParameter("@mail", MySqlDbType.String) { Value = mail };
             sqlParameters[3] = new MySqlParameter("@phone", MySqlDbType.String) { Value = phone };
             return _mySqlDbConnection.ExecuteInsertQuery(query,sqlParameters);
+        }
+
+        public bool UpdateSupplier(int? supplierId, string supplierName, string supplierAddress, string supplierEmail, string supplierPhone)
+        {
+            const string query = "UPDATE suppliers set name = @name, addr = @addr, mail= @mail, phone =@phone where id = @id";
+            var sqlParameters = new MySqlParameter[5];
+            sqlParameters[0] = new MySqlParameter("@name", MySqlDbType.String) { Value = supplierName };
+            sqlParameters[1] = new MySqlParameter("@addr", MySqlDbType.String) { Value = supplierAddress };
+            sqlParameters[2] = new MySqlParameter("@mail", MySqlDbType.String) { Value = supplierEmail };
+            sqlParameters[3] = new MySqlParameter("@phone", MySqlDbType.String) { Value = supplierEmail };
+            sqlParameters[4] = new MySqlParameter("@id", MySqlDbType.Int32) { Value = supplierId };
+            return _mySqlDbConnection.ExecuteUpdateQuery(query, sqlParameters);
+        }
+
+        public DataTable GetDetailSupplier(int id)
+        {
+            const string query = "select * from suppliers where id = @id limit 1";
+            var sqlParameters = new MySqlParameter[1];
+            sqlParameters[0] = new MySqlParameter("@id", MySqlDbType.Int32) { Value = id };
+            return _mySqlDbConnection.ExecuteSelectQuery(query,sqlParameters);
         }
     }
 }
