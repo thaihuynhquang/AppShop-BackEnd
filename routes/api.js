@@ -334,7 +334,7 @@ router.post('/cart', jsonParser, function (req, res, next) {
                                                     }
                                                     else {
                                                         if(data) {
-                                                            res.send("THANH_CONG");
+                                                            res.send("THEM_THANH_CONG");
                                                         }
                                                         else
                                                             res.send("KHONG_THANH_CONG");
