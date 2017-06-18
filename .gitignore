@@ -56,3 +56,6 @@ typings/
 
 # dotenv environment variables file
 .env
+/Winform/Winform_ShopGao/BusinessLogicLayer/obj/Debug
+/Winform/Winform_ShopGao/BusinessLogicLayer/obj/Debug
+/Winform/Winform_ShopGao/BusinessLogicLayer/obj/Debug/4a110e3b-ed41-4e45-a44f-80150be9c3c9_BusinessLogicLayer.dll
