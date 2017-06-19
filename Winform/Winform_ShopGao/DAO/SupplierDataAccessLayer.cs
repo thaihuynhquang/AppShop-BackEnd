@@ -43,6 +43,14 @@ namespace DAO
             return _mySqlDbConnection.ExecuteUpdateQuery(query, sqlParameters);
         }
 
+        public bool DeleteSupplier(int id)
+        {
+            const string query = "Delete from suppliers where id = @id";
+            var sqlParameters = new MySqlParameter[1];
+            sqlParameters[0] = new MySqlParameter("@id", MySqlDbType.String) { Value = id };
+            return _mySqlDbConnection.ExecuteUpdateQuery(query, sqlParameters);
+        }
+
         public DataTable GetDetailSupplier(int id)
         {
             const string query = "select * from suppliers where id = @id limit 1";

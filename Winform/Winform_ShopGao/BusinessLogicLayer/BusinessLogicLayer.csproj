@@ -36,6 +36,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProductBusinessLogic.cs" />
+    <Compile Include="ProductTypeBusinessLogic.cs" />
     <Compile Include="SupplierBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

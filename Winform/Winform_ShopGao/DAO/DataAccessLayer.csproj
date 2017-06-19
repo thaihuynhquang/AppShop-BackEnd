@@ -40,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MySqlDbConnection.cs" />
+    <Compile Include="ProductDataAccessLayer.cs" />
+    <Compile Include="ProductTypeDataAccessLayer.cs" />
     <Compile Include="SupplierDataAccessLayer.cs" />
     <Compile Include="UserDataAccessLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
