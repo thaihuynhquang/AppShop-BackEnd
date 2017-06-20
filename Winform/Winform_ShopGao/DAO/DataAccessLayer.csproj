@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BillDataAccessLayer.cs" />
     <Compile Include="MySqlDbConnection.cs" />
     <Compile Include="ProductDataAccessLayer.cs" />
     <Compile Include="ProductTypeDataAccessLayer.cs" />

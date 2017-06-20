@@ -21,6 +21,12 @@ namespace DAO
 
             return _conn.ExecuteSelectQuery(query, sqlParameters).Rows.Count > 0;
         }
-        
+
+        public DataTable GetAllUser()
+        {
+            const string query = "select * from users";
+            return _conn.ExecuteSelectQuery(query);
+        }
+
     }
 }

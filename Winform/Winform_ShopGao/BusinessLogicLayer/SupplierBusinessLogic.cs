@@ -26,14 +26,14 @@ namespace BusinessLogicLayer
 
         public bool CreateSupplier(SupplierValueObject supplier)
         {
-           return _supplierDataAccessLayer.CreateNewSupplier(supplier._name, supplier._address, supplier._email,
-                supplier._phone);
+           return _supplierDataAccessLayer.CreateNewSupplier(supplier.Name, supplier.Address, supplier.Email,
+                supplier.Phone);
         }
 
         public bool UpdateSupplier(SupplierValueObject supplier)
         {
-            return _supplierDataAccessLayer.UpdateSupplier(supplier._id,supplier._name, supplier._address, supplier._email,
-                supplier._phone);
+            return _supplierDataAccessLayer.UpdateSupplier(supplier.Id,supplier.Name, supplier.Address, supplier.Email,
+                supplier.Phone);
         }
 
         public SupplierValueObject GetDetailSupplier(int id)

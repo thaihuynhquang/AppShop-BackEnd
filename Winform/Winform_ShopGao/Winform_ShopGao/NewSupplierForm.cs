@@ -32,10 +32,10 @@ namespace Winform_ShopGao
             _rowId = (int) rowId;
 
             var supplier = _supplierBusinessLogic.GetDetailSupplier(_rowId);
-            name.Text = supplier._name;
-            address.Text = supplier._address;
-            mail.Text = supplier._email;
-            phone.Text = supplier._phone;
+            name.Text = supplier.Name;
+            address.Text = supplier.Address;
+            mail.Text = supplier.Email;
+            phone.Text = supplier.Phone;
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -16,12 +16,16 @@ namespace Winform_ShopGao
     public partial class MainForm : Form
     {
         private readonly SupplierBusinessLogic _supplierBusinessLogic;
-        private ProductBusinessLogic _productBusinessLogic;
+        private readonly ProductBusinessLogic _productBusinessLogic;
+        private readonly UserBusinessLogic _userBusinessLogic;
+        private readonly BillBusinessLogic _billBusinessLogic;
         public MainForm()
         {
             InitializeComponent();
             _supplierBusinessLogic = new SupplierBusinessLogic();
             _productBusinessLogic = new ProductBusinessLogic();
+            _userBusinessLogic= new UserBusinessLogic();
+            _billBusinessLogic = new BillBusinessLogic();
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -119,6 +123,37 @@ namespace Winform_ShopGao
             {
                 MessageBox.Show(@"Please select row");
             }
+        }
+
+        private void Users_Click(object sender, EventArgs e)
+        {
+            userGridView.DataSource = _userBusinessLogic.GetAllUser();
+            userGridView.Refresh();
+        }
+
+        private void Users_VisibleChanged(object sender, EventArgs e)
+        {
+            if (tabPane1.SelectedPage != Users) return;
+            userGridView.DataSource = _userBusinessLogic.GetAllUser();
+            userGridView.Refresh();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            // new user form here
+        }
+
+        private void tabNavigationPage3_VisibleChanged(object sender, EventArgs e)
+        {
+            if (tabPane1.SelectedPage != tabNavigationPage3) return;
+            dataGridView1.DataSource = _billBusinessLogic.GetAllBill();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            NewBillForm newBillForm = new NewBillForm{RefToFormMain = this};
+            Hide();
+            newBillForm.Show();
         }
     }
 }

@@ -8,15 +8,15 @@ namespace ValueObject
 {
     public class ProductTypeValueObject
     {
-        public int? id { get; set; }
-        public string name { get; set; }
-        public string image { get; set; }
+        public int? Id { get; set; }
+        public string Name { get; set; }
+        public string Image { get; set; }
 
         public ProductTypeValueObject(int? id, string name, string img)
         {
-            this.id = id;
-            this.name = name;
-            this.image = img;
+            this.Id = id;
+            this.Name = name;
+            this.Image = img;
         }
     }
 }

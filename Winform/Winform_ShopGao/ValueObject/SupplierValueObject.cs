@@ -2,19 +2,19 @@
 {
     public class SupplierValueObject
     {
-        public int? _id { get; set; }
-        public string _name { get; set; }
-        public string _address { get; set; }
-        public string _email { get; set; }
-        public string _phone { get; set; }
+        public int? Id { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
 
         public SupplierValueObject(int? id,string name, string add, string mail, string phone)
         {
-            this._id = id;
-            this._name = name;
-            this._address = add;
-            this._email = mail;
-            this._phone = phone;
+            this.Id = id;
+            this.Name = name;
+            this.Address = add;
+            this.Email = mail;
+            this.Phone = phone;
         }
     }
 }
