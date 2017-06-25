@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
+var path = require('path');
+var multer = require('multer');
+
 var bodyParser = require('body-parser');
 var SQLquery = require('../mysql/mysql_query');
 var crypto = require('crypto');
@@ -9,6 +12,39 @@ var secret = '13110148';
 
 // create application/json parser
 var jsonParser = bodyParser.json();
+
+//storage for multer
+var ImageProduct_sto = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './images/product');
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + path.extname(file.originalname));
+    }
+});
+
+var ImageProductType_sto = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './images/type');
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + path.extname(file.originalname));
+    }
+});
+//end storage for multer
+
+//fileFilter for multer
+var imageFilter = function (req, file, callback) {
+    var ext = path.extname(file.originalname);
+    if (ext !== '.jpg' && ext !== '.jpeg') {
+        return callback(new Error("Only *.jpg or *.jpeg are allowed"), false);
+    }
+    callback(null, true);
+};
+
+// warningTime
+var msec1Date = 86400000;
+var warningTime = 5 * msec1Date;
 
 //get today
 var gettoday = function () {
@@ -29,7 +65,50 @@ var gettoday = function () {
     }
     return today = yyyy + '/' + mm + '/' + dd + ' ' + hh + ':' + min + ':' + ss;
 }
-//end get today
+
+//get today + numMonth
+var getTodayPlusNmonth = function (num) {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1 + num;
+    var yyyy = today.getFullYear();
+    var hh = today.getHours();
+    var min = today.getMinutes();
+    var ss = today.getSeconds();
+
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+    return today = yyyy + '/' + mm + '/' + dd + ' ' + hh + ':' + min + ':' + ss;
+};
+
+router.post('/upload_image_product', function (req, res, next) {
+    var upload = multer({ storage: ImageProduct_sto, fileFilter: imageFilter }).single('image');
+    upload(req, res, function (err) {
+        if (err) {
+            // An error occurred when uploading
+            return res.send("error uploading file: " + err);
+        }
+        // Everything went fine
+        res.json({ msg: "file is uploaded", link: req.file.filename });
+    });
+});
+
+router.post('/upload_image_productType', function (req, res, next) {
+    var upload = multer({ storage: ImageProductType_sto, fileFilter: imageFilter }).single('image');
+    upload(req, res, function (err) {
+        if (err) {
+            // An error occurred when uploading
+            return res.send("error uploading file: " + err);
+        }
+        // Everything went fine
+        res.json({ msg: "file is uploaded", link: req.file.filename });
+    });
+});
 
 router.get('/product_by_type/:id_type/:page', function (req, res, next) {
     var id_type = req.params.id_type;
@@ -280,6 +359,10 @@ router.post('/cart', jsonParser, function (req, res, next) {
     if (!req.body) return res.sendStatus(400);
     var json = req.body;
     var token = (json.token);
+    var numMonth = (json.numMonth);
+    var address = (json.address);
+    var district = (json.district);
+    var city = (json.city);
     var arrayDetail = (json.arrayDetail);
     try {
         jwt.verify(token, secret, function (err, decoded) {
@@ -291,6 +374,7 @@ router.post('/cart', jsonParser, function (req, res, next) {
             var arrTotalMoneyonProduct = arrayDetail.map(function (e) { return e.price * e.quantity; });
             var totalMoneyonBill = arrTotalMoneyonProduct.length ? arrTotalMoneyonProduct.reduce(function (a, b) { return a + b; }) : 0;
             var todate = gettoday();
+            var toDatePlusNmonth = getTodayPlusNmonth(numMonth);
             var arrID = arrayDetail.map(function (el) { return el.id; });
             SQLquery.getUserByEmail(email, function (err, data) {
                 if (err) {
@@ -300,7 +384,7 @@ router.post('/cart', jsonParser, function (req, res, next) {
                 else {
                     if (data) {
                         var id_user = data[0].id;
-                        SQLquery.createBill(id_user, todate, totalMoneyonBill, function (err, results) {
+                        SQLquery.createBill(id_user, todate, toDatePlusNmonth, totalMoneyonBill, address, district, city, function (err, results) {
                             if (err) {
                                 console.log(err);
                                 res.send("LOI_TRUY_VAN_createBill");
@@ -327,13 +411,13 @@ router.post('/cart', jsonParser, function (req, res, next) {
                                                         }
                                                     });
                                                 });
-                                                SQLquery.createBillDetail(newbills, function(err, data) {
-                                                    if(err) {
+                                                SQLquery.createBillDetail(newbills, function (err, data) {
+                                                    if (err) {
                                                         console.log(err);
                                                         res.send("LOI_TRUY_VAN_createBillDetail");
                                                     }
                                                     else {
-                                                        if(data) {
+                                                        if (data) {
                                                             res.send("THEM_THANH_CONG");
                                                         }
                                                         else
@@ -359,6 +443,88 @@ router.post('/cart', jsonParser, function (req, res, next) {
         });
     } catch (err) {
         return res.send("LOI_KHONG_RO");
+    }
+});
+
+router.post('/get_info_form', jsonParser, function (req, res, next) {
+    if (!req.body) return res.sendStatus(400);
+    var json = req.body;
+    var token = (json.token);
+    try {
+        jwt.verify(token, secret, function (err, decoded) {
+            if (err)
+                return res.send("TOKEN_KHONG_HOP_LE");
+            if (decoded.expire < (new Date()).getTime())
+                return res.send("TOKEN_HET_HAN");
+            var email = decoded.email;
+            SQLquery.getUserByEmail(email, function (err, data) {
+                if (err) {
+                    console.log(err);
+                    return res.send("LOI_TRUY_VAN");
+                }
+                else {
+                    if (data) {
+                        var resultsUser = data[0];
+                        SQLquery.getBillByEmail(email, function (err, data) {
+                            if (err) {
+                                console.log(err);
+                                res.send("LOI_TRUY_VAN");
+                            }
+                            else {
+                                if (data) {
+                                    var resultsAddr = data[0];
+                                    res.json({ user: resultsUser, addr: resultsAddr });
+                                }
+                                else
+                                    res.send("TOKEN_KHONG_HOP_LE");
+                            }
+                        });
+                    }
+                    else
+                        res.send("TOKEN_KHONG_HOP_LE");
+                }
+            });
+        });
+    } catch (err) {
+        return res.send("TOKEN_KHONG_HOP_LE");
+    }
+});
+
+router.post('/notify_order', jsonParser, function (req, res, next) {
+    if (!req.body) return res.sendStatus(400);
+    var json = req.body;
+    var token = (json.token);
+    try {
+        jwt.verify(token, secret, function (err, decoded) {
+            if (err)
+                return res.send("TOKEN_KHONG_HOP_LE");
+            if (decoded.expire < (new Date()).getTime())
+                return res.send("TOKEN_HET_HAN");
+            var email = decoded.email;
+            SQLquery.getBillByEmail(email, function (err, data) {
+                if (err) {
+                    console.log(err);
+                    return res.send("LOI_TRUY_VAN");
+                }
+                else {
+                    if (data) {
+                        var results = data[0];
+                        var expDate = Date.parse(results.expected_date_order);
+                        var today = new Date().getTime();
+                        var kq = expDate - today;
+                        var numDate = Math.floor(kq / msec1Date);
+                        if (kq <= warningTime)
+                            res.json({ msg: "CANH_BAO", numDate: numDate });
+                        else
+                            res.json({ msg: "KHONG_CANH_BAO", numDate: numDate });
+                    }
+                    else
+                        res.send("TOKEN_KHONG_HOP_LE");
+                }
+            });
+        });
+    } catch (err) {
+        return res.send("TOKEN_KHONG_HOP_LE");
     }
 });
 

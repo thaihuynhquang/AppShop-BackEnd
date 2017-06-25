@@ -226,7 +226,7 @@ module.exports = {
                 return callback(err, null);
             }
             
-            connection.query('SELECT b.id, b.date_order, b.status, b.total FROM bill b INNER JOIN users u ON u.id=b.id_customer where u.email =?', [email], function (error, results, fields) {
+            connection.query('SELECT b.id, b.date_order, b.expected_date_order, b.status, b.total, b.address, b.district, b.city FROM bill b INNER JOIN users u ON u.id=b.id_customer where u.email =? ORDER BY b.date_order DESC', [email], function (error, results, fields) {
                 //end connection
                 connection.release();
                 //Error handling
@@ -241,7 +241,7 @@ module.exports = {
         });
     },
 
-    createBill: function (id_customer, date_order, total, callback) {
+    createBill: function (id_customer, date_order, expected_date_order, total, address, district, city, callback) {
         mysqlConnector.getConnection(function (err, connection) {
             //Error handling
             if (err) {
@@ -250,7 +250,7 @@ module.exports = {
                 return callback(err, null);
             }
             
-            connection.query('INSERT INTO bill set ?', { id_customer: id_customer, date_order: date_order, total: total }, function (error, results, fields) {
+            connection.query('INSERT INTO bill set ?', { id_customer: id_customer, date_order: date_order, expected_date_order: expected_date_order, total: total, address: address, district: district, city: city }, function (error, results, fields) {
                 //end connection
                 connection.release();
                 //Error handling
