@@ -16,7 +16,10 @@ namespace DAO
 
         public MySqlDbConnection()
         {
-            _conn = new MySqlConnection("server=localhost;database=appgao_db;uid=root;pwd=;");
+            if (_conn == null)
+            {
+                _conn = new MySqlConnection("server=localhost;database=appgao_db;uid=root;pwd=;");
+            }
         }
 
         private MySqlConnection OpenConnection()

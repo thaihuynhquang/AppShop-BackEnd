@@ -43,8 +43,12 @@
             this.button5 = new System.Windows.Forms.Button();
             this.userGridView = new System.Windows.Forms.DataGridView();
             this.tabNavigationPage3 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tabNavigationPage4 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.button9 = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
             this.tabPane1.SuspendLayout();
             this.tabNavigationPage1.SuspendLayout();
@@ -55,6 +59,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.userGridView)).BeginInit();
             this.tabNavigationPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabNavigationPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPane1
@@ -63,13 +69,15 @@
             this.tabPane1.Controls.Add(this.tabNavigationPage2);
             this.tabPane1.Controls.Add(this.Users);
             this.tabPane1.Controls.Add(this.tabNavigationPage3);
+            this.tabPane1.Controls.Add(this.tabNavigationPage4);
             this.tabPane1.Location = new System.Drawing.Point(12, 12);
             this.tabPane1.Name = "tabPane1";
             this.tabPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.tabNavigationPage1,
             this.tabNavigationPage2,
             this.Users,
-            this.tabNavigationPage3});
+            this.tabNavigationPage3,
+            this.tabNavigationPage4});
             this.tabPane1.RegularSize = new System.Drawing.Size(1213, 519);
             this.tabPane1.SelectedPage = this.tabNavigationPage1;
             this.tabPane1.Size = new System.Drawing.Size(1213, 519);
@@ -203,20 +211,23 @@
             // 
             // tabNavigationPage3
             // 
-            this.tabNavigationPage3.Caption = "Bills";
+            this.tabNavigationPage3.Caption = "Bán hàng";
+            this.tabNavigationPage3.Controls.Add(this.button8);
             this.tabNavigationPage3.Controls.Add(this.button7);
             this.tabNavigationPage3.Controls.Add(this.dataGridView1);
             this.tabNavigationPage3.Name = "tabNavigationPage3";
             this.tabNavigationPage3.Size = new System.Drawing.Size(1195, 474);
             this.tabNavigationPage3.VisibleChanged += new System.EventHandler(this.tabNavigationPage3_VisibleChanged);
             // 
-            // dataGridView1
+            // button8
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1188, 403);
-            this.dataGridView1.TabIndex = 0;
+            this.button8.Location = new System.Drawing.Point(983, 429);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 2;
+            this.button8.Text = "Detail bill";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
@@ -227,6 +238,41 @@
             this.button7.Text = "New";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(4, 4);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1188, 403);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // tabNavigationPage4
+            // 
+            this.tabNavigationPage4.Caption = "Nhập hàng";
+            this.tabNavigationPage4.Controls.Add(this.button9);
+            this.tabNavigationPage4.Controls.Add(this.dataGridView2);
+            this.tabNavigationPage4.Name = "tabNavigationPage4";
+            this.tabNavigationPage4.Size = new System.Drawing.Size(1195, 474);
+            this.tabNavigationPage4.VisibleChanged += new System.EventHandler(this.tabNavigationPage4_VisibleChanged);
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(1069, 429);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.TabIndex = 1;
+            this.button9.Text = "Nhập hàng";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(4, 0);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(1167, 423);
+            this.dataGridView2.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -249,6 +295,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.userGridView)).EndInit();
             this.tabNavigationPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabNavigationPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -272,5 +320,9 @@
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage4;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button button9;
     }
 }

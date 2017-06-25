@@ -32,14 +32,14 @@ namespace Winform_ShopGao
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int userID = (int) comboBox1.SelectedValue;
+            int userId = (int) comboBox1.SelectedValue;
             int total = Convert.ToInt32(textBox1.Text);
             string addr = textBox2.Text.Trim();
             int status = Convert.ToInt32(textBox3.Text);
             string note = richTextBox1.Text.Trim();
             var date = dateEdit1.DateTime;
 
-            var bill = new BillValueObject(null,userID,date,total,addr,note,status);
+            var bill = new BillValueObject(null,userId,date,total,addr,note,status);
            var success = _billBusinessLogic.CreateNewBill(bill);
             MessageBox.Show(success ? "Success" : "Fail");
         }

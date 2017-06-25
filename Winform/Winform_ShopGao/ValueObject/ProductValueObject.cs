@@ -16,8 +16,9 @@ namespace ValueObject
         public string Description { get; set; }
         public int Inew { get; set; }
         public int Collection { get; set; }
+        public int? Total { get; set; }
 
-        public ProductValueObject(int? id, string name, int idType, int price, string desc, int inew, int icollection)
+        public ProductValueObject(int? id, string name, int idType, int price, string desc, int inew, int icollection, int? total)
         {
             this.Id = id;
             this.Name = name;
@@ -26,6 +27,7 @@ namespace ValueObject
             this.Description = desc;
             this.Inew = inew;
             this.Collection = icollection;
+            this.Total = total;
         }
     }
 }

@@ -19,12 +19,13 @@ namespace Winform_ShopGao
         private readonly ProductBusinessLogic _productBusinessLogic;
         private readonly UserBusinessLogic _userBusinessLogic;
         private readonly BillBusinessLogic _billBusinessLogic;
+
         public MainForm()
         {
             InitializeComponent();
             _supplierBusinessLogic = new SupplierBusinessLogic();
             _productBusinessLogic = new ProductBusinessLogic();
-            _userBusinessLogic= new UserBusinessLogic();
+            _userBusinessLogic = new UserBusinessLogic();
             _billBusinessLogic = new BillBusinessLogic();
         }
 
@@ -50,7 +51,7 @@ namespace Winform_ShopGao
 
         private void newSupp_Click(object sender, EventArgs e)
         {
-            var newSupplierForm = new NewSupplierForm { RefToFormMain = this };
+            var newSupplierForm = new NewSupplierForm {RefToFormMain = this};
             newSupplierForm.Show();
             this.Hide();
         }
@@ -61,7 +62,7 @@ namespace Winform_ShopGao
             {
                 var row = supplierGridControl.SelectedRows;
                 var cells = row[0].Cells;
-                var newSupplierForm = new NewSupplierForm(int.Parse(cells[0].Value.ToString())) { RefToFormMain = this };
+                var newSupplierForm = new NewSupplierForm(int.Parse(cells[0].Value.ToString())) {RefToFormMain = this};
                 newSupplierForm.Show();
                 this.Hide();
             }
@@ -103,7 +104,7 @@ namespace Winform_ShopGao
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var newProductForm = new NewProductForm { RefToFormMain = this};
+            var newProductForm = new NewProductForm {RefToFormMain = this};
             newProductForm.Show();
             Hide();
 
@@ -115,7 +116,7 @@ namespace Winform_ShopGao
             {
                 var row = productGridView.SelectedRows;
                 var cells = row[0].Cells;
-                var newSupplierForm = new NewProductForm(int.Parse(cells[0].Value.ToString())) { RefToFormMain = this };
+                var newSupplierForm = new NewProductForm(int.Parse(cells[0].Value.ToString())) {RefToFormMain = this};
                 newSupplierForm.Show();
                 this.Hide();
             }
@@ -151,9 +152,38 @@ namespace Winform_ShopGao
 
         private void button7_Click(object sender, EventArgs e)
         {
-            NewBillForm newBillForm = new NewBillForm{RefToFormMain = this};
+            var newBillForm = new NewBillForm {RefToFormMain = this};
             Hide();
             newBillForm.Show();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var row = dataGridView1.SelectedRows;
+                var cells = row[0].Cells;
+                var detail = new DetailBill(int.Parse(cells[0].Value.ToString())) {RefToFormMain = this};
+                Hide();
+                detail.Show();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Error");
+            }
+        }
+
+        private void tabNavigationPage4_VisibleChanged(object sender, EventArgs e)
+        {
+            if (tabPane1.SelectedPage != tabNavigationPage4) return;
+            dataGridView2.DataSource = _productBusinessLogic.GetAllImportValueObjects();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            var importProduct = new ImportProduct { RefToFormMain = this };
+            Hide();
+            importProduct.Show();
         }
     }
 }
