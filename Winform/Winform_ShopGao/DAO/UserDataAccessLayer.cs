@@ -9,7 +9,7 @@ namespace DAO
 
         public UserDataAccessLayer()
         {
-            _conn = new MySqlDbConnection();
+            _conn = MySqlDbConnection.GetConnection();
         }
 
         public bool Login(string user, string pass)

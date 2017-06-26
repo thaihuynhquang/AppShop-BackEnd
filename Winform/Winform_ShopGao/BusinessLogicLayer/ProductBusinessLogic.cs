@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Transactions;
 using DAO;
 using ValueObject;
+using Winform_ShopGao;
 
 namespace BusinessLogicLayer
 {
@@ -15,11 +16,13 @@ namespace BusinessLogicLayer
     {
         private readonly ProductDataAccessLayer _productDataAccessLayer;
         private readonly ImportDataAccessLayer importDataAccessLayer;
+        private readonly ImageDataAccessLayer imageDataAccessLayer;
 
         public ProductBusinessLogic()
         {
             _productDataAccessLayer = new ProductDataAccessLayer();
             importDataAccessLayer= new ImportDataAccessLayer();
+            imageDataAccessLayer = new ImageDataAccessLayer();
         }
 
         public List<ProductValueObject> GetAllProduct()
@@ -32,9 +35,31 @@ namespace BusinessLogicLayer
      
         }
 
-        public bool CreateNewProduct(ProductValueObject productValueObject)
+        public bool CreateNewProduct(ProductValueObject productValueObject, ImageValueObject image)
         {
-            return _productDataAccessLayer.CreateNewProduct(productValueObject.Name,productValueObject.IdType,productValueObject.Price,productValueObject.Description,productValueObject.Inew,productValueObject.Collection);
+            try
+            {
+                var listProduct = GetAllProduct();
+                if (listProduct.Any(x => x.IdType == productValueObject.IdType && x.Name == productValueObject.Name))
+                {
+                    return false;
+                }
+                _productDataAccessLayer.CreateNewProduct(productValueObject.Name, productValueObject.IdType, productValueObject.Price,
+                    productValueObject.Description, productValueObject.Inew, productValueObject.Collection);
+
+                listProduct = GetAllProduct();
+                var insertedProduct =
+                    listProduct.First(x => x.IdType == productValueObject.IdType && x.Name == productValueObject.Name);
+                image.idSp = insertedProduct.Id;
+
+                imageDataAccessLayer.CreateImage(image.link, image.idSp);
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+
         }
 
         public ProductValueObject GetProductById(int? rowId)
@@ -47,7 +72,7 @@ namespace BusinessLogicLayer
                     int.Parse(row["currentTotal"].ToString()))).First();
         }
 
-        public bool UpdateProduct(ProductValueObject productValueObject)
+        public bool UpdateProduct(ProductValueObject productValueObject, ImageValueObject image = null)
         {
             return _productDataAccessLayer.UpdateProduct(productValueObject.Id, productValueObject.Name,
                 productValueObject.IdType, productValueObject.Price, productValueObject.Description,

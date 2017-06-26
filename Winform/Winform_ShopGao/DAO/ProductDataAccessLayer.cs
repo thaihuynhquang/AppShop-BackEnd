@@ -14,7 +14,7 @@ namespace DAO
 
         public ProductDataAccessLayer()
         {
-            _mySqlDbConnection = new MySqlDbConnection();
+            _mySqlDbConnection = MySqlDbConnection.GetConnection();
         }
 
         public DataTable GetAllProduct()

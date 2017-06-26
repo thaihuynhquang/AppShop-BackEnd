@@ -13,7 +13,7 @@ namespace DAO
 
         public ProductTypeDataAccessLayer()
         {
-            _conn = new MySqlDbConnection();
+            _conn =  MySqlDbConnection.GetConnection();
         }
 
         public DataTable GetAllProductType()

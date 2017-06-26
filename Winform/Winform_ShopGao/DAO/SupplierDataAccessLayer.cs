@@ -11,7 +11,7 @@ namespace DAO
 
         public SupplierDataAccessLayer()
         {
-            _mySqlDbConnection = new MySqlDbConnection();
+            _mySqlDbConnection = MySqlDbConnection.GetConnection();
         }
 
         public DataTable GetAllSupplier()

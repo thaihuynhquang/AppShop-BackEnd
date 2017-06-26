@@ -15,7 +15,7 @@ namespace DAO
 
        public ImportDataAccessLayer()
        {
-            mySqlDbConnection = new MySqlDbConnection();
+            mySqlDbConnection = MySqlDbConnection.GetConnection();
        }
 
        public bool InsertImportBill(int idncc, int idsp, int sl, int dongia, int tong)

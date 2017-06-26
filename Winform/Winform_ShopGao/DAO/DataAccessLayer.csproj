@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BillDataAccessLayer.cs" />
+    <Compile Include="ImageDataAccessLayer.cs" />
     <Compile Include="ImportDataAccessLayer.cs" />
     <Compile Include="MySqlDbConnection.cs" />
     <Compile Include="ProductDataAccessLayer.cs" />

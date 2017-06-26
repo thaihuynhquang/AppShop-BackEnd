@@ -9,17 +9,19 @@ using System.Threading.Tasks;
 
 namespace DAO
 {
-    internal class MySqlDbConnection
+    public class MySqlDbConnection
     {
         private MySqlDataAdapter _myAdapter;
         private readonly MySqlConnection _conn;
-
-        public MySqlDbConnection()
+        private static readonly MySqlDbConnection _singleton = new MySqlDbConnection();
+        private MySqlDbConnection()
         {
-            if (_conn == null)
-            {
-                _conn = new MySqlConnection("server=localhost;database=appgao_db;uid=root;pwd=;");
-            }
+            _conn = new MySqlConnection("server=localhost;database=appgao_db;uid=root;pwd=;");
+        }
+
+        public static MySqlDbConnection GetConnection()
+        {
+            return _singleton;
         }
 
         private MySqlConnection OpenConnection()
@@ -69,12 +71,14 @@ namespace DAO
                 myCommand.Parameters.AddRange(sqlParameter);
                 _myAdapter.InsertCommand = myCommand;
                 myCommand.ExecuteNonQuery();
-
             }
             catch (MySqlException e)
             {
-
                 return false;
+            }
+            finally
+            {
+               myCommand.Cancel();
             }
             return true;
         }

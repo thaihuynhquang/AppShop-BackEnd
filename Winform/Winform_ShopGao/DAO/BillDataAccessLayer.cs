@@ -10,11 +10,11 @@ namespace DAO
 {
     public class BillDataAccessLayer
     {
-        private MySqlDbConnection _mySqlDbConnection;
+        private readonly MySqlDbConnection _mySqlDbConnection;
 
         public BillDataAccessLayer()
         {
-            _mySqlDbConnection = new MySqlDbConnection();
+            _mySqlDbConnection =  MySqlDbConnection.GetConnection();
         }
 
         public DataTable GetAllBill()
