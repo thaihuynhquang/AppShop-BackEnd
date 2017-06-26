@@ -37,7 +37,7 @@ var ImageProductType_sto = multer.diskStorage({
 var imageFilter = function (req, file, callback) {
     var ext = path.extname(file.originalname);
     if (ext !== '.jpg' && ext !== '.jpeg') {
-        return callback(new Error("Only *.jpg or *.jpeg are allowed"), false);
+        return callback("Only *.jpg or *.jpeg are allowed", false);
     }
     callback(null, true);
 };
@@ -91,7 +91,7 @@ router.post('/upload_image_product', function (req, res, next) {
     upload(req, res, function (err) {
         if (err) {
             // An error occurred when uploading
-            return res.send("error uploading file: " + err);
+            return res.json({ error: err, link: null });
         }
         // Everything went fine
         res.json({ msg: "file is uploaded", link: req.file.filename });
@@ -103,7 +103,7 @@ router.post('/upload_image_productType', function (req, res, next) {
     upload(req, res, function (err) {
         if (err) {
             // An error occurred when uploading
-            return res.send("error uploading file: " + err);
+            return res.json({ error: err, link: null });
         }
         // Everything went fine
         res.json({ msg: "file is uploaded", link: req.file.filename });
@@ -473,7 +473,20 @@ router.post('/get_info_form', jsonParser, function (req, res, next) {
                             else {
                                 if (data) {
                                     var resultsAddr = data[0];
-                                    res.json({ user: resultsUser, addr: resultsAddr });
+                                    SQLquery.getBillDetailByBillID(resultsAddr.id, function (err, data) {
+                                        if (err) {
+                                            console.log(err);
+                                            res.send("LOI_TRUY_VAN");
+                                        }
+                                        else {
+                                            if (data) {
+                                                var resultsBillDetails = data;
+                                                res.json({ user: resultsUser, addr: resultsAddr, arrayDetail: resultsBillDetails });
+                                            }
+                                            else
+                                                res.send("KHONG_CO_BILL_ID");
+                                        }
+                                    });
                                 }
                                 else
                                     res.send("TOKEN_KHONG_HOP_LE");

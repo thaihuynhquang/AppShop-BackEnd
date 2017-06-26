@@ -312,6 +312,30 @@ module.exports = {
             })
         });
     },
+
+    getBillDetailByBillID: function (billID, callback) {
+        mysqlConnector.getConnection(function (err, connection) {
+            //Error handling
+            if (err) {
+                //end connection
+                connection.release();
+                return callback(err, null);
+            }
+            
+            connection.query('SELECT p.id, p.name, p.price, bd.quantity FROM `bill_detail` bd INNER JOIN `product` p WHERE bd.id_product = p.id AND bd.id_bill = ? GROUP BY p.id', [billID], function (error, results, fields) {
+                //end connection
+                connection.release();
+                //Error handling
+                if (error) return callback(error, null);
+                
+                if(results)
+                    //Business handling
+                    return callback(null, results);
+                //
+                return callback(null, results);
+            })
+        });
+    },
 };
 
 /**
