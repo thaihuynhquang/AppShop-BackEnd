@@ -28,12 +28,15 @@ namespace Winform_ShopGao
         private readonly bool _isUpdate;
         private readonly int _rowId;
         private string _filePath;
+        private bool isUpdateImage;
+        private ProductValueObject product = null;
        
 
         public Form RefToFormMain { get; set; }
         public NewProductForm(int? rowId = null)
         {
             InitializeComponent();
+            isUpdateImage = false;
             _productTypeBusinessLogic = new ProductTypeBusinessLogic();
             _productBusinessLogic = new ProductBusinessLogic();
 
@@ -47,31 +50,28 @@ namespace Winform_ShopGao
             cmbProductType.DisplayMember = "name";
             cmbProductType.ValueMember = "id";
 
-
-            var product = _productBusinessLogic.GetProductById(rowId);
+          
+            product = _productBusinessLogic.GetProductById(rowId);
+            
             textBox1.Text = product.Name;
             textBox2.Text = product.Price.ToString();
             textBox3.Text = product.Collection.ToString();
-            cmbProductType.SelectedIndex = product.IdType;
+            cmbProductType.SelectedValue = product.IdType;
             checkBox1.Checked = product.Inew == 1;
             richTextBox1.Text = product.Description;
+            
             try
             {
                 var image= GetImage(rowId);
                 pictureBox1.Image = image;
+                pictureBox1.Size = new Size(200, 200);
+                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                pictureBox1.BackColor = Color.White;
             }
             catch (Exception e)
             {
                // do not thing
             }
-        }
-
-        private void NewProductForm_Load(object sender, EventArgs e)
-        {
-            var productTypes = _productTypeBusinessLogic.GetAllProductType();
-            cmbProductType.DataSource = productTypes;
-            cmbProductType.DisplayMember = "name";
-            cmbProductType.ValueMember = "id";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -91,34 +91,37 @@ namespace Winform_ShopGao
             var productValueObject = new ProductValueObject(_isUpdate ? _rowId : 0, name, type, price, des, isNew, collection,0);
             using (var tran = new TransactionScope())
             {
-
-                var actionUrl = "http://localhost:4000/api/upload_image_product";
-              
-                var fileStream = File.OpenRead(_filePath);
-                string fileNameInServer = string.Empty;
-                HttpContent fileStreamContent = new StreamContent(fileStream);
-                using (var client = new HttpClient())
+                ImageValueObject image = null;
+                if (isUpdateImage)
                 {
-                    using (var formData = new MultipartFormDataContent())
+                    const string actionUrl = "http://localhost:4000/api/upload_image_product";
+                    var fileStream = File.OpenRead(_filePath);
+                    string fileNameInServer;
+                    HttpContent fileStreamContent = new StreamContent(fileStream);
+                    using (var client = new HttpClient())
                     {
-                        formData.Add(fileStreamContent, "image", "image.jpg");
-                        var response = client.PostAsync(actionUrl, formData).Result;
-
-                        var receiveStream = response.Content.ReadAsStreamAsync().Result;
-                        StreamReader readStream = new StreamReader(receiveStream, Encoding.UTF8);
-
-                        var message = readStream.ReadToEnd();
-                        dynamic stuff = JsonConvert.DeserializeObject(message);
-                        string mess = stuff.msg.ToString();
-                        if (mess.Equals("Error"))
+                        using (var formData = new MultipartFormDataContent())
                         {
-                            MessageBox.Show("Error whern upload image ");
-                            return;
+                            formData.Add(fileStreamContent, "image", "image.jpg");
+                            var response = client.PostAsync(actionUrl, formData).Result;
+
+                            var receiveStream = response.Content.ReadAsStreamAsync().Result;
+                            StreamReader readStream = new StreamReader(receiveStream, Encoding.UTF8);
+
+                            var message = readStream.ReadToEnd();
+                            dynamic stuff = JsonConvert.DeserializeObject(message);
+                            string mess = stuff.msg.ToString();
+                            if (mess.Equals("Error"))
+                            {
+                                MessageBox.Show(@"Error whern upload image ");
+                                return;
+                            }
+                            fileNameInServer = stuff.link.ToString();
                         }
-                        fileNameInServer = stuff.link.ToString();
                     }
+                    image = new ImageValueObject(null, fileNameInServer, productValueObject.Id);
                 }
-                var image = new ImageValueObject(null,fileNameInServer,productValueObject.Id);
+                
                 var success = _isUpdate ? _productBusinessLogic.UpdateProduct(productValueObject,image) : _productBusinessLogic.CreateNewProduct(productValueObject,image);
                 MessageBox.Show(success ? "Success" : "Fail");
                 tran.Complete();
@@ -149,13 +152,16 @@ namespace Winform_ShopGao
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.Image = Image.FromFile(openFileDialog1.FileName);
             pictureBox1.BackColor = Color.White;
+            isUpdateImage = true;
         }
 
-        private static Image GetImage(int? id)
+        private  Image GetImage(int? id)
         {
+            var imageFile = _productBusinessLogic.GetImageFileName(id);
+
             byte[] lnFile;
 
-            var lxRequest = (HttpWebRequest)WebRequest.Create("http://www.productimageswebsite.com/images/stock_jpgs/"+id+".jpg");
+            var lxRequest = (HttpWebRequest)WebRequest.Create("http://localhost:4000/api/images/product/"+imageFile);
             using (var lxResponse = (HttpWebResponse)lxRequest.GetResponse())
             {
                 using (var lxBr = new BinaryReader(lxResponse.GetResponseStream()))
@@ -185,6 +191,24 @@ namespace Winform_ShopGao
             }
         }
 
-        
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var newProductType = new NewProductType {RefToPreForm = this};
+            newProductType.Show();
+            Hide();
+        }
+
+        private void NewProductForm_VisibleChanged(object sender, EventArgs e)
+        {
+            if (Visible)
+            {
+                cmbProductType.DataSource = _productTypeBusinessLogic.GetAllProductType();
+                if (product!= null)
+                {
+                    cmbProductType.SelectedValue = product.IdType;
+                   
+                }
+            }
+        }
     }
 }

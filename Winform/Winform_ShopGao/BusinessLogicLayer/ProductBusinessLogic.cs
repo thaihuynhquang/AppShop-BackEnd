@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -74,6 +76,16 @@ namespace BusinessLogicLayer
 
         public bool UpdateProduct(ProductValueObject productValueObject, ImageValueObject image = null)
         {
+            if (image == null)
+                return _productDataAccessLayer.UpdateProduct(productValueObject.Id, productValueObject.Name,
+                    productValueObject.IdType, productValueObject.Price, productValueObject.Description,
+                    productValueObject.Inew, productValueObject.Collection, productValueObject.Total);
+
+            var x  = imageDataAccessLayer.UpdateImage(image.idSp, image.link);
+            if (!x )
+            {
+                throw new Exception("RRR");
+            }
             return _productDataAccessLayer.UpdateProduct(productValueObject.Id, productValueObject.Name,
                 productValueObject.IdType, productValueObject.Price, productValueObject.Description,
                 productValueObject.Inew, productValueObject.Collection, productValueObject.Total);
@@ -92,12 +104,21 @@ namespace BusinessLogicLayer
             }
             using (var transactionScope = new TransactionScope())
             {
-                UpdateProduct(product);
-                importDataAccessLayer.InsertImportBill(idncc, id, total, dongia, total * dongia);
-
-                transactionScope.Complete();
-                return true;
+               var isProductUpdate = UpdateProduct(product);
+                var isImport = importDataAccessLayer.InsertImportBill(idncc, id, total, dongia, total * dongia);
+                if (isImport && isProductUpdate)
+                {
+                    transactionScope.Complete();
+                    return true;
+                }
+                transactionScope.Dispose();
+                return false;
             }
+        }
+
+        public bool UpdateProductType(ProductTypeValueObject productValueObject)
+        {
+            throw new NotImplementedException();
         }
 
         public List<ImportValueObject> GetAllImportValueObjects()
@@ -109,5 +130,16 @@ namespace BusinessLogicLayer
                     int.Parse(row[3].ToString()), int.Parse(row[4].ToString()), int.Parse(row[5].ToString()))).ToList();
         }
 
+        public bool CreateNewProductType(ProductTypeValueObject productValueObject)
+        {
+            return _productDataAccessLayer.CreateNewProductType(productValueObject.Name, productValueObject.Image);
+        }
+
+        public string GetImageFileName(int? id)
+        {
+            var data = imageDataAccessLayer.GetImageFileNameByProductId(id);
+            var rows = data.Rows.Cast<DataRow>().ToArray();
+            return rows.First().ItemArray.First().ToString();
+        }
     }
 }

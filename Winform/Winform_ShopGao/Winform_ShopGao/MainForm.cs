@@ -167,7 +167,7 @@ namespace Winform_ShopGao
                 Hide();
                 detail.Show();
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 MessageBox.Show("Error");
             }

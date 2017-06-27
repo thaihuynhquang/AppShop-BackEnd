@@ -33,7 +33,7 @@ namespace DAO
             sqlParameters[0] = new MySqlParameter("@name", MySqlDbType.String) { Value = name };
             sqlParameters[1] = new MySqlParameter("@type", MySqlDbType.Int32) { Value = idType };
             sqlParameters[2] = new MySqlParameter("@pri", MySqlDbType.Int32) { Value = price };
-            sqlParameters[3] = new MySqlParameter("@des", MySqlDbType.Text) { Value = description };
+            sqlParameters[3] = new MySqlParameter("@des", MySqlDbType.String) { Value = description };
             sqlParameters[4] = new MySqlParameter("@inew", MySqlDbType.Int32) { Value = inew };
             sqlParameters[5] = new MySqlParameter("@col", MySqlDbType.Int32) { Value = collection };
             return _mySqlDbConnection.ExecuteInsertQuery(query, sqlParameters);
@@ -56,12 +56,21 @@ namespace DAO
             sqlParameters[0] = new MySqlParameter("@name", MySqlDbType.String) { Value = name };
             sqlParameters[1] = new MySqlParameter("@ty", MySqlDbType.Int32) { Value = idType };
             sqlParameters[2] = new MySqlParameter("@pr", MySqlDbType.Float) { Value = price };
-            sqlParameters[3] = new MySqlParameter("@des", MySqlDbType.Text) { Value = description };
+            sqlParameters[3] = new MySqlParameter("@des", MySqlDbType.String) { Value = description };
             sqlParameters[4] = new MySqlParameter("@n", MySqlDbType.Int32) { Value = inew };
             sqlParameters[5] = new MySqlParameter("@co", MySqlDbType.Int32) { Value = collection };
             sqlParameters[6] = new MySqlParameter("@id", MySqlDbType.Int32) { Value = id };
             sqlParameters[7] = new MySqlParameter("@currentTotal", MySqlDbType.Int32) { Value = total };
             return _mySqlDbConnection.ExecuteUpdateQuery(query, sqlParameters);
+        }
+
+        public bool CreateNewProductType(string name, string image)
+        {
+            const string query = "INSERT INTO product_type(name, image) values (@name, @img)";
+            var sqlParameters = new MySqlParameter[2];
+            sqlParameters[0] = new MySqlParameter("@name", MySqlDbType.String) { Value = name };
+            sqlParameters[1] = new MySqlParameter("@img", MySqlDbType.String) { Value = image };
+            return _mySqlDbConnection.ExecuteInsertQuery(query, sqlParameters);
         }
     }
 }
