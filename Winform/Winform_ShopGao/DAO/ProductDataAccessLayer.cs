@@ -24,18 +24,17 @@ namespace DAO
         }
 
 
-        public bool CreateNewProduct(string name, int idType, int price, string description, int inew, int collection)
+        public bool CreateNewProduct(string name, int idType, int price, string description, int inew)
         {
             const string query =
-                "INSERT INTO product (name, id_type,price, description, new, inCollection) VALUES (@name,@type,@pri,@des,@inew,@col)";
+                "INSERT INTO product (name, id_type, price, description, new) VALUES (@name,@type,@pri,@des,@inew)";
             
-            var sqlParameters = new MySqlParameter[6];
+            var sqlParameters = new MySqlParameter[5];
             sqlParameters[0] = new MySqlParameter("@name", MySqlDbType.String) { Value = name };
             sqlParameters[1] = new MySqlParameter("@type", MySqlDbType.Int32) { Value = idType };
             sqlParameters[2] = new MySqlParameter("@pri", MySqlDbType.Int32) { Value = price };
             sqlParameters[3] = new MySqlParameter("@des", MySqlDbType.String) { Value = description };
             sqlParameters[4] = new MySqlParameter("@inew", MySqlDbType.Int32) { Value = inew };
-            sqlParameters[5] = new MySqlParameter("@col", MySqlDbType.Int32) { Value = collection };
             return _mySqlDbConnection.ExecuteInsertQuery(query, sqlParameters);
         }
 
@@ -47,10 +46,10 @@ namespace DAO
             return _mySqlDbConnection.ExecuteSelectQuery(query, sqlParameters);
         }
 
-        public bool UpdateProduct(int? id, string name, int idType, int price, string description, int inew, int collection, int? total)
+        public bool UpdateProduct(int? id, string name, int idType, int price, string description, int inew)
         {
             const string query = "UPDATE product SET name=@name, id_type=@ty, price=@pr, " +
-                                 "description=@des, new=@n, inCollection=@co, currentTotal = @currentTotal WHERE id=@id";
+                                 "description=@des, new=@n WHERE id=@id";
             
             var sqlParameters = new MySqlParameter[8];
             sqlParameters[0] = new MySqlParameter("@name", MySqlDbType.String) { Value = name };
@@ -58,9 +57,7 @@ namespace DAO
             sqlParameters[2] = new MySqlParameter("@pr", MySqlDbType.Float) { Value = price };
             sqlParameters[3] = new MySqlParameter("@des", MySqlDbType.String) { Value = description };
             sqlParameters[4] = new MySqlParameter("@n", MySqlDbType.Int32) { Value = inew };
-            sqlParameters[5] = new MySqlParameter("@co", MySqlDbType.Int32) { Value = collection };
             sqlParameters[6] = new MySqlParameter("@id", MySqlDbType.Int32) { Value = id };
-            sqlParameters[7] = new MySqlParameter("@currentTotal", MySqlDbType.Int32) { Value = total };
             return _mySqlDbConnection.ExecuteUpdateQuery(query, sqlParameters);
         }
 

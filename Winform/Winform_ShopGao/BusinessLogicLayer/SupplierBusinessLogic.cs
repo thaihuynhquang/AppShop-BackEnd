@@ -21,26 +21,26 @@ namespace BusinessLogicLayer
         public List<SupplierValueObject> GetallSupplier()
         {
             var dataTable = _supplierDataAccessLayer.GetAllSupplier();
-            return (from DataRow row in dataTable.Rows select new SupplierValueObject(int.Parse(row["id"].ToString()), row["name"].ToString(), row["addr"].ToString(), row["mail"].ToString(), row["phone"].ToString())).ToList();
+            return (from DataRow row in dataTable.Rows select new SupplierValueObject(int.Parse(row["id"].ToString()), row["name"].ToString(), row["addr"].ToString(), row["email"].ToString(), row["phone"].ToString())).ToList();
         }
 
         public bool CreateSupplier(SupplierValueObject supplier)
         {
-           return _supplierDataAccessLayer.CreateNewSupplier(supplier.Name, supplier.Address, supplier.Email,
-                supplier.Phone);
+            return _supplierDataAccessLayer.CreateNewSupplier(supplier.Name, supplier.Address, supplier.Email, supplier.Phone);
         }
 
         public bool UpdateSupplier(SupplierValueObject supplier)
         {
-            return _supplierDataAccessLayer.UpdateSupplier(supplier.Id,supplier.Name, supplier.Address, supplier.Email,
+            return _supplierDataAccessLayer.UpdateSupplier(supplier.Id, supplier.Name, supplier.Address, supplier.Email,
                 supplier.Phone);
         }
 
         public SupplierValueObject GetDetailSupplier(int id)
         {
             var dataTable = _supplierDataAccessLayer.GetDetailSupplier(id);
-            return (from DataRow row in dataTable.Rows select new SupplierValueObject(int.Parse(row["id"].ToString()), 
-                row["name"].ToString(), row["addr"].ToString(), row["mail"].ToString(), row["phone"].ToString())).ToList().First();
+            return (from DataRow row in dataTable.Rows
+                    select new SupplierValueObject(int.Parse(row["id"].ToString()),
+row["name"].ToString(), row["addr"].ToString(), row["mail"].ToString(), row["phone"].ToString())).ToList().First();
         }
 
         public bool DeleteSupplier(int id)

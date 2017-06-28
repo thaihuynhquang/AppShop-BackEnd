@@ -25,21 +25,24 @@ namespace Winform_ShopGao
             _userBusinessLogic = new UserBusinessLogic();
             _billBusinessLogic= new BillBusinessLogic();
 
-            comboBox1.DataSource = _userBusinessLogic.GetAllUser();
-            comboBox1.DisplayMember = "name";
-            comboBox1.ValueMember = "id";
+            cmbB_Customer.DataSource = _userBusinessLogic.GetAllUser();
+            cmbB_Customer.DisplayMember = "name";
+            cmbB_Customer.ValueMember = "id";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int userId = (int) comboBox1.SelectedValue;
-            int total = Convert.ToInt32(textBox1.Text);
-            string addr = textBox2.Text.Trim();
-            int status = Convert.ToInt32(textBox3.Text);
-            string note = richTextBox1.Text.Trim();
-            var date = dateEdit1.DateTime;
+            int userId = (int) cmbB_Customer.SelectedValue;
+            int total = Convert.ToInt32(txtB_Total.Text);
+            string addr = txtB_Address.Text.Trim();
+            string dis = txtB_District.Text.Trim();
+            string city = txtB_City.Text.Trim();
+            int status = Convert.ToInt32(txtB_Status.Text);
+            string note = rtxtB_Note.Text.Trim();
+            var orderDate = dateEdit_OrderDate.DateTime;
+            var expOrderDate = dateEdit_ExpOrderDate.DateTime;
 
-            var bill = new BillValueObject(null,userId,date,total,addr,note,status);
+            var bill = new BillValueObject(null, userId, orderDate, expOrderDate, total, addr, dis, city, note, status, 0);
            var success = _billBusinessLogic.CreateNewBill(bill);
             MessageBox.Show(success ? "Success" : "Fail");
         }

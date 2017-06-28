@@ -158,6 +158,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "NewProductForm";
             this.Text = "NewProductForm";
+            this.Load += new System.EventHandler(this.NewProductForm_Load);
             this.VisibleChanged += new System.EventHandler(this.NewProductForm_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

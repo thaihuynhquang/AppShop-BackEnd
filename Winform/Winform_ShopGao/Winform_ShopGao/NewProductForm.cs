@@ -55,7 +55,6 @@ namespace Winform_ShopGao
             
             textBox1.Text = product.Name;
             textBox2.Text = product.Price.ToString();
-            textBox3.Text = product.Collection.ToString();
             cmbProductType.SelectedValue = product.IdType;
             checkBox1.Checked = product.Inew == 1;
             richTextBox1.Text = product.Description;
@@ -88,7 +87,7 @@ namespace Winform_ShopGao
             var des = richTextBox1.Text.Trim();
             var isNew = checkBox1.Checked ? 1 : 0;
             var collection = int.Parse(textBox3.Text.Trim());
-            var productValueObject = new ProductValueObject(_isUpdate ? _rowId : 0, name, type, price, des, isNew, collection,0);
+            var productValueObject = new ProductValueObject(_isUpdate ? _rowId : 0, name, type, price, des, isNew);
             using (var tran = new TransactionScope())
             {
                 ImageValueObject image = null;
@@ -209,6 +208,11 @@ namespace Winform_ShopGao
                    
                 }
             }
+        }
+
+        private void NewProductForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

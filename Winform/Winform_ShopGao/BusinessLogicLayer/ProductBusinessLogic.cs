@@ -32,8 +32,7 @@ namespace BusinessLogicLayer
             var data = _productDataAccessLayer.GetAllProduct();
              return (from DataRow row in data.Rows select new ProductValueObject(int.Parse(row["id"].ToString()), 
                  row["name"].ToString(), int.Parse(row["id_type"].ToString()),
-                 int.Parse(row["price"].ToString()), row["description"].ToString(), int.Parse(row["new"].ToString()),
-                 int.Parse(row["inCollection"].ToString()), int.Parse(row["currentTotal"].ToString()))).ToList();
+                 int.Parse(row["price"].ToString()), row["description"].ToString(), int.Parse(row["new"].ToString()))).ToList();
      
         }
 
@@ -47,7 +46,7 @@ namespace BusinessLogicLayer
                     return false;
                 }
                 _productDataAccessLayer.CreateNewProduct(productValueObject.Name, productValueObject.IdType, productValueObject.Price,
-                    productValueObject.Description, productValueObject.Inew, productValueObject.Collection);
+                    productValueObject.Description, productValueObject.Inew);
 
                 listProduct = GetAllProduct();
                 var insertedProduct =
@@ -70,8 +69,7 @@ namespace BusinessLogicLayer
             return (from DataRow row in data.Rows
                 select new ProductValueObject(int.Parse(row["id"].ToString()), row["name"].ToString(), int.Parse(row["id_type"].ToString()),
                     int.Parse(row["price"].ToString()), row["description"].ToString(), 
-                    int.Parse(row["new"].ToString()), int.Parse(row["inCollection"].ToString()),
-                    int.Parse(row["currentTotal"].ToString()))).First();
+                    int.Parse(row["new"].ToString()))).First();
         }
 
         public bool UpdateProduct(ProductValueObject productValueObject, ImageValueObject image = null)
@@ -79,7 +77,7 @@ namespace BusinessLogicLayer
             if (image == null)
                 return _productDataAccessLayer.UpdateProduct(productValueObject.Id, productValueObject.Name,
                     productValueObject.IdType, productValueObject.Price, productValueObject.Description,
-                    productValueObject.Inew, productValueObject.Collection, productValueObject.Total);
+                    productValueObject.Inew);
 
             var x  = imageDataAccessLayer.UpdateImage(image.idSp, image.link);
             if (!x )
@@ -88,24 +86,16 @@ namespace BusinessLogicLayer
             }
             return _productDataAccessLayer.UpdateProduct(productValueObject.Id, productValueObject.Name,
                 productValueObject.IdType, productValueObject.Price, productValueObject.Description,
-                productValueObject.Inew, productValueObject.Collection, productValueObject.Total);
+                productValueObject.Inew);
         }
 
         public bool ImportProduct(int id, int idncc, int total, int dongia)
         {
             var product = GetProductById(id);
-            if (product.Total == null || product.Total == 0)
-            {
-                product.Total = total;
-            }
-            else
-            {
-                product.Total += total;
-            }
             using (var transactionScope = new TransactionScope())
             {
                var isProductUpdate = UpdateProduct(product);
-                var isImport = importDataAccessLayer.InsertImportBill(idncc, id, total, dongia, total * dongia);
+                var isImport = importDataAccessLayer.InsertImportBill(idncc, id, total, dongia);
                 if (isImport && isProductUpdate)
                 {
                     transactionScope.Complete();

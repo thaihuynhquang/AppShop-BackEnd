@@ -18,17 +18,17 @@ namespace DAO
             mySqlDbConnection = MySqlDbConnection.GetConnection();
        }
 
-       public bool InsertImportBill(int idncc, int idsp, int sl, int dongia, int tong)
+       public bool InsertImportBill(int idncc, int idsp, int sl, int dongia)
        {
            const string query =
-               "INSERT INTO import (supplierId,productId, soluong, dongia, tong) VALUES (@name,@type,@pri,@des,@inew)";
+               "INSERT INTO import (supplierId, productId, unitPrice, unitInStock, totalPrice) VALUES (@supplierId, @productId, @unitPrice, @unitInStock, @totalPrice)";
 
            var sqlParameters = new MySqlParameter[5];
-           sqlParameters[0] = new MySqlParameter("@name", MySqlDbType.Int32) { Value =  idncc};
-           sqlParameters[1] = new MySqlParameter("@type", MySqlDbType.Int32) { Value =  idsp};
-           sqlParameters[2] = new MySqlParameter("@pri", MySqlDbType.Int32) { Value = sl};
-           sqlParameters[3] = new MySqlParameter("@des", MySqlDbType.Int32) { Value =  dongia};
-           sqlParameters[4] = new MySqlParameter("@inew", MySqlDbType.Int32) { Value = sl*dongia};
+           sqlParameters[0] = new MySqlParameter("@supplierId", MySqlDbType.Int32) { Value =  idncc};
+           sqlParameters[1] = new MySqlParameter("@productId", MySqlDbType.Int32) { Value =  idsp};
+           sqlParameters[2] = new MySqlParameter("@unitInStock", MySqlDbType.Int32) { Value = sl};
+           sqlParameters[3] = new MySqlParameter("@unitPrice", MySqlDbType.Int32) { Value =  dongia};
+           sqlParameters[4] = new MySqlParameter("@totalPrice", MySqlDbType.Int32) { Value = sl*dongia};
 
            return mySqlDbConnection.ExecuteInsertQuery(query, sqlParameters);
         }

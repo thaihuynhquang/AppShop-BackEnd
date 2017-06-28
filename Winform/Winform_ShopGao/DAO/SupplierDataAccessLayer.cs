@@ -22,7 +22,7 @@ namespace DAO
 
         public bool CreateNewSupplier(string name, string addr, string mail, string phone)
         {
-            const string query = "INSERT INTO suppliers (name, addr, mail,phone) VALUES(@name, @add, @mail, @phone)";
+            const string query = "INSERT INTO suppliers (name, addr, phone, email) VALUES(@name, @add, @mail, @phone)";
             var sqlParameters = new MySqlParameter[4];
             sqlParameters[0] = new MySqlParameter("@name", MySqlDbType.String) {Value = name};
             sqlParameters[1] = new MySqlParameter("@add", MySqlDbType.String) { Value = addr };
@@ -33,7 +33,7 @@ namespace DAO
 
         public bool UpdateSupplier(int? supplierId, string supplierName, string supplierAddress, string supplierEmail, string supplierPhone)
         {
-            const string query = "UPDATE suppliers set name = @name, addr = @addr, mail= @mail, phone =@phone where id = @id";
+            const string query = "UPDATE suppliers set name = @name, addr = @addr, email= @mail, phone =@phone where id = @id";
             var sqlParameters = new MySqlParameter[5];
             sqlParameters[0] = new MySqlParameter("@name", MySqlDbType.String) { Value = supplierName };
             sqlParameters[1] = new MySqlParameter("@addr", MySqlDbType.String) { Value = supplierAddress };

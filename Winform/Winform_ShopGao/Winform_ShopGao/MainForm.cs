@@ -43,7 +43,7 @@ namespace Winform_ShopGao
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            tabPane1.SelectedPage = tabNavigationPage1;
+            tabPaneMainForm.SelectedPage = tabNaviPage_NhaCungCap;
             var suppliers = _supplierBusinessLogic.GetallSupplier();
             supplierGridControl.DataSource = suppliers.ToList();
             supplierGridControl.Refresh();
@@ -75,7 +75,7 @@ namespace Winform_ShopGao
         private void MainForm_VisibleChanged(object sender, EventArgs e)
         {
             if (!Visible) return;
-            if (tabPane1.SelectedPage == tabNavigationPage1)
+            if (tabPaneMainForm.SelectedPage == tabNaviPage_NhaCungCap)
             {
                 supplierGridControl.DataSource = _supplierBusinessLogic.GetallSupplier().ToList();
             }
@@ -97,7 +97,7 @@ namespace Winform_ShopGao
 
         private void tabNavigationPage2_VisibleChanged(object sender, EventArgs e)
         {
-            if (tabPane1.SelectedPage != tabNavigationPage2) return;
+            if (tabPaneMainForm.SelectedPage != tabNaviPage_SanPham) return;
             productGridView.DataSource = _productBusinessLogic.GetAllProduct();
             productGridView.Refresh();
         }
@@ -134,7 +134,7 @@ namespace Winform_ShopGao
 
         private void Users_VisibleChanged(object sender, EventArgs e)
         {
-            if (tabPane1.SelectedPage != Users) return;
+            if (tabPaneMainForm.SelectedPage != tabNaviPage_KhachHang) return;
             userGridView.DataSource = _userBusinessLogic.GetAllUser();
             userGridView.Refresh();
         }
@@ -146,7 +146,7 @@ namespace Winform_ShopGao
 
         private void tabNavigationPage3_VisibleChanged(object sender, EventArgs e)
         {
-            if (tabPane1.SelectedPage != tabNavigationPage3) return;
+            if (tabPaneMainForm.SelectedPage != tabNaviPage_DonHang) return;
             dataGridView1.DataSource = _billBusinessLogic.GetAllBill();
         }
 
@@ -175,7 +175,7 @@ namespace Winform_ShopGao
 
         private void tabNavigationPage4_VisibleChanged(object sender, EventArgs e)
         {
-            if (tabPane1.SelectedPage != tabNavigationPage4) return;
+            if (tabPaneMainForm.SelectedPage != tabNaviPage_NhapHang) return;
             dataGridView2.DataSource = _productBusinessLogic.GetAllImportValueObjects();
         }
 

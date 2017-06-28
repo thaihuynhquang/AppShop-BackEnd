@@ -16,7 +16,7 @@ namespace Winform_ShopGao
         private void button1_Click(object sender, EventArgs e)
         {
             var userDataAccessLayer = new UserDataAccessLayer();
-            var  x = userDataAccessLayer.Login(username.Text.Trim(), pass.Text.Trim());
+            var  x = userDataAccessLayer.Login(txtB_Username.Text.Trim(), txtB_Password.Text.Trim());
             if (!x)
             {
                 MessageBox.Show("login fail");

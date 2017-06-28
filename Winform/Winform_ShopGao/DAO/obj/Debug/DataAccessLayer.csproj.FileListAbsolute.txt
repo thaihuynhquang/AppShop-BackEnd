@@ -1,0 +1,9 @@
+C:\Users\thaihuynh\Desktop\AppGao_services\Winform\Winform_ShopGao\DAO\bin\Debug\DAO.dll.config
+C:\Users\thaihuynh\Desktop\AppGao_services\Winform\Winform_ShopGao\DAO\bin\Debug\DAO.dll
+C:\Users\thaihuynh\Desktop\AppGao_services\Winform\Winform_ShopGao\DAO\bin\Debug\DAO.pdb
+C:\Users\thaihuynh\Desktop\AppGao_services\Winform\Winform_ShopGao\DAO\bin\Debug\MySql.Data.dll
+C:\Users\thaihuynh\Desktop\AppGao_services\Winform\Winform_ShopGao\DAO\bin\Debug\ValueObject.dll
+C:\Users\thaihuynh\Desktop\AppGao_services\Winform\Winform_ShopGao\DAO\bin\Debug\ValueObject.pdb
+C:\Users\thaihuynh\Desktop\AppGao_services\Winform\Winform_ShopGao\DAO\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\thaihuynh\Desktop\AppGao_services\Winform\Winform_ShopGao\DAO\obj\Debug\DAO.dll
+C:\Users\thaihuynh\Desktop\AppGao_services\Winform\Winform_ShopGao\DAO\obj\Debug\DAO.pdb

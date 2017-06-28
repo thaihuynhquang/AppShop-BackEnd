@@ -28,68 +28,68 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.username = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pass = new System.Windows.Forms.TextBox();
+            this.btt_SignIn = new System.Windows.Forms.Button();
+            this.label_username = new System.Windows.Forms.Label();
+            this.txtB_Username = new System.Windows.Forms.TextBox();
+            this.label_password = new System.Windows.Forms.Label();
+            this.txtB_Password = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // btt_SignIn
             // 
-            this.button1.Location = new System.Drawing.Point(463, 191);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btt_SignIn.Location = new System.Drawing.Point(144, 135);
+            this.btt_SignIn.Name = "btt_SignIn";
+            this.btt_SignIn.Size = new System.Drawing.Size(125, 36);
+            this.btt_SignIn.TabIndex = 0;
+            this.btt_SignIn.Text = "Đăng Nhập";
+            this.btt_SignIn.UseVisualStyleBackColor = true;
+            this.btt_SignIn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label1
+            // label_username
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "username\\";
+            this.label_username.AutoSize = true;
+            this.label_username.Location = new System.Drawing.Point(34, 45);
+            this.label_username.Name = "label_username";
+            this.label_username.Size = new System.Drawing.Size(81, 13);
+            this.label_username.TabIndex = 1;
+            this.label_username.Text = "Tên đăng nhập";
             // 
-            // username
+            // txtB_Username
             // 
-            this.username.Location = new System.Drawing.Point(117, 30);
-            this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(100, 20);
-            this.username.TabIndex = 2;
-            this.username.Text = "rinnv";
+            this.txtB_Username.Location = new System.Drawing.Point(131, 38);
+            this.txtB_Username.Name = "txtB_Username";
+            this.txtB_Username.Size = new System.Drawing.Size(163, 20);
+            this.txtB_Username.TabIndex = 2;
             // 
-            // label2
+            // label_password
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 58);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "pass";
+            this.label_password.AutoSize = true;
+            this.label_password.Location = new System.Drawing.Point(63, 91);
+            this.label_password.Name = "label_password";
+            this.label_password.Size = new System.Drawing.Size(52, 13);
+            this.label_password.TabIndex = 3;
+            this.label_password.Text = "Mặt khẩu";
             // 
-            // pass
+            // txtB_Password
             // 
-            this.pass.Location = new System.Drawing.Point(117, 58);
-            this.pass.Name = "pass";
-            this.pass.Size = new System.Drawing.Size(100, 20);
-            this.pass.TabIndex = 4;
-            this.pass.Text = "123";
+            this.txtB_Password.Location = new System.Drawing.Point(131, 84);
+            this.txtB_Password.Name = "txtB_Password";
+            this.txtB_Password.PasswordChar = '*';
+            this.txtB_Password.Size = new System.Drawing.Size(163, 20);
+            this.txtB_Password.TabIndex = 4;
+            this.txtB_Password.Text = "123";
             // 
-            // Form1
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(566, 261);
-            this.Controls.Add(this.pass);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.username);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.ClientSize = new System.Drawing.Size(406, 199);
+            this.Controls.Add(this.txtB_Password);
+            this.Controls.Add(this.label_password);
+            this.Controls.Add(this.txtB_Username);
+            this.Controls.Add(this.label_username);
+            this.Controls.Add(this.btt_SignIn);
+            this.Name = "LoginForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -98,11 +98,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox username;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox pass;
+        private System.Windows.Forms.Button btt_SignIn;
+        private System.Windows.Forms.Label label_username;
+        private System.Windows.Forms.TextBox txtB_Username;
+        private System.Windows.Forms.Label label_password;
+        private System.Windows.Forms.TextBox txtB_Password;
     }
 }
 
