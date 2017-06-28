@@ -40,16 +40,16 @@ namespace Winform_ShopGao
             _productTypeBusinessLogic = new ProductTypeBusinessLogic();
             _productBusinessLogic = new ProductBusinessLogic();
 
-            if (rowId == null) return;
-            button1.Text = @"Update";
-            _isUpdate = true;
-            _rowId = (int)rowId;
 
             var productTypes = _productTypeBusinessLogic.GetAllProductType();
             cmbProductType.DataSource = productTypes;
             cmbProductType.DisplayMember = "name";
             cmbProductType.ValueMember = "id";
 
+            if (rowId == null) return;
+            button1.Text = @"Update";
+            _isUpdate = true;
+            _rowId = (int)rowId;
           
             product = _productBusinessLogic.GetProductById(rowId);
             

@@ -60,6 +60,7 @@
             this.txtB_Username.Name = "txtB_Username";
             this.txtB_Username.Size = new System.Drawing.Size(163, 20);
             this.txtB_Username.TabIndex = 2;
+            this.txtB_Username.Text = "admin";
             // 
             // label_password
             // 
@@ -77,7 +78,7 @@
             this.txtB_Password.PasswordChar = '*';
             this.txtB_Password.Size = new System.Drawing.Size(163, 20);
             this.txtB_Password.TabIndex = 4;
-            this.txtB_Password.Text = "123";
+            this.txtB_Password.Text = "admin123";
             // 
             // LoginForm
             // 
