@@ -56,6 +56,8 @@
             this.btn_InsertProductType = new System.Windows.Forms.Button();
             this.GridView_ProductType = new System.Windows.Forms.DataGridView();
             this.btn_ChangePass = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tabPaneMainForm)).BeginInit();
             this.tabPaneMainForm.SuspendLayout();
             this.tabNaviPage_NhaCungCap.SuspendLayout();
@@ -163,6 +165,8 @@
             // tabNaviPage_SanPham
             // 
             this.tabNaviPage_SanPham.Caption = "SẢN PHẨM";
+            this.tabNaviPage_SanPham.Controls.Add(this.textBox1);
+            this.tabNaviPage_SanPham.Controls.Add(this.button1);
             this.tabNaviPage_SanPham.Controls.Add(this.btt_EditProduct);
             this.tabNaviPage_SanPham.Controls.Add(this.btt_newProduct);
             this.tabNaviPage_SanPham.Controls.Add(this.productGridView);
@@ -378,6 +382,24 @@
             this.btn_ChangePass.UseVisualStyleBackColor = true;
             this.btn_ChangePass.Click += new System.EventHandler(this.btn_ChangePass_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(302, 360);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Search";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(15, 360);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(270, 20);
+            this.textBox1.TabIndex = 4;
+            this.textBox1.Text = "hang";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -397,6 +419,7 @@
             this.tabNaviPage_NhaCungCap.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.supplierGridControl)).EndInit();
             this.tabNaviPage_SanPham.ResumeLayout(false);
+            this.tabNaviPage_SanPham.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productGridView)).EndInit();
             this.tabNaviPage_KhachHang.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.userGridView)).EndInit();
@@ -441,5 +464,7 @@
         private System.Windows.Forms.Button btn_InsertProductType;
         private System.Windows.Forms.DataGridView GridView_ProductType;
         private System.Windows.Forms.Button btn_RefreshDataSupplier;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
     }
 }

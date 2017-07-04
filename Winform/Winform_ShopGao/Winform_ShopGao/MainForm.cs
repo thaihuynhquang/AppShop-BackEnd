@@ -208,5 +208,10 @@ namespace Winform_ShopGao
             if (tabPaneMainForm.SelectedPage != tabNaviPage_NhaCungCap) return;
             supplierGridControl.DataSource = _supplierBusinessLogic.GetallSupplier();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
