@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAO;
 using ValueObject;
+using Winform_ShopGao;
 
 namespace BusinessLogicLayer
 {
@@ -22,7 +23,7 @@ namespace BusinessLogicLayer
         {
             var dataTable = _productTypeDataAccessLayer.GetAllProductTypes();
             return (from DataRow row in dataTable.Rows
-                    select new ProductTypeValueObject(int.Parse(row["id"].ToString()), row["name"].ToString(), row["image"].ToString())).ToList();
+                    select new ProductTypeValueObject( int.Parse(row["id"].ToString()), row["name"].ToString(), row["image"].ToString() )).ToList();
         }
 
         public bool CreateProductType(ProductTypeValueObject productType)
@@ -40,6 +41,13 @@ namespace BusinessLogicLayer
             var dataTable = _productTypeDataAccessLayer.GetDetailProductType(id);
             return (from DataRow row in dataTable.Rows
                     select new ProductTypeValueObject(int.Parse(row["id"].ToString()), row["name"].ToString(), row["image"].ToString())).ToList().First();
+        }
+
+        public List<ProductTypeValueObject> Search(List<string> column, string value)
+        {
+            var data = Utility.Search("product_type", column, value);
+            return (from DataRow row in data.Rows
+                    select new ProductTypeValueObject(int.Parse(row["id"].ToString()), row["name"].ToString(), row["image"].ToString())).ToList();
         }
     }
 }

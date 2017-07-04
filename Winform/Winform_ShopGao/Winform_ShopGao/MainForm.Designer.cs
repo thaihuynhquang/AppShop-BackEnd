@@ -36,46 +36,69 @@
             this.btt_newSupplier = new System.Windows.Forms.Button();
             this.supplierGridControl = new System.Windows.Forms.DataGridView();
             this.tabNaviPage_SanPham = new DevExpress.XtraBars.Navigation.TabNavigationPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_RefreshDataProduct = new System.Windows.Forms.Button();
+            this.btn_ClearProduct = new System.Windows.Forms.Button();
+            this.txtB_SearchProduct = new System.Windows.Forms.TextBox();
+            this.btn_SearchProduct = new System.Windows.Forms.Button();
             this.btt_EditProduct = new System.Windows.Forms.Button();
             this.btt_newProduct = new System.Windows.Forms.Button();
-            this.productGridView = new System.Windows.Forms.DataGridView();
+            this.productGridControl = new System.Windows.Forms.DataGridView();
             this.tabNaviPage_KhachHang = new DevExpress.XtraBars.Navigation.TabNavigationPage();
-            this.userGridView = new System.Windows.Forms.DataGridView();
+            this.btn_RefreshDataCustomer = new System.Windows.Forms.Button();
+            this.userGridControl = new System.Windows.Forms.DataGridView();
             this.tabNaviPage_DonHang = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.btn_RefreshDataBIll = new System.Windows.Forms.Button();
+            this.txtB_SearchBill = new System.Windows.Forms.TextBox();
+            this.btn_SearchBill = new System.Windows.Forms.Button();
             this.btn_newBill = new System.Windows.Forms.Button();
-            this.GridView_Bills = new System.Windows.Forms.DataGridView();
+            this.billGridControl = new System.Windows.Forms.DataGridView();
             this.tabNaviPage_NhapHang = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.btn_RefreshDataImport = new System.Windows.Forms.Button();
             this.btn_importProduct = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.importGridControl = new System.Windows.Forms.DataGridView();
             this.tabNaviPage_GiaoHang = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.btn_RefreshDataShipper = new System.Windows.Forms.Button();
             this.btn_EditShipper = new System.Windows.Forms.Button();
             this.btn_InsertShipper = new System.Windows.Forms.Button();
-            this.GridView_Shippers = new System.Windows.Forms.DataGridView();
+            this.shippersGridControl = new System.Windows.Forms.DataGridView();
             this.tabNaviPage_LoaiSanPham = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.btn_RefreshDataProductType = new System.Windows.Forms.Button();
             this.btn_EditProductType = new System.Windows.Forms.Button();
             this.btn_InsertProductType = new System.Windows.Forms.Button();
-            this.GridView_ProductType = new System.Windows.Forms.DataGridView();
+            this.productTypeGridControl = new System.Windows.Forms.DataGridView();
             this.btn_ChangePass = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtB_SearchProductType = new System.Windows.Forms.TextBox();
+            this.btn_SearchProductType = new System.Windows.Forms.Button();
+            this.btn_ClearProductType = new System.Windows.Forms.Button();
+            this.txtB_SearchSupplier = new System.Windows.Forms.TextBox();
+            this.btn_SearchSupplier = new System.Windows.Forms.Button();
+            this.btn_clearSupplier = new System.Windows.Forms.Button();
+            this.txtB_SearchShipper = new System.Windows.Forms.TextBox();
+            this.btn_SearchShipper = new System.Windows.Forms.Button();
+            this.btn_ClearShipper = new System.Windows.Forms.Button();
+            this.txtB_SearchCus = new System.Windows.Forms.TextBox();
+            this.btn_SearchCustomer = new System.Windows.Forms.Button();
+            this.btn_ClearCustomer = new System.Windows.Forms.Button();
+            this.txtB_SearchImport = new System.Windows.Forms.TextBox();
+            this.btn_SearchImport = new System.Windows.Forms.Button();
+            this.btn_ClearImport = new System.Windows.Forms.Button();
+            this.btn_ClearBill = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tabPaneMainForm)).BeginInit();
             this.tabPaneMainForm.SuspendLayout();
             this.tabNaviPage_NhaCungCap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierGridControl)).BeginInit();
             this.tabNaviPage_SanPham.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productGridControl)).BeginInit();
             this.tabNaviPage_KhachHang.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userGridControl)).BeginInit();
             this.tabNaviPage_DonHang.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GridView_Bills)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.billGridControl)).BeginInit();
             this.tabNaviPage_NhapHang.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.importGridControl)).BeginInit();
             this.tabNaviPage_GiaoHang.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GridView_Shippers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shippersGridControl)).BeginInit();
             this.tabNaviPage_LoaiSanPham.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GridView_ProductType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productTypeGridControl)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPaneMainForm
@@ -100,9 +123,9 @@
             this.tabNaviPage_DonHang,
             this.tabNaviPage_GiaoHang,
             this.tabNaviPage_KhachHang});
-            this.tabPaneMainForm.RegularSize = new System.Drawing.Size(971, 467);
+            this.tabPaneMainForm.RegularSize = new System.Drawing.Size(971, 516);
             this.tabPaneMainForm.SelectedPage = this.tabNaviPage_NhaCungCap;
-            this.tabPaneMainForm.Size = new System.Drawing.Size(971, 467);
+            this.tabPaneMainForm.Size = new System.Drawing.Size(971, 516);
             this.tabPaneMainForm.TabIndex = 0;
             this.tabPaneMainForm.Text = "asdas";
             // 
@@ -111,18 +134,21 @@
             this.tabNaviPage_NhaCungCap.Appearance.BackColor = System.Drawing.SystemColors.Info;
             this.tabNaviPage_NhaCungCap.Appearance.Options.UseBackColor = true;
             this.tabNaviPage_NhaCungCap.Caption = "NHÀ CUNG CẤP";
+            this.tabNaviPage_NhaCungCap.Controls.Add(this.btn_clearSupplier);
+            this.tabNaviPage_NhaCungCap.Controls.Add(this.btn_SearchSupplier);
+            this.tabNaviPage_NhaCungCap.Controls.Add(this.txtB_SearchSupplier);
             this.tabNaviPage_NhaCungCap.Controls.Add(this.btn_RefreshDataSupplier);
             this.tabNaviPage_NhaCungCap.Controls.Add(this.btt_EditSupplier);
             this.tabNaviPage_NhaCungCap.Controls.Add(this.btt_newSupplier);
             this.tabNaviPage_NhaCungCap.Controls.Add(this.supplierGridControl);
             this.tabNaviPage_NhaCungCap.Name = "tabNaviPage_NhaCungCap";
-            this.tabNaviPage_NhaCungCap.Size = new System.Drawing.Size(953, 422);
+            this.tabNaviPage_NhaCungCap.Size = new System.Drawing.Size(953, 471);
             this.tabNaviPage_NhaCungCap.VisibleChanged += new System.EventHandler(this.tabNaviPage_NhaCungCap_VisibleChanged);
             // 
             // btn_RefreshDataSupplier
             // 
             this.btn_RefreshDataSupplier.Image = ((System.Drawing.Image)(resources.GetObject("btn_RefreshDataSupplier.Image")));
-            this.btn_RefreshDataSupplier.Location = new System.Drawing.Point(417, 359);
+            this.btn_RefreshDataSupplier.Location = new System.Drawing.Point(417, 406);
             this.btn_RefreshDataSupplier.Name = "btn_RefreshDataSupplier";
             this.btn_RefreshDataSupplier.Size = new System.Drawing.Size(130, 50);
             this.btn_RefreshDataSupplier.TabIndex = 2;
@@ -134,7 +160,7 @@
             // btt_EditSupplier
             // 
             this.btt_EditSupplier.Image = ((System.Drawing.Image)(resources.GetObject("btt_EditSupplier.Image")));
-            this.btt_EditSupplier.Location = new System.Drawing.Point(758, 359);
+            this.btt_EditSupplier.Location = new System.Drawing.Point(758, 406);
             this.btt_EditSupplier.Name = "btt_EditSupplier";
             this.btt_EditSupplier.Size = new System.Drawing.Size(180, 50);
             this.btt_EditSupplier.TabIndex = 2;
@@ -146,7 +172,7 @@
             // btt_newSupplier
             // 
             this.btt_newSupplier.Image = ((System.Drawing.Image)(resources.GetObject("btt_newSupplier.Image")));
-            this.btt_newSupplier.Location = new System.Drawing.Point(563, 359);
+            this.btt_newSupplier.Location = new System.Drawing.Point(563, 406);
             this.btt_newSupplier.Name = "btt_newSupplier";
             this.btt_newSupplier.Size = new System.Drawing.Size(180, 50);
             this.btt_newSupplier.TabIndex = 1;
@@ -159,7 +185,7 @@
             // 
             this.supplierGridControl.BackgroundColor = System.Drawing.SystemColors.HighlightText;
             this.supplierGridControl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.supplierGridControl.Location = new System.Drawing.Point(4, 4);
+            this.supplierGridControl.Location = new System.Drawing.Point(4, 55);
             this.supplierGridControl.Name = "supplierGridControl";
             this.supplierGridControl.Size = new System.Drawing.Size(946, 340);
             this.supplierGridControl.TabIndex = 0;
@@ -167,37 +193,65 @@
             // tabNaviPage_SanPham
             // 
             this.tabNaviPage_SanPham.Caption = "SẢN PHẨM";
-            this.tabNaviPage_SanPham.Controls.Add(this.textBox1);
-            this.tabNaviPage_SanPham.Controls.Add(this.button1);
+            this.tabNaviPage_SanPham.Controls.Add(this.btn_RefreshDataProduct);
+            this.tabNaviPage_SanPham.Controls.Add(this.btn_ClearProduct);
+            this.tabNaviPage_SanPham.Controls.Add(this.txtB_SearchProduct);
+            this.tabNaviPage_SanPham.Controls.Add(this.btn_SearchProduct);
             this.tabNaviPage_SanPham.Controls.Add(this.btt_EditProduct);
             this.tabNaviPage_SanPham.Controls.Add(this.btt_newProduct);
-            this.tabNaviPage_SanPham.Controls.Add(this.productGridView);
+            this.tabNaviPage_SanPham.Controls.Add(this.productGridControl);
             this.tabNaviPage_SanPham.Name = "tabNaviPage_SanPham";
-            this.tabNaviPage_SanPham.Size = new System.Drawing.Size(953, 422);
+            this.tabNaviPage_SanPham.Size = new System.Drawing.Size(953, 471);
             this.tabNaviPage_SanPham.VisibleChanged += new System.EventHandler(this.tabNavigationPage2_VisibleChanged);
             // 
-            // textBox1
+            // btn_RefreshDataProduct
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 360);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(270, 20);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "hang";
+            this.btn_RefreshDataProduct.Image = ((System.Drawing.Image)(resources.GetObject("btn_RefreshDataProduct.Image")));
+            this.btn_RefreshDataProduct.Location = new System.Drawing.Point(412, 410);
+            this.btn_RefreshDataProduct.Name = "btn_RefreshDataProduct";
+            this.btn_RefreshDataProduct.Size = new System.Drawing.Size(130, 50);
+            this.btn_RefreshDataProduct.TabIndex = 6;
+            this.btn_RefreshDataProduct.Text = "Tải lại dữ liệu";
+            this.btn_RefreshDataProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_RefreshDataProduct.UseVisualStyleBackColor = true;
+            this.btn_RefreshDataProduct.Click += new System.EventHandler(this.btn_RefreshDataProduct_Click);
             // 
-            // button1
+            // btn_ClearProduct
             // 
-            this.button1.Location = new System.Drawing.Point(302, 360);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_ClearProduct.Image = ((System.Drawing.Image)(resources.GetObject("btn_ClearProduct.Image")));
+            this.btn_ClearProduct.Location = new System.Drawing.Point(416, 14);
+            this.btn_ClearProduct.Name = "btn_ClearProduct";
+            this.btn_ClearProduct.Size = new System.Drawing.Size(60, 30);
+            this.btn_ClearProduct.TabIndex = 5;
+            this.btn_ClearProduct.Text = "Xóa";
+            this.btn_ClearProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_ClearProduct.UseVisualStyleBackColor = true;
+            this.btn_ClearProduct.Click += new System.EventHandler(this.btn_Clear_Click);
+            // 
+            // txtB_SearchProduct
+            // 
+            this.txtB_SearchProduct.Location = new System.Drawing.Point(4, 15);
+            this.txtB_SearchProduct.Multiline = true;
+            this.txtB_SearchProduct.Name = "txtB_SearchProduct";
+            this.txtB_SearchProduct.Size = new System.Drawing.Size(300, 30);
+            this.txtB_SearchProduct.TabIndex = 4;
+            // 
+            // btn_SearchProduct
+            // 
+            this.btn_SearchProduct.Image = ((System.Drawing.Image)(resources.GetObject("btn_SearchProduct.Image")));
+            this.btn_SearchProduct.Location = new System.Drawing.Point(310, 14);
+            this.btn_SearchProduct.Name = "btn_SearchProduct";
+            this.btn_SearchProduct.Size = new System.Drawing.Size(100, 30);
+            this.btn_SearchProduct.TabIndex = 3;
+            this.btn_SearchProduct.Text = "Tìm kiếm";
+            this.btn_SearchProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_SearchProduct.UseVisualStyleBackColor = true;
+            this.btn_SearchProduct.Click += new System.EventHandler(this.btn_SearchProduct_Click);
             // 
             // btt_EditProduct
             // 
             this.btt_EditProduct.Image = ((System.Drawing.Image)(resources.GetObject("btt_EditProduct.Image")));
-            this.btt_EditProduct.Location = new System.Drawing.Point(756, 360);
+            this.btt_EditProduct.Location = new System.Drawing.Point(756, 410);
             this.btt_EditProduct.Name = "btt_EditProduct";
             this.btt_EditProduct.Size = new System.Drawing.Size(180, 50);
             this.btt_EditProduct.TabIndex = 2;
@@ -209,7 +263,7 @@
             // btt_newProduct
             // 
             this.btt_newProduct.Image = ((System.Drawing.Image)(resources.GetObject("btt_newProduct.Image")));
-            this.btt_newProduct.Location = new System.Drawing.Point(557, 360);
+            this.btt_newProduct.Location = new System.Drawing.Point(557, 410);
             this.btt_newProduct.Name = "btt_newProduct";
             this.btt_newProduct.Size = new System.Drawing.Size(180, 50);
             this.btt_newProduct.TabIndex = 1;
@@ -218,47 +272,97 @@
             this.btt_newProduct.UseVisualStyleBackColor = true;
             this.btt_newProduct.Click += new System.EventHandler(this.button3_Click);
             // 
-            // productGridView
+            // productGridControl
             // 
-            this.productGridView.BackgroundColor = System.Drawing.SystemColors.HighlightText;
-            this.productGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.productGridView.Location = new System.Drawing.Point(4, 4);
-            this.productGridView.Name = "productGridView";
-            this.productGridView.Size = new System.Drawing.Size(946, 340);
-            this.productGridView.TabIndex = 0;
+            this.productGridControl.BackgroundColor = System.Drawing.SystemColors.HighlightText;
+            this.productGridControl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productGridControl.Location = new System.Drawing.Point(4, 55);
+            this.productGridControl.Name = "productGridControl";
+            this.productGridControl.Size = new System.Drawing.Size(946, 340);
+            this.productGridControl.TabIndex = 0;
             // 
             // tabNaviPage_KhachHang
             // 
             this.tabNaviPage_KhachHang.Caption = "KHÁCH HÀNG";
-            this.tabNaviPage_KhachHang.Controls.Add(this.userGridView);
+            this.tabNaviPage_KhachHang.Controls.Add(this.btn_ClearCustomer);
+            this.tabNaviPage_KhachHang.Controls.Add(this.btn_SearchCustomer);
+            this.tabNaviPage_KhachHang.Controls.Add(this.txtB_SearchCus);
+            this.tabNaviPage_KhachHang.Controls.Add(this.btn_RefreshDataCustomer);
+            this.tabNaviPage_KhachHang.Controls.Add(this.userGridControl);
             this.tabNaviPage_KhachHang.Name = "tabNaviPage_KhachHang";
-            this.tabNaviPage_KhachHang.Size = new System.Drawing.Size(953, 422);
+            this.tabNaviPage_KhachHang.Size = new System.Drawing.Size(953, 471);
             this.tabNaviPage_KhachHang.VisibleChanged += new System.EventHandler(this.Users_VisibleChanged);
             // 
-            // userGridView
+            // btn_RefreshDataCustomer
             // 
-            this.userGridView.BackgroundColor = System.Drawing.SystemColors.HighlightText;
-            this.userGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.userGridView.Location = new System.Drawing.Point(4, 4);
-            this.userGridView.Name = "userGridView";
-            this.userGridView.Size = new System.Drawing.Size(946, 340);
-            this.userGridView.TabIndex = 0;
+            this.btn_RefreshDataCustomer.Image = ((System.Drawing.Image)(resources.GetObject("btn_RefreshDataCustomer.Image")));
+            this.btn_RefreshDataCustomer.Location = new System.Drawing.Point(795, 411);
+            this.btn_RefreshDataCustomer.Name = "btn_RefreshDataCustomer";
+            this.btn_RefreshDataCustomer.Size = new System.Drawing.Size(130, 50);
+            this.btn_RefreshDataCustomer.TabIndex = 1;
+            this.btn_RefreshDataCustomer.Text = "Tải lại dữ liệu";
+            this.btn_RefreshDataCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_RefreshDataCustomer.UseVisualStyleBackColor = true;
+            this.btn_RefreshDataCustomer.Click += new System.EventHandler(this.btn_RefreshDataCustomer_Click);
+            // 
+            // userGridControl
+            // 
+            this.userGridControl.BackgroundColor = System.Drawing.SystemColors.HighlightText;
+            this.userGridControl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.userGridControl.Location = new System.Drawing.Point(4, 55);
+            this.userGridControl.Name = "userGridControl";
+            this.userGridControl.Size = new System.Drawing.Size(946, 340);
+            this.userGridControl.TabIndex = 0;
             // 
             // tabNaviPage_DonHang
             // 
             this.tabNaviPage_DonHang.Caption = "ĐƠN HÀNG";
-            this.tabNaviPage_DonHang.Controls.Add(this.textBox2);
-            this.tabNaviPage_DonHang.Controls.Add(this.button2);
+            this.tabNaviPage_DonHang.Controls.Add(this.btn_ClearBill);
+            this.tabNaviPage_DonHang.Controls.Add(this.btn_RefreshDataBIll);
+            this.tabNaviPage_DonHang.Controls.Add(this.txtB_SearchBill);
+            this.tabNaviPage_DonHang.Controls.Add(this.btn_SearchBill);
             this.tabNaviPage_DonHang.Controls.Add(this.btn_newBill);
-            this.tabNaviPage_DonHang.Controls.Add(this.GridView_Bills);
+            this.tabNaviPage_DonHang.Controls.Add(this.billGridControl);
             this.tabNaviPage_DonHang.Name = "tabNaviPage_DonHang";
-            this.tabNaviPage_DonHang.Size = new System.Drawing.Size(953, 422);
+            this.tabNaviPage_DonHang.Size = new System.Drawing.Size(953, 471);
             this.tabNaviPage_DonHang.VisibleChanged += new System.EventHandler(this.tabNavigationPage3_VisibleChanged);
+            // 
+            // btn_RefreshDataBIll
+            // 
+            this.btn_RefreshDataBIll.Image = ((System.Drawing.Image)(resources.GetObject("btn_RefreshDataBIll.Image")));
+            this.btn_RefreshDataBIll.Location = new System.Drawing.Point(605, 411);
+            this.btn_RefreshDataBIll.Name = "btn_RefreshDataBIll";
+            this.btn_RefreshDataBIll.Size = new System.Drawing.Size(130, 50);
+            this.btn_RefreshDataBIll.TabIndex = 4;
+            this.btn_RefreshDataBIll.Text = "Tải lại dữ liệu";
+            this.btn_RefreshDataBIll.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_RefreshDataBIll.UseVisualStyleBackColor = true;
+            this.btn_RefreshDataBIll.Click += new System.EventHandler(this.btn_RefreshDataBIll_Click);
+            // 
+            // txtB_SearchBill
+            // 
+            this.txtB_SearchBill.Location = new System.Drawing.Point(4, 15);
+            this.txtB_SearchBill.Multiline = true;
+            this.txtB_SearchBill.Name = "txtB_SearchBill";
+            this.txtB_SearchBill.Size = new System.Drawing.Size(300, 30);
+            this.txtB_SearchBill.TabIndex = 3;
+            // 
+            // btn_SearchBill
+            // 
+            this.btn_SearchBill.Image = ((System.Drawing.Image)(resources.GetObject("btn_SearchBill.Image")));
+            this.btn_SearchBill.Location = new System.Drawing.Point(310, 15);
+            this.btn_SearchBill.Name = "btn_SearchBill";
+            this.btn_SearchBill.Size = new System.Drawing.Size(100, 30);
+            this.btn_SearchBill.TabIndex = 2;
+            this.btn_SearchBill.Text = "Tìm kiếm";
+            this.btn_SearchBill.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_SearchBill.UseVisualStyleBackColor = true;
+            this.btn_SearchBill.Click += new System.EventHandler(this.btn_SearchBill_Click);
             // 
             // btn_newBill
             // 
             this.btn_newBill.Image = ((System.Drawing.Image)(resources.GetObject("btn_newBill.Image")));
-            this.btn_newBill.Location = new System.Drawing.Point(756, 359);
+            this.btn_newBill.Location = new System.Drawing.Point(756, 411);
             this.btn_newBill.Name = "btn_newBill";
             this.btn_newBill.Size = new System.Drawing.Size(180, 50);
             this.btn_newBill.TabIndex = 1;
@@ -267,28 +371,44 @@
             this.btn_newBill.UseVisualStyleBackColor = true;
             this.btn_newBill.Click += new System.EventHandler(this.button7_Click);
             // 
-            // GridView_Bills
+            // billGridControl
             // 
-            this.GridView_Bills.BackgroundColor = System.Drawing.SystemColors.HighlightText;
-            this.GridView_Bills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridView_Bills.Location = new System.Drawing.Point(4, 4);
-            this.GridView_Bills.Name = "GridView_Bills";
-            this.GridView_Bills.Size = new System.Drawing.Size(946, 340);
-            this.GridView_Bills.TabIndex = 0;
+            this.billGridControl.BackgroundColor = System.Drawing.SystemColors.HighlightText;
+            this.billGridControl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.billGridControl.Location = new System.Drawing.Point(4, 55);
+            this.billGridControl.Name = "billGridControl";
+            this.billGridControl.Size = new System.Drawing.Size(946, 340);
+            this.billGridControl.TabIndex = 0;
             // 
             // tabNaviPage_NhapHang
             // 
             this.tabNaviPage_NhapHang.Caption = "NHẬP HÀNG";
+            this.tabNaviPage_NhapHang.Controls.Add(this.btn_ClearImport);
+            this.tabNaviPage_NhapHang.Controls.Add(this.btn_SearchImport);
+            this.tabNaviPage_NhapHang.Controls.Add(this.txtB_SearchImport);
+            this.tabNaviPage_NhapHang.Controls.Add(this.btn_RefreshDataImport);
             this.tabNaviPage_NhapHang.Controls.Add(this.btn_importProduct);
-            this.tabNaviPage_NhapHang.Controls.Add(this.dataGridView2);
+            this.tabNaviPage_NhapHang.Controls.Add(this.importGridControl);
             this.tabNaviPage_NhapHang.Name = "tabNaviPage_NhapHang";
-            this.tabNaviPage_NhapHang.Size = new System.Drawing.Size(953, 422);
+            this.tabNaviPage_NhapHang.Size = new System.Drawing.Size(953, 471);
             this.tabNaviPage_NhapHang.VisibleChanged += new System.EventHandler(this.tabNavigationPage4_VisibleChanged);
+            // 
+            // btn_RefreshDataImport
+            // 
+            this.btn_RefreshDataImport.Image = ((System.Drawing.Image)(resources.GetObject("btn_RefreshDataImport.Image")));
+            this.btn_RefreshDataImport.Location = new System.Drawing.Point(661, 408);
+            this.btn_RefreshDataImport.Name = "btn_RefreshDataImport";
+            this.btn_RefreshDataImport.Size = new System.Drawing.Size(130, 50);
+            this.btn_RefreshDataImport.TabIndex = 2;
+            this.btn_RefreshDataImport.Text = "Tải lại dữ liệu";
+            this.btn_RefreshDataImport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_RefreshDataImport.UseVisualStyleBackColor = true;
+            this.btn_RefreshDataImport.Click += new System.EventHandler(this.btn_RefreshDataImport_Click);
             // 
             // btn_importProduct
             // 
             this.btn_importProduct.Image = ((System.Drawing.Image)(resources.GetObject("btn_importProduct.Image")));
-            this.btn_importProduct.Location = new System.Drawing.Point(806, 359);
+            this.btn_importProduct.Location = new System.Drawing.Point(806, 408);
             this.btn_importProduct.Name = "btn_importProduct";
             this.btn_importProduct.Size = new System.Drawing.Size(130, 50);
             this.btn_importProduct.TabIndex = 1;
@@ -297,29 +417,45 @@
             this.btn_importProduct.UseVisualStyleBackColor = true;
             this.btn_importProduct.Click += new System.EventHandler(this.button9_Click);
             // 
-            // dataGridView2
+            // importGridControl
             // 
-            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.HighlightText;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(4, 3);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(946, 340);
-            this.dataGridView2.TabIndex = 0;
+            this.importGridControl.BackgroundColor = System.Drawing.SystemColors.HighlightText;
+            this.importGridControl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.importGridControl.Location = new System.Drawing.Point(4, 55);
+            this.importGridControl.Name = "importGridControl";
+            this.importGridControl.Size = new System.Drawing.Size(946, 340);
+            this.importGridControl.TabIndex = 0;
             // 
             // tabNaviPage_GiaoHang
             // 
             this.tabNaviPage_GiaoHang.Caption = "NHÂN VIÊN GIAO HÀNG";
+            this.tabNaviPage_GiaoHang.Controls.Add(this.btn_ClearShipper);
+            this.tabNaviPage_GiaoHang.Controls.Add(this.btn_SearchShipper);
+            this.tabNaviPage_GiaoHang.Controls.Add(this.txtB_SearchShipper);
+            this.tabNaviPage_GiaoHang.Controls.Add(this.btn_RefreshDataShipper);
             this.tabNaviPage_GiaoHang.Controls.Add(this.btn_EditShipper);
             this.tabNaviPage_GiaoHang.Controls.Add(this.btn_InsertShipper);
-            this.tabNaviPage_GiaoHang.Controls.Add(this.GridView_Shippers);
+            this.tabNaviPage_GiaoHang.Controls.Add(this.shippersGridControl);
             this.tabNaviPage_GiaoHang.Name = "tabNaviPage_GiaoHang";
-            this.tabNaviPage_GiaoHang.Size = new System.Drawing.Size(953, 422);
+            this.tabNaviPage_GiaoHang.Size = new System.Drawing.Size(953, 471);
             this.tabNaviPage_GiaoHang.VisibleChanged += new System.EventHandler(this.tabNaviPage_Shipper_VisibleChanged);
+            // 
+            // btn_RefreshDataShipper
+            // 
+            this.btn_RefreshDataShipper.Image = ((System.Drawing.Image)(resources.GetObject("btn_RefreshDataShipper.Image")));
+            this.btn_RefreshDataShipper.Location = new System.Drawing.Point(408, 407);
+            this.btn_RefreshDataShipper.Name = "btn_RefreshDataShipper";
+            this.btn_RefreshDataShipper.Size = new System.Drawing.Size(130, 50);
+            this.btn_RefreshDataShipper.TabIndex = 3;
+            this.btn_RefreshDataShipper.Text = "Tải lại dữ liệu";
+            this.btn_RefreshDataShipper.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_RefreshDataShipper.UseVisualStyleBackColor = true;
+            this.btn_RefreshDataShipper.Click += new System.EventHandler(this.btn_RefreshDataShipper_Click);
             // 
             // btn_EditShipper
             // 
             this.btn_EditShipper.Image = ((System.Drawing.Image)(resources.GetObject("btn_EditShipper.Image")));
-            this.btn_EditShipper.Location = new System.Drawing.Point(752, 358);
+            this.btn_EditShipper.Location = new System.Drawing.Point(752, 407);
             this.btn_EditShipper.Name = "btn_EditShipper";
             this.btn_EditShipper.Size = new System.Drawing.Size(180, 50);
             this.btn_EditShipper.TabIndex = 2;
@@ -331,7 +467,7 @@
             // btn_InsertShipper
             // 
             this.btn_InsertShipper.Image = ((System.Drawing.Image)(resources.GetObject("btn_InsertShipper.Image")));
-            this.btn_InsertShipper.Location = new System.Drawing.Point(555, 358);
+            this.btn_InsertShipper.Location = new System.Drawing.Point(555, 407);
             this.btn_InsertShipper.Name = "btn_InsertShipper";
             this.btn_InsertShipper.Size = new System.Drawing.Size(180, 50);
             this.btn_InsertShipper.TabIndex = 1;
@@ -340,29 +476,45 @@
             this.btn_InsertShipper.UseVisualStyleBackColor = true;
             this.btn_InsertShipper.Click += new System.EventHandler(this.btn_InsertShipper_Click);
             // 
-            // GridView_Shippers
+            // shippersGridControl
             // 
-            this.GridView_Shippers.BackgroundColor = System.Drawing.SystemColors.HighlightText;
-            this.GridView_Shippers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridView_Shippers.Location = new System.Drawing.Point(4, 3);
-            this.GridView_Shippers.Name = "GridView_Shippers";
-            this.GridView_Shippers.Size = new System.Drawing.Size(946, 340);
-            this.GridView_Shippers.TabIndex = 0;
+            this.shippersGridControl.BackgroundColor = System.Drawing.SystemColors.HighlightText;
+            this.shippersGridControl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.shippersGridControl.Location = new System.Drawing.Point(4, 55);
+            this.shippersGridControl.Name = "shippersGridControl";
+            this.shippersGridControl.Size = new System.Drawing.Size(946, 340);
+            this.shippersGridControl.TabIndex = 0;
             // 
             // tabNaviPage_LoaiSanPham
             // 
             this.tabNaviPage_LoaiSanPham.Caption = "LOẠI SẢN PHẨM";
+            this.tabNaviPage_LoaiSanPham.Controls.Add(this.btn_ClearProductType);
+            this.tabNaviPage_LoaiSanPham.Controls.Add(this.btn_SearchProductType);
+            this.tabNaviPage_LoaiSanPham.Controls.Add(this.txtB_SearchProductType);
+            this.tabNaviPage_LoaiSanPham.Controls.Add(this.btn_RefreshDataProductType);
             this.tabNaviPage_LoaiSanPham.Controls.Add(this.btn_EditProductType);
             this.tabNaviPage_LoaiSanPham.Controls.Add(this.btn_InsertProductType);
-            this.tabNaviPage_LoaiSanPham.Controls.Add(this.GridView_ProductType);
+            this.tabNaviPage_LoaiSanPham.Controls.Add(this.productTypeGridControl);
             this.tabNaviPage_LoaiSanPham.Name = "tabNaviPage_LoaiSanPham";
-            this.tabNaviPage_LoaiSanPham.Size = new System.Drawing.Size(953, 422);
+            this.tabNaviPage_LoaiSanPham.Size = new System.Drawing.Size(953, 471);
             this.tabNaviPage_LoaiSanPham.VisibleChanged += new System.EventHandler(this.tabNaviPage_ProductType_VisibleChanged);
+            // 
+            // btn_RefreshDataProductType
+            // 
+            this.btn_RefreshDataProductType.Image = ((System.Drawing.Image)(resources.GetObject("btn_RefreshDataProductType.Image")));
+            this.btn_RefreshDataProductType.Location = new System.Drawing.Point(410, 404);
+            this.btn_RefreshDataProductType.Name = "btn_RefreshDataProductType";
+            this.btn_RefreshDataProductType.Size = new System.Drawing.Size(130, 50);
+            this.btn_RefreshDataProductType.TabIndex = 3;
+            this.btn_RefreshDataProductType.Text = "Tải lại dữ liệu";
+            this.btn_RefreshDataProductType.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_RefreshDataProductType.UseVisualStyleBackColor = true;
+            this.btn_RefreshDataProductType.Click += new System.EventHandler(this.btn_RefreshDataProductType_Click);
             // 
             // btn_EditProductType
             // 
             this.btn_EditProductType.Image = ((System.Drawing.Image)(resources.GetObject("btn_EditProductType.Image")));
-            this.btn_EditProductType.Location = new System.Drawing.Point(756, 356);
+            this.btn_EditProductType.Location = new System.Drawing.Point(756, 404);
             this.btn_EditProductType.Name = "btn_EditProductType";
             this.btn_EditProductType.Size = new System.Drawing.Size(180, 50);
             this.btn_EditProductType.TabIndex = 2;
@@ -374,7 +526,7 @@
             // btn_InsertProductType
             // 
             this.btn_InsertProductType.Image = ((System.Drawing.Image)(resources.GetObject("btn_InsertProductType.Image")));
-            this.btn_InsertProductType.Location = new System.Drawing.Point(559, 356);
+            this.btn_InsertProductType.Location = new System.Drawing.Point(559, 404);
             this.btn_InsertProductType.Name = "btn_InsertProductType";
             this.btn_InsertProductType.Size = new System.Drawing.Size(180, 50);
             this.btn_InsertProductType.TabIndex = 1;
@@ -383,19 +535,19 @@
             this.btn_InsertProductType.UseVisualStyleBackColor = true;
             this.btn_InsertProductType.Click += new System.EventHandler(this.btn_InsertProductType_Click);
             // 
-            // GridView_ProductType
+            // productTypeGridControl
             // 
-            this.GridView_ProductType.BackgroundColor = System.Drawing.SystemColors.HighlightText;
-            this.GridView_ProductType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridView_ProductType.Location = new System.Drawing.Point(4, 3);
-            this.GridView_ProductType.Name = "GridView_ProductType";
-            this.GridView_ProductType.Size = new System.Drawing.Size(946, 340);
-            this.GridView_ProductType.TabIndex = 0;
+            this.productTypeGridControl.BackgroundColor = System.Drawing.SystemColors.HighlightText;
+            this.productTypeGridControl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productTypeGridControl.Location = new System.Drawing.Point(4, 55);
+            this.productTypeGridControl.Name = "productTypeGridControl";
+            this.productTypeGridControl.Size = new System.Drawing.Size(946, 340);
+            this.productTypeGridControl.TabIndex = 0;
             // 
             // btn_ChangePass
             // 
             this.btn_ChangePass.Image = ((System.Drawing.Image)(resources.GetObject("btn_ChangePass.Image")));
-            this.btn_ChangePass.Location = new System.Drawing.Point(12, 485);
+            this.btn_ChangePass.Location = new System.Drawing.Point(12, 538);
             this.btn_ChangePass.Name = "btn_ChangePass";
             this.btn_ChangePass.Size = new System.Drawing.Size(180, 50);
             this.btn_ChangePass.TabIndex = 1;
@@ -404,28 +556,183 @@
             this.btn_ChangePass.UseVisualStyleBackColor = true;
             this.btn_ChangePass.Click += new System.EventHandler(this.btn_ChangePass_Click);
             // 
-            // button2
+            // txtB_SearchProductType
             // 
-            this.button2.Location = new System.Drawing.Point(239, 359);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.txtB_SearchProductType.Location = new System.Drawing.Point(4, 15);
+            this.txtB_SearchProductType.Multiline = true;
+            this.txtB_SearchProductType.Name = "txtB_SearchProductType";
+            this.txtB_SearchProductType.Size = new System.Drawing.Size(300, 30);
+            this.txtB_SearchProductType.TabIndex = 4;
             // 
-            // textBox2
+            // btn_SearchProductType
             // 
-            this.textBox2.Location = new System.Drawing.Point(23, 359);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(192, 20);
-            this.textBox2.TabIndex = 3;
+            this.btn_SearchProductType.Image = ((System.Drawing.Image)(resources.GetObject("btn_SearchProductType.Image")));
+            this.btn_SearchProductType.Location = new System.Drawing.Point(310, 15);
+            this.btn_SearchProductType.Name = "btn_SearchProductType";
+            this.btn_SearchProductType.Size = new System.Drawing.Size(100, 30);
+            this.btn_SearchProductType.TabIndex = 5;
+            this.btn_SearchProductType.Text = "Tìm kiếm";
+            this.btn_SearchProductType.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_SearchProductType.UseVisualStyleBackColor = true;
+            this.btn_SearchProductType.Click += new System.EventHandler(this.btn_SearchProductType_Click);
+            // 
+            // btn_ClearProductType
+            // 
+            this.btn_ClearProductType.Image = ((System.Drawing.Image)(resources.GetObject("btn_ClearProductType.Image")));
+            this.btn_ClearProductType.Location = new System.Drawing.Point(416, 15);
+            this.btn_ClearProductType.Name = "btn_ClearProductType";
+            this.btn_ClearProductType.Size = new System.Drawing.Size(60, 30);
+            this.btn_ClearProductType.TabIndex = 6;
+            this.btn_ClearProductType.Text = "Xóa";
+            this.btn_ClearProductType.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_ClearProductType.UseVisualStyleBackColor = true;
+            this.btn_ClearProductType.Click += new System.EventHandler(this.btn_ClearProductType_Click);
+            // 
+            // txtB_SearchSupplier
+            // 
+            this.txtB_SearchSupplier.Location = new System.Drawing.Point(4, 15);
+            this.txtB_SearchSupplier.Multiline = true;
+            this.txtB_SearchSupplier.Name = "txtB_SearchSupplier";
+            this.txtB_SearchSupplier.Size = new System.Drawing.Size(300, 30);
+            this.txtB_SearchSupplier.TabIndex = 3;
+            // 
+            // btn_SearchSupplier
+            // 
+            this.btn_SearchSupplier.Image = ((System.Drawing.Image)(resources.GetObject("btn_SearchSupplier.Image")));
+            this.btn_SearchSupplier.Location = new System.Drawing.Point(310, 15);
+            this.btn_SearchSupplier.Name = "btn_SearchSupplier";
+            this.btn_SearchSupplier.Size = new System.Drawing.Size(100, 30);
+            this.btn_SearchSupplier.TabIndex = 4;
+            this.btn_SearchSupplier.Text = "Tìm kiếm";
+            this.btn_SearchSupplier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_SearchSupplier.UseVisualStyleBackColor = true;
+            this.btn_SearchSupplier.Click += new System.EventHandler(this.btn_SearchSupplier_Click);
+            // 
+            // btn_clearSupplier
+            // 
+            this.btn_clearSupplier.Image = ((System.Drawing.Image)(resources.GetObject("btn_clearSupplier.Image")));
+            this.btn_clearSupplier.Location = new System.Drawing.Point(416, 15);
+            this.btn_clearSupplier.Name = "btn_clearSupplier";
+            this.btn_clearSupplier.Size = new System.Drawing.Size(60, 30);
+            this.btn_clearSupplier.TabIndex = 5;
+            this.btn_clearSupplier.Text = "Xóa";
+            this.btn_clearSupplier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_clearSupplier.UseVisualStyleBackColor = true;
+            this.btn_clearSupplier.Click += new System.EventHandler(this.btn_clearSupplier_Click);
+            // 
+            // txtB_SearchShipper
+            // 
+            this.txtB_SearchShipper.Location = new System.Drawing.Point(4, 15);
+            this.txtB_SearchShipper.Multiline = true;
+            this.txtB_SearchShipper.Name = "txtB_SearchShipper";
+            this.txtB_SearchShipper.Size = new System.Drawing.Size(300, 30);
+            this.txtB_SearchShipper.TabIndex = 4;
+            // 
+            // btn_SearchShipper
+            // 
+            this.btn_SearchShipper.Image = ((System.Drawing.Image)(resources.GetObject("btn_SearchShipper.Image")));
+            this.btn_SearchShipper.Location = new System.Drawing.Point(310, 15);
+            this.btn_SearchShipper.Name = "btn_SearchShipper";
+            this.btn_SearchShipper.Size = new System.Drawing.Size(100, 30);
+            this.btn_SearchShipper.TabIndex = 5;
+            this.btn_SearchShipper.Text = "Tìm kiếm";
+            this.btn_SearchShipper.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_SearchShipper.UseVisualStyleBackColor = true;
+            this.btn_SearchShipper.Click += new System.EventHandler(this.btn_SearchShipper_Click);
+            // 
+            // btn_ClearShipper
+            // 
+            this.btn_ClearShipper.Image = ((System.Drawing.Image)(resources.GetObject("btn_ClearShipper.Image")));
+            this.btn_ClearShipper.Location = new System.Drawing.Point(416, 15);
+            this.btn_ClearShipper.Name = "btn_ClearShipper";
+            this.btn_ClearShipper.Size = new System.Drawing.Size(60, 30);
+            this.btn_ClearShipper.TabIndex = 6;
+            this.btn_ClearShipper.Text = "Xóa";
+            this.btn_ClearShipper.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_ClearShipper.UseVisualStyleBackColor = true;
+            this.btn_ClearShipper.Click += new System.EventHandler(this.btn_ClearShipper_Click);
+            // 
+            // txtB_SearchCus
+            // 
+            this.txtB_SearchCus.Location = new System.Drawing.Point(4, 15);
+            this.txtB_SearchCus.Multiline = true;
+            this.txtB_SearchCus.Name = "txtB_SearchCus";
+            this.txtB_SearchCus.Size = new System.Drawing.Size(300, 30);
+            this.txtB_SearchCus.TabIndex = 2;
+            // 
+            // btn_SearchCustomer
+            // 
+            this.btn_SearchCustomer.Image = ((System.Drawing.Image)(resources.GetObject("btn_SearchCustomer.Image")));
+            this.btn_SearchCustomer.Location = new System.Drawing.Point(310, 15);
+            this.btn_SearchCustomer.Name = "btn_SearchCustomer";
+            this.btn_SearchCustomer.Size = new System.Drawing.Size(100, 30);
+            this.btn_SearchCustomer.TabIndex = 3;
+            this.btn_SearchCustomer.Text = "Tìm kiếm";
+            this.btn_SearchCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_SearchCustomer.UseVisualStyleBackColor = true;
+            this.btn_SearchCustomer.Click += new System.EventHandler(this.btn_SearchCustomer_Click);
+            // 
+            // btn_ClearCustomer
+            // 
+            this.btn_ClearCustomer.Image = ((System.Drawing.Image)(resources.GetObject("btn_ClearCustomer.Image")));
+            this.btn_ClearCustomer.Location = new System.Drawing.Point(416, 15);
+            this.btn_ClearCustomer.Name = "btn_ClearCustomer";
+            this.btn_ClearCustomer.Size = new System.Drawing.Size(60, 30);
+            this.btn_ClearCustomer.TabIndex = 4;
+            this.btn_ClearCustomer.Text = "Xóa";
+            this.btn_ClearCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_ClearCustomer.UseVisualStyleBackColor = true;
+            this.btn_ClearCustomer.Click += new System.EventHandler(this.btn_ClearCustomer_Click);
+            // 
+            // txtB_SearchImport
+            // 
+            this.txtB_SearchImport.Location = new System.Drawing.Point(4, 15);
+            this.txtB_SearchImport.Multiline = true;
+            this.txtB_SearchImport.Name = "txtB_SearchImport";
+            this.txtB_SearchImport.Size = new System.Drawing.Size(300, 30);
+            this.txtB_SearchImport.TabIndex = 3;
+            // 
+            // btn_SearchImport
+            // 
+            this.btn_SearchImport.Image = ((System.Drawing.Image)(resources.GetObject("btn_SearchImport.Image")));
+            this.btn_SearchImport.Location = new System.Drawing.Point(310, 15);
+            this.btn_SearchImport.Name = "btn_SearchImport";
+            this.btn_SearchImport.Size = new System.Drawing.Size(100, 30);
+            this.btn_SearchImport.TabIndex = 4;
+            this.btn_SearchImport.Text = "Tìm kiếm";
+            this.btn_SearchImport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_SearchImport.UseVisualStyleBackColor = true;
+            this.btn_SearchImport.Click += new System.EventHandler(this.btn_SearchImport_Click);
+            // 
+            // btn_ClearImport
+            // 
+            this.btn_ClearImport.Image = ((System.Drawing.Image)(resources.GetObject("btn_ClearImport.Image")));
+            this.btn_ClearImport.Location = new System.Drawing.Point(416, 15);
+            this.btn_ClearImport.Name = "btn_ClearImport";
+            this.btn_ClearImport.Size = new System.Drawing.Size(60, 30);
+            this.btn_ClearImport.TabIndex = 5;
+            this.btn_ClearImport.Text = "Xóa";
+            this.btn_ClearImport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_ClearImport.UseVisualStyleBackColor = true;
+            this.btn_ClearImport.Click += new System.EventHandler(this.btn_ClearImport_Click);
+            // 
+            // btn_ClearBill
+            // 
+            this.btn_ClearBill.Image = ((System.Drawing.Image)(resources.GetObject("btn_ClearBill.Image")));
+            this.btn_ClearBill.Location = new System.Drawing.Point(416, 15);
+            this.btn_ClearBill.Name = "btn_ClearBill";
+            this.btn_ClearBill.Size = new System.Drawing.Size(60, 30);
+            this.btn_ClearBill.TabIndex = 5;
+            this.btn_ClearBill.Text = "Xóa";
+            this.btn_ClearBill.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_ClearBill.UseVisualStyleBackColor = true;
+            this.btn_ClearBill.Click += new System.EventHandler(this.btn_ClearBill_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1005, 539);
+            this.ClientSize = new System.Drawing.Size(997, 599);
             this.Controls.Add(this.btn_ChangePass);
             this.Controls.Add(this.tabPaneMainForm);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -438,21 +745,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabPaneMainForm)).EndInit();
             this.tabPaneMainForm.ResumeLayout(false);
             this.tabNaviPage_NhaCungCap.ResumeLayout(false);
+            this.tabNaviPage_NhaCungCap.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierGridControl)).EndInit();
             this.tabNaviPage_SanPham.ResumeLayout(false);
             this.tabNaviPage_SanPham.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productGridControl)).EndInit();
             this.tabNaviPage_KhachHang.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.userGridView)).EndInit();
+            this.tabNaviPage_KhachHang.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userGridControl)).EndInit();
             this.tabNaviPage_DonHang.ResumeLayout(false);
             this.tabNaviPage_DonHang.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GridView_Bills)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.billGridControl)).EndInit();
             this.tabNaviPage_NhapHang.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabNaviPage_NhapHang.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.importGridControl)).EndInit();
             this.tabNaviPage_GiaoHang.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.GridView_Shippers)).EndInit();
+            this.tabNaviPage_GiaoHang.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.shippersGridControl)).EndInit();
             this.tabNaviPage_LoaiSanPham.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.GridView_ProductType)).EndInit();
+            this.tabNaviPage_LoaiSanPham.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productTypeGridControl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -465,30 +777,53 @@
         private System.Windows.Forms.DataGridView supplierGridControl;
         private System.Windows.Forms.Button btt_EditSupplier;
         private System.Windows.Forms.Button btt_newSupplier;
-        private System.Windows.Forms.DataGridView productGridView;
+        private System.Windows.Forms.DataGridView productGridControl;
         private System.Windows.Forms.Button btt_newProduct;
         private System.Windows.Forms.Button btt_EditProduct;
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabNaviPage_KhachHang;
-        private System.Windows.Forms.DataGridView userGridView;
+        private System.Windows.Forms.DataGridView userGridControl;
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabNaviPage_DonHang;
-        private System.Windows.Forms.DataGridView GridView_Bills;
+        private System.Windows.Forms.DataGridView billGridControl;
         private System.Windows.Forms.Button btn_newBill;
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabNaviPage_NhapHang;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView importGridControl;
         private System.Windows.Forms.Button btn_importProduct;
         private System.Windows.Forms.Button btn_ChangePass;
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabNaviPage_GiaoHang;
         private System.Windows.Forms.Button btn_EditShipper;
         private System.Windows.Forms.Button btn_InsertShipper;
-        private System.Windows.Forms.DataGridView GridView_Shippers;
+        private System.Windows.Forms.DataGridView shippersGridControl;
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabNaviPage_LoaiSanPham;
         private System.Windows.Forms.Button btn_EditProductType;
         private System.Windows.Forms.Button btn_InsertProductType;
-        private System.Windows.Forms.DataGridView GridView_ProductType;
+        private System.Windows.Forms.DataGridView productTypeGridControl;
         private System.Windows.Forms.Button btn_RefreshDataSupplier;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtB_SearchProduct;
+        private System.Windows.Forms.Button btn_SearchProduct;
+        private System.Windows.Forms.TextBox txtB_SearchBill;
+        private System.Windows.Forms.Button btn_SearchBill;
+        private System.Windows.Forms.Button btn_ClearProduct;
+        private System.Windows.Forms.Button btn_RefreshDataImport;
+        private System.Windows.Forms.Button btn_RefreshDataProduct;
+        private System.Windows.Forms.Button btn_RefreshDataProductType;
+        private System.Windows.Forms.Button btn_RefreshDataBIll;
+        private System.Windows.Forms.Button btn_RefreshDataShipper;
+        private System.Windows.Forms.Button btn_RefreshDataCustomer;
+        private System.Windows.Forms.Button btn_ClearProductType;
+        private System.Windows.Forms.Button btn_SearchProductType;
+        private System.Windows.Forms.TextBox txtB_SearchProductType;
+        private System.Windows.Forms.Button btn_clearSupplier;
+        private System.Windows.Forms.Button btn_SearchSupplier;
+        private System.Windows.Forms.TextBox txtB_SearchSupplier;
+        private System.Windows.Forms.Button btn_ClearShipper;
+        private System.Windows.Forms.Button btn_SearchShipper;
+        private System.Windows.Forms.TextBox txtB_SearchShipper;
+        private System.Windows.Forms.Button btn_ClearCustomer;
+        private System.Windows.Forms.Button btn_SearchCustomer;
+        private System.Windows.Forms.TextBox txtB_SearchCus;
+        private System.Windows.Forms.Button btn_ClearImport;
+        private System.Windows.Forms.Button btn_SearchImport;
+        private System.Windows.Forms.TextBox txtB_SearchImport;
+        private System.Windows.Forms.Button btn_ClearBill;
     }
 }

@@ -74,8 +74,8 @@ namespace Winform_ShopGao
         private void tabNavigationPage2_VisibleChanged(object sender, EventArgs e)
         {
             if (tabPaneMainForm.SelectedPage != tabNaviPage_SanPham) return;
-            productGridView.DataSource = _productBusinessLogic.GetAllProduct();
-            productGridView.Refresh();
+            productGridControl.DataSource = _productBusinessLogic.GetAllProduct();
+            productGridControl.Refresh();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -89,7 +89,7 @@ namespace Winform_ShopGao
         {
             try
             {
-                var row = productGridView.SelectedRows;
+                var row = productGridControl.SelectedRows;
                 var cells = row[0].Cells;
                 var newSupplierForm = new NewProductForm(int.Parse(cells[0].Value.ToString())) { RefToFormMain = this };
                 newSupplierForm.Show();
@@ -103,21 +103,21 @@ namespace Winform_ShopGao
         private void Users_VisibleChanged(object sender, EventArgs e)
         {
             if (tabPaneMainForm.SelectedPage != tabNaviPage_KhachHang) return;
-            userGridView.DataSource = _userBusinessLogic.GetAllUser();
-            userGridView.Refresh();
+            userGridControl.DataSource = _userBusinessLogic.GetAllUser();
+            userGridControl.Refresh();
         }
         
         private void tabNavigationPage3_VisibleChanged(object sender, EventArgs e)
         {
             if (tabPaneMainForm.SelectedPage != tabNaviPage_DonHang) return;
-            GridView_Bills.DataSource = _billBusinessLogic.GetAllBill();
+            billGridControl.DataSource = _billBusinessLogic.GetAllBill();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             try
             {
-                var row = GridView_Bills.SelectedRows;
+                var row = billGridControl.SelectedRows;
                 var cells = row[0].Cells;
                 var billDetailForm = new BillDetailForm(int.Parse(cells[0].Value.ToString()), int.Parse(cells[1].Value.ToString()), int.Parse(cells[10].Value.ToString())) { RefToFormMain = this };
                 billDetailForm.Show();
@@ -131,7 +131,7 @@ namespace Winform_ShopGao
         private void tabNavigationPage4_VisibleChanged(object sender, EventArgs e)
         {
             if (tabPaneMainForm.SelectedPage != tabNaviPage_NhapHang) return;
-            dataGridView2.DataSource = _importBusinessLogic.GetAllImportProducts();
+            importGridControl.DataSource = _importBusinessLogic.GetAllImportProducts();
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -150,7 +150,7 @@ namespace Winform_ShopGao
         private void tabNaviPage_Shipper_VisibleChanged(object sender, EventArgs e)
         {
             if (tabPaneMainForm.SelectedPage != tabNaviPage_GiaoHang) return;
-            GridView_Shippers.DataSource = _shipperBusinessLogic.GetAllShippers();
+            shippersGridControl.DataSource = _shipperBusinessLogic.GetAllShippers();
         }
 
         private void btn_InsertShipper_Click(object sender, EventArgs e)
@@ -163,7 +163,7 @@ namespace Winform_ShopGao
         {
             try
             {
-                var row = GridView_Shippers.SelectedRows;
+                var row = shippersGridControl.SelectedRows;
                 var cells = row[0].Cells;
                 var newShipperForm = new NewShipperForm(int.Parse(cells[0].Value.ToString())) { RefToFormMain = this };
                 newShipperForm.Show();
@@ -184,7 +184,7 @@ namespace Winform_ShopGao
         {
             try
             {
-                var row = GridView_ProductType.SelectedRows;
+                var row = productTypeGridControl.SelectedRows;
                 var cells = row[0].Cells;
                 var newProductType = new NewProductTypeForm(int.Parse(cells[0].Value.ToString())) { RefToPreForm = this };
                 newProductType.Show();
@@ -198,7 +198,18 @@ namespace Winform_ShopGao
         private void tabNaviPage_ProductType_VisibleChanged(object sender, EventArgs e)
         {
             if (tabPaneMainForm.SelectedPage != tabNaviPage_LoaiSanPham) return;
-            GridView_ProductType.DataSource = _productTypeBusinessLogic.GetAllProductTypes();
+            productTypeGridControl.DataSource = _productTypeBusinessLogic.GetAllProductTypes();
+        }
+        
+        private void tabNaviPage_NhaCungCap_VisibleChanged(object sender, EventArgs e)
+        {
+            if (tabPaneMainForm.SelectedPage != tabNaviPage_NhaCungCap) return;
+            supplierGridControl.DataSource = _supplierBusinessLogic.GetallSupplier();
+        }
+        
+        private void btn_RefreshDataImport_Click(object sender, EventArgs e)
+        {
+            importGridControl.DataSource = _importBusinessLogic.GetAllImportProducts();
         }
 
         private void btn_RefreshDataSupplier_Click(object sender, EventArgs e)
@@ -206,24 +217,128 @@ namespace Winform_ShopGao
             supplierGridControl.DataSource = _supplierBusinessLogic.GetallSupplier();
         }
 
-        private void tabNaviPage_NhaCungCap_VisibleChanged(object sender, EventArgs e)
+        private void btn_RefreshDataProduct_Click(object sender, EventArgs e)
         {
-            if (tabPaneMainForm.SelectedPage != tabNaviPage_NhaCungCap) return;
-            supplierGridControl.DataSource = _supplierBusinessLogic.GetallSupplier();
+            productGridControl.DataSource = _productBusinessLogic.GetAllProduct();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_RefreshDataProductType_Click(object sender, EventArgs e)
         {
-            List<string> column = new List<string>{"Name"};
-            String value = textBox1.Text.Trim();
-            productGridView.DataSource = _productBusinessLogic.Search(column,value);
+            productTypeGridControl.DataSource = _productTypeBusinessLogic.GetAllProductTypes();
         }
+
+        private void btn_RefreshDataBIll_Click(object sender, EventArgs e)
+        {
+            billGridControl.DataSource = _billBusinessLogic.GetAllBill();
+        }
+
+        private void btn_RefreshDataShipper_Click(object sender, EventArgs e)
+        {
+            shippersGridControl.DataSource = _shipperBusinessLogic.GetAllShippers();
+        }
+
+        private void btn_RefreshDataCustomer_Click(object sender, EventArgs e)
+        {
+            userGridControl.DataSource = _userBusinessLogic.GetAllUser();
+        }
+
+        private void btn_SearchProduct_Click(object sender, EventArgs e)
+        {
+            List<string> column = new List<string> { "Name", "price" };
+            String value = txtB_SearchProduct.Text.Trim();
+            productGridControl.DataSource = _productBusinessLogic.Search(column, value);
+        }
+
+        private void btn_Clear_Click(object sender, EventArgs e)
+        {
+            txtB_SearchProduct.Text = "";
+        }
+
+        private void btn_SearchBill_Click(object sender, EventArgs e)
+        {
+            List<string> column = new List<string> { "id", "id_customer", "	total", "address", "district", "city", "note" };
+            String value = txtB_SearchBill.Text.Trim();
+            billGridControl.DataSource = _billBusinessLogic.Search(column, value);
+        }
+
+        private void btn_ClearBill_Click(object sender, EventArgs e)
+        {
+            txtB_SearchBill.Text = "";
+        }
+
+        private void btn_SearchProductType_Click(object sender, EventArgs e)
+        {
+            List<string> column = new List<string> { "Name" };
+            String value = txtB_SearchProductType.Text.Trim();
+            productTypeGridControl.DataSource = _productTypeBusinessLogic.Search(column, value);
+        }
+
+        private void btn_ClearProductType_Click(object sender, EventArgs e)
+        {
+            txtB_SearchProductType.Text = "";
+        }
+
+        private void btn_SearchSupplier_Click(object sender, EventArgs e)
+        {
+            List<string> column = new List<string> { "Name", "email", "phone", "addr" };
+            String value = txtB_SearchSupplier.Text.Trim();
+            supplierGridControl.DataSource = _supplierBusinessLogic.Search(column, value);
+        }
+
+        private void btn_clearSupplier_Click(object sender, EventArgs e)
+        {
+            txtB_SearchSupplier.Text = "";
+        }
+
+        private void btn_SearchShipper_Click(object sender, EventArgs e)
+        {
+            List<string> column = new List<string> { "name", "email", "phone" };
+            String value = txtB_SearchShipper.Text.Trim();
+            shippersGridControl.DataSource = _shipperBusinessLogic.Search(column, value);
+        }
+
+        private void btn_ClearShipper_Click(object sender, EventArgs e)
+        {
+            txtB_SearchShipper.Text = "";
+        }
+
+        private void btn_SearchCustomer_Click(object sender, EventArgs e)
+        {
+            List<string> column = new List<string> { "name", "email", "phone" };
+            String value = txtB_SearchCus.Text.Trim();
+            userGridControl.DataSource = _userBusinessLogic.Search(column, value);
+        }
+
+        private void btn_ClearCustomer_Click(object sender, EventArgs e)
+        {
+            txtB_SearchCus.Text = "";
+        }
+
+        private void btn_SearchImport_Click(object sender, EventArgs e)
+        {
+            List<string> column = new List<string> { "supplierName", "productName" };
+            String value = txtB_SearchImport.Text.Trim();
+            importGridControl.DataSource = _importBusinessLogic.Search(column, value);
+        }
+
+        private void btn_ClearImport_Click(object sender, EventArgs e)
+        {
+            txtB_SearchImport.Text = "";
+        }
+
+        
+
+        /**
+         *  List<string> column = new List<string> { "address" };
+            String value = txtB_SearchBill.Text.Trim();
+            billGridControl.DataSource = _billBusinessLogic.Search(column, value);
 
         private void button2_Click_1(object sender, EventArgs e)
         {
             List<string> column = new List<string> { "address" };
-            String value = textBox2.Text.Trim();
-            GridView_Bills.DataSource = _billBusinessLogic.Search(column, value);
+            String value = txtB_SearchBill.Text.Trim();
+            billGridControl.DataSource = _billBusinessLogic.Search(column, value);
         }
+         */
     }
 }

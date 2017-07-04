@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAO;
 using ValueObject;
+using Winform_ShopGao;
 
 namespace BusinessLogicLayer
 {
@@ -21,7 +22,7 @@ namespace BusinessLogicLayer
         public List<SupplierValueObject> GetallSupplier()
         {
             var dataTable = _supplierDataAccessLayer.GetAllSupplier();
-            return (from DataRow row in dataTable.Rows select new SupplierValueObject(int.Parse(row["id"].ToString()), row["name"].ToString(), row["addr"].ToString(), row["email"].ToString(), row["phone"].ToString())).ToList();
+            return (from DataRow row in dataTable.Rows select new SupplierValueObject( int.Parse(row["id"].ToString()), row["name"].ToString(), row["addr"].ToString(), row["email"].ToString(), row["phone"].ToString() )).ToList();
         }
 
         public bool CreateSupplier(SupplierValueObject supplier)
@@ -45,6 +46,13 @@ namespace BusinessLogicLayer
         public bool DeleteSupplier(int id)
         {
             return _supplierDataAccessLayer.DeleteSupplier(id);
+        }
+
+        public List<SupplierValueObject> Search(List<string> column, string value)
+        {
+            var data = Utility.Search("suppliers", column, value);
+            return (from DataRow row in data.Rows
+                    select new SupplierValueObject(int.Parse(row["id"].ToString()), row["name"].ToString(), row["addr"].ToString(), row["email"].ToString(), row["phone"].ToString())).ToList();
         }
     }
 }
