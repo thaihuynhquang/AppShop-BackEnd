@@ -13,18 +13,22 @@ namespace ValueObject
         public string NhaCungCap { get; set; }
         public int IdSP { get; set; }
         public string SanPham { get; set; }
-        public int SoLuongSanPham { get; set; }
+        public int SoLuongTrongKho { get; set; }
+        public int SoLuongTrenDonHang { get; set; }
         public int Dongia { get; set; }
         public int TongTien { get; set; }
 
-    public ImportValueObject(int? id, int supplierId, string supplierName, int productId, string productName, int unitInStock, int unitPrice)
+    public ImportValueObject(int? id, int supplierId, string supplierName, int productId, string productName, int unitInStock, int unitOnBill, int unitPrice, int totalPrice)
         {
             this.Id = id;
-            this.IdNcc = idncc;
-            this.IdSp = idsp;
-            this.Soluong = sl;
-            this.Dongia = dongia;
-            this.Tong = tong;
+            this.IdNCC = supplierId;
+            this.NhaCungCap = supplierName;
+            this.IdSP = productId;
+            this.SanPham = productName;
+            this.SoLuongTrongKho = unitInStock;
+            this.SoLuongTrenDonHang = unitOnBill;
+            this.Dongia = unitPrice;
+            this.TongTien = totalPrice;
 
         }
     }

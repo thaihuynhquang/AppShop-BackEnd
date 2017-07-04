@@ -16,7 +16,7 @@ namespace DAO
         private static readonly MySqlDbConnection _singleton = new MySqlDbConnection();
         private MySqlDbConnection()
         {
-            _conn = new MySqlConnection("server=localhost;database=appgao_db;uid=root;pwd=;Convert Zero Datetime=True;");
+            _conn = new MySqlConnection("server=localhost;database=appgao_db;uid=root;pwd=;Convert Zero Datetime=True;charset=utf8");
         }
 
         public static MySqlDbConnection GetConnection()

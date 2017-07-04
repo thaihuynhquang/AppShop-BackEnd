@@ -100,7 +100,7 @@ namespace Winform_ShopGao
                         fileNameInServer = stuff.link.ToString();
                     }
                 }
-                ProductTypeValueObject productTypeValueObject = new ProductTypeValueObject(null, name, fileNameInServer);
+                ProductTypeValueObject productTypeValueObject = new ProductTypeValueObject(_isUpdate ? _rowId : 0, name, fileNameInServer);
                 var success = _isUpdate ? _productTypeBusinessLogic.UpdateProductType(productTypeValueObject) : _productTypeBusinessLogic.CreateProductType(productTypeValueObject);
                 MessageBox.Show(success ? "Success" : "Fail");
                 tran.Complete();

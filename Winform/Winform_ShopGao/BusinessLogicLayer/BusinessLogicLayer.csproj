@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="BillBusinessLogic.cs" />
     <Compile Include="BillDetailBusinessLogicLayer.cs" />
+    <Compile Include="ImportBusinessLogic.cs" />
     <Compile Include="ProductBusinessLogic.cs" />
     <Compile Include="ProductTypeBusinessLogic.cs" />
     <Compile Include="ShipperBussinessLogic.cs" />
