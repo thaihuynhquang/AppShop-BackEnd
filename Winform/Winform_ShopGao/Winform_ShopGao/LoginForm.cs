@@ -15,17 +15,19 @@ namespace Winform_ShopGao
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var userDataAccessLayer = new UserDataAccessLayer();
-            var  x = userDataAccessLayer.Login(txtB_Username.Text.Trim(), txtB_Password.Text.Trim());
+            var adminDataAccessLayer = new AdminDataAccessLayer();
+            var  x = adminDataAccessLayer.Login(txtB_Username.Text.Trim(), txtB_Password.Text.Trim());
             if (!x)
             {
                 MessageBox.Show("login fail");
             }
+            else
+            {
+                var mainForm = new MainForm();
+                mainForm.Show();
 
-            var  mainForm = new MainForm();
-            mainForm.Show();
-
-            this.Hide();
+                this.Hide();
+            }
         }
     }
 }

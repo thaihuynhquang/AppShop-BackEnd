@@ -106,11 +106,6 @@ namespace BusinessLogicLayer
             }
         }
 
-        public bool UpdateProductType(ProductTypeValueObject productValueObject)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<ImportValueObject> GetAllImportValueObjects()
         {
             var data = importDataAccessLayer.GetAll();
@@ -118,11 +113,6 @@ namespace BusinessLogicLayer
                 select new ImportValueObject(int.Parse(row[0].ToString()), int.Parse(row[1].ToString()),
                     int.Parse(row[2].ToString()),
                     int.Parse(row[3].ToString()), int.Parse(row[4].ToString()), int.Parse(row[5].ToString()))).ToList();
-        }
-
-        public bool CreateNewProductType(ProductTypeValueObject productValueObject)
-        {
-            return _productDataAccessLayer.CreateNewProductType(productValueObject.Name, productValueObject.Image);
         }
 
         public string GetImageFileName(int? id)

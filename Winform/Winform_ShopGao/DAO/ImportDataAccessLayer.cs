@@ -9,34 +9,35 @@ using ValueObject;
 
 namespace DAO
 {
-   public class ImportDataAccessLayer
-   {
-       private MySqlDbConnection mySqlDbConnection;
+    public class ImportDataAccessLayer
+    {
+        private MySqlDbConnection _mySqlDbConnection;
 
-       public ImportDataAccessLayer()
-       {
-            mySqlDbConnection = MySqlDbConnection.GetConnection();
-       }
-
-       public bool InsertImportBill(int idncc, int idsp, int sl, int dongia)
-       {
-           const string query =
-               "INSERT INTO import (supplierId, productId, unitPrice, unitInStock, totalPrice) VALUES (@supplierId, @productId, @unitPrice, @unitInStock, @totalPrice)";
-
-           var sqlParameters = new MySqlParameter[5];
-           sqlParameters[0] = new MySqlParameter("@supplierId", MySqlDbType.Int32) { Value =  idncc};
-           sqlParameters[1] = new MySqlParameter("@productId", MySqlDbType.Int32) { Value =  idsp};
-           sqlParameters[2] = new MySqlParameter("@unitInStock", MySqlDbType.Int32) { Value = sl};
-           sqlParameters[3] = new MySqlParameter("@unitPrice", MySqlDbType.Int32) { Value =  dongia};
-           sqlParameters[4] = new MySqlParameter("@totalPrice", MySqlDbType.Int32) { Value = sl*dongia};
-
-           return mySqlDbConnection.ExecuteInsertQuery(query, sqlParameters);
+        public ImportDataAccessLayer()
+        {
+            _mySqlDbConnection = MySqlDbConnection.GetConnection();
         }
 
-       public DataTable GetAll()
-       {
-           const string query = "select * from import";
-           return mySqlDbConnection.ExecuteSelectQuery(query);
+        public bool CreateImportProduct(int supplierId, string supplierName, int productId, string productName, int unitInStock, int unitPrice)
+        {
+            const string query = "INSERT INTO import (supplierId, supplierName, productId, productName, unitPrice, unitInStock, totalPrice) VALUES (@supplierId, @supplierName, @productId, @productName, @unitPrice, @unitInStock, @totalPrice)";
+
+            var sqlParameters = new MySqlParameter[7];
+            sqlParameters[0] = new MySqlParameter("@supplierId", MySqlDbType.Int32) { Value = supplierId };
+            sqlParameters[1] = new MySqlParameter("@supplierName", MySqlDbType.VarChar) { Value = supplierName };
+            sqlParameters[2] = new MySqlParameter("@productId", MySqlDbType.Int32) { Value = productId };
+            sqlParameters[3] = new MySqlParameter("@productName", MySqlDbType.VarChar) { Value = productName };
+            sqlParameters[4] = new MySqlParameter("@unitInStock", MySqlDbType.Int32) { Value = unitInStock };
+            sqlParameters[5] = new MySqlParameter("@unitPrice", MySqlDbType.Int32) { Value = unitPrice };
+            sqlParameters[6] = new MySqlParameter("@totalPrice", MySqlDbType.Int32) { Value = unitInStock * unitPrice };
+
+            return _mySqlDbConnection.ExecuteInsertQuery(query, sqlParameters);
         }
-   }
+
+        public DataTable GetAllImportProducts()
+        {
+            const string query = "select * from import";
+            return _mySqlDbConnection.ExecuteSelectQuery(query);
+        }
+    }
 }

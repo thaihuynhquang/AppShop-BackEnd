@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using BusinessLogicLayer;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using BusinessLogicLayer;
-using DevExpress.Utils.Extensions;
-using ValueObject;
 
 namespace Winform_ShopGao
 {
@@ -19,6 +11,8 @@ namespace Winform_ShopGao
         private readonly ProductBusinessLogic _productBusinessLogic;
         private readonly UserBusinessLogic _userBusinessLogic;
         private readonly BillBusinessLogic _billBusinessLogic;
+        private readonly ShipperBussinessLogic _shipperBusinessLogic;
+        private readonly ProductTypeBusinessLogic _productTypeBusinessLogic;
 
         public MainForm()
         {
@@ -27,20 +21,15 @@ namespace Winform_ShopGao
             _productBusinessLogic = new ProductBusinessLogic();
             _userBusinessLogic = new UserBusinessLogic();
             _billBusinessLogic = new BillBusinessLogic();
+            _shipperBusinessLogic = new ShipperBussinessLogic();
+            _productTypeBusinessLogic = new ProductTypeBusinessLogic();
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
-
-        private void tabPane1_Click(object sender, EventArgs e)
-        {
-            var suppliers = _supplierBusinessLogic.GetallSupplier();
-            supplierGridControl.DataSource = suppliers.ToList();
-            supplierGridControl.Refresh();
-        }
-
+        
         private void MainForm_Load(object sender, EventArgs e)
         {
             tabPaneMainForm.SelectedPage = tabNaviPage_NhaCungCap;
@@ -51,9 +40,8 @@ namespace Winform_ShopGao
 
         private void newSupp_Click(object sender, EventArgs e)
         {
-            var newSupplierForm = new NewSupplierForm {RefToFormMain = this};
+            var newSupplierForm = new NewSupplierForm { RefToFormMain = this };
             newSupplierForm.Show();
-            this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -62,9 +50,8 @@ namespace Winform_ShopGao
             {
                 var row = supplierGridControl.SelectedRows;
                 var cells = row[0].Cells;
-                var newSupplierForm = new NewSupplierForm(int.Parse(cells[0].Value.ToString())) {RefToFormMain = this};
+                var newSupplierForm = new NewSupplierForm(int.Parse(cells[0].Value.ToString())) { RefToFormMain = this };
                 newSupplierForm.Show();
-                this.Hide();
             }
             catch (Exception exception)
             {
@@ -77,21 +64,7 @@ namespace Winform_ShopGao
             if (!Visible) return;
             if (tabPaneMainForm.SelectedPage == tabNaviPage_NhaCungCap)
             {
-                supplierGridControl.DataSource = _supplierBusinessLogic.GetallSupplier().ToList();
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var row = supplierGridControl.SelectedRows;
-                var cells = row[0].Cells;
-                _supplierBusinessLogic.DeleteSupplier(int.Parse(cells[0].Value.ToString()));
-            }
-            catch (Exception)
-            {
-                MessageBox.Show(@"Please select row");
+                supplierGridControl.DataSource = _supplierBusinessLogic.GetallSupplier();
             }
         }
 
@@ -104,9 +77,8 @@ namespace Winform_ShopGao
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var newProductForm = new NewProductForm {RefToFormMain = this};
+            var newProductForm = new NewProductForm { RefToFormMain = this };
             newProductForm.Show();
-            Hide();
 
         }
 
@@ -116,60 +88,40 @@ namespace Winform_ShopGao
             {
                 var row = productGridView.SelectedRows;
                 var cells = row[0].Cells;
-                var newSupplierForm = new NewProductForm(int.Parse(cells[0].Value.ToString())) {RefToFormMain = this};
+                var newSupplierForm = new NewProductForm(int.Parse(cells[0].Value.ToString())) { RefToFormMain = this };
                 newSupplierForm.Show();
-                this.Hide();
             }
             catch (Exception exception)
             {
                 MessageBox.Show(@"Please select row");
             }
         }
-
-        private void Users_Click(object sender, EventArgs e)
-        {
-            userGridView.DataSource = _userBusinessLogic.GetAllUser();
-            userGridView.Refresh();
-        }
-
+        
         private void Users_VisibleChanged(object sender, EventArgs e)
         {
             if (tabPaneMainForm.SelectedPage != tabNaviPage_KhachHang) return;
             userGridView.DataSource = _userBusinessLogic.GetAllUser();
             userGridView.Refresh();
         }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            // new user form here
-        }
-
+        
         private void tabNavigationPage3_VisibleChanged(object sender, EventArgs e)
         {
             if (tabPaneMainForm.SelectedPage != tabNaviPage_DonHang) return;
-            dataGridView1.DataSource = _billBusinessLogic.GetAllBill();
+            GridView_Bills.DataSource = _billBusinessLogic.GetAllBill();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            var newBillForm = new NewBillForm {RefToFormMain = this};
-            Hide();
-            newBillForm.Show();
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
             try
             {
-                var row = dataGridView1.SelectedRows;
+                var row = GridView_Bills.SelectedRows;
                 var cells = row[0].Cells;
-                var detail = new DetailBill(int.Parse(cells[0].Value.ToString())) {RefToFormMain = this};
-                Hide();
-                detail.Show();
+                var billDetailForm = new BillDetailForm(int.Parse(cells[0].Value.ToString()), int.Parse(cells[1].Value.ToString()), int.Parse(cells[10].Value.ToString())) { RefToFormMain = this };
+                billDetailForm.Show();
             }
             catch (Exception)
             {
-                MessageBox.Show("Error");
+                MessageBox.Show(@"Please select row");
             }
         }
 
@@ -182,8 +134,79 @@ namespace Winform_ShopGao
         private void button9_Click(object sender, EventArgs e)
         {
             var importProduct = new ImportProduct { RefToFormMain = this };
-            Hide();
             importProduct.Show();
+        }
+
+        private void btn_ChangePass_Click(object sender, EventArgs e)
+        {
+            //show form chang pass
+            var changePassForm = new ChangePassForm { RefToFormMain = this };
+            changePassForm.Show();
+        }
+
+        private void tabNaviPage_Shipper_VisibleChanged(object sender, EventArgs e)
+        {
+            if (tabPaneMainForm.SelectedPage != tabNaviPage_GiaoHang) return;
+            GridView_Shippers.DataSource = _shipperBusinessLogic.GetAllShippers();
+        }
+
+        private void btn_InsertShipper_Click(object sender, EventArgs e)
+        {
+            var newShipperForm = new NewShipperForm { RefToFormMain = this };
+            newShipperForm.Show();
+        }
+
+        private void btn_EditShipper_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var row = GridView_Shippers.SelectedRows;
+                var cells = row[0].Cells;
+                var newShipperForm = new NewShipperForm(int.Parse(cells[0].Value.ToString())) { RefToFormMain = this };
+                newShipperForm.Show();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Please select row");
+            }
+        }
+
+        private void btn_InsertProductType_Click(object sender, EventArgs e)
+        {
+            var newProductType = new NewProductTypeForm { RefToPreForm = this };
+            newProductType.Show();
+        }
+
+        private void btn_EditProductType_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var row = GridView_ProductType.SelectedRows;
+                var cells = row[0].Cells;
+                var newProductType = new NewProductTypeForm(int.Parse(cells[0].Value.ToString())) { RefToPreForm = this };
+                newProductType.Show();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Please select row");
+            }
+        }
+
+        private void tabNaviPage_ProductType_VisibleChanged(object sender, EventArgs e)
+        {
+            if (tabPaneMainForm.SelectedPage != tabNaviPage_LoaiSanPham) return;
+            GridView_ProductType.DataSource = _productTypeBusinessLogic.GetAllProductTypes();
+        }
+
+        private void btn_RefreshDataSupplier_Click(object sender, EventArgs e)
+        {
+            supplierGridControl.DataSource = _supplierBusinessLogic.GetallSupplier();
+        }
+
+        private void tabNaviPage_NhaCungCap_VisibleChanged(object sender, EventArgs e)
+        {
+            if (tabPaneMainForm.SelectedPage != tabNaviPage_NhaCungCap) return;
+            supplierGridControl.DataSource = _supplierBusinessLogic.GetallSupplier();
         }
     }
 }

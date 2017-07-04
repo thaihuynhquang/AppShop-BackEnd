@@ -51,23 +51,14 @@ namespace DAO
             const string query = "UPDATE product SET name=@name, id_type=@ty, price=@pr, " +
                                  "description=@des, new=@n WHERE id=@id";
             
-            var sqlParameters = new MySqlParameter[8];
+            var sqlParameters = new MySqlParameter[6];
             sqlParameters[0] = new MySqlParameter("@name", MySqlDbType.String) { Value = name };
             sqlParameters[1] = new MySqlParameter("@ty", MySqlDbType.Int32) { Value = idType };
             sqlParameters[2] = new MySqlParameter("@pr", MySqlDbType.Float) { Value = price };
             sqlParameters[3] = new MySqlParameter("@des", MySqlDbType.String) { Value = description };
             sqlParameters[4] = new MySqlParameter("@n", MySqlDbType.Int32) { Value = inew };
-            sqlParameters[6] = new MySqlParameter("@id", MySqlDbType.Int32) { Value = id };
+            sqlParameters[5] = new MySqlParameter("@id", MySqlDbType.Int32) { Value = id };
             return _mySqlDbConnection.ExecuteUpdateQuery(query, sqlParameters);
-        }
-
-        public bool CreateNewProductType(string name, string image)
-        {
-            const string query = "INSERT INTO product_type(name, image) values (@name, @img)";
-            var sqlParameters = new MySqlParameter[2];
-            sqlParameters[0] = new MySqlParameter("@name", MySqlDbType.String) { Value = name };
-            sqlParameters[1] = new MySqlParameter("@img", MySqlDbType.String) { Value = image };
-            return _mySqlDbConnection.ExecuteInsertQuery(query, sqlParameters);
         }
     }
 }

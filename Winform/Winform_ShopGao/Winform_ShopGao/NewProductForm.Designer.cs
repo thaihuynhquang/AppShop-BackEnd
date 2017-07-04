@@ -28,156 +28,233 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewProductForm));
+            this.txtB_ProductName = new System.Windows.Forms.TextBox();
+            this.txtB_ProductPrice = new System.Windows.Forms.TextBox();
+            this.rTxtB_DescriptionProduct = new System.Windows.Forms.RichTextBox();
             this.cmbProductType = new System.Windows.Forms.ComboBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.chB_TopProduct = new System.Windows.Forms.CheckBox();
+            this.btn_NewProduct = new System.Windows.Forms.Button();
+            this.btn_Exit = new System.Windows.Forms.Button();
+            this.picB_ImageProduct = new System.Windows.Forms.PictureBox();
+            this.btn_UploadImage = new System.Windows.Forms.Button();
+            this.btn_taoLoaiSP = new System.Windows.Forms.Button();
+            this.lb_LoaiSP = new System.Windows.Forms.Label();
+            this.lb_TenSP = new System.Windows.Forms.Label();
+            this.lb_DonGia = new System.Windows.Forms.Label();
+            this.lb_MieuTaSP = new System.Windows.Forms.Label();
+            this.lb_HinhSP = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.picB_ImageProduct)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtB_ProductName
             // 
-            this.textBox1.Location = new System.Drawing.Point(34, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "Name";
+            this.txtB_ProductName.Location = new System.Drawing.Point(155, 20);
+            this.txtB_ProductName.Name = "txtB_ProductName";
+            this.txtB_ProductName.Size = new System.Drawing.Size(190, 20);
+            this.txtB_ProductName.TabIndex = 0;
             // 
-            // textBox2
+            // txtB_ProductPrice
             // 
-            this.textBox2.Location = new System.Drawing.Point(191, 31);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.Text = "1000";
+            this.txtB_ProductPrice.Location = new System.Drawing.Point(155, 102);
+            this.txtB_ProductPrice.Name = "txtB_ProductPrice";
+            this.txtB_ProductPrice.Size = new System.Drawing.Size(190, 20);
+            this.txtB_ProductPrice.TabIndex = 1;
             // 
-            // richTextBox1
+            // rTxtB_DescriptionProduct
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(34, 74);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(434, 265);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "Description";
+            this.rTxtB_DescriptionProduct.Location = new System.Drawing.Point(45, 174);
+            this.rTxtB_DescriptionProduct.Name = "rTxtB_DescriptionProduct";
+            this.rTxtB_DescriptionProduct.Size = new System.Drawing.Size(485, 192);
+            this.rTxtB_DescriptionProduct.TabIndex = 2;
+            this.rTxtB_DescriptionProduct.Text = "viết miêu tả ở đây";
             // 
             // cmbProductType
             // 
             this.cmbProductType.FormattingEnabled = true;
-            this.cmbProductType.Location = new System.Drawing.Point(334, 30);
+            this.cmbProductType.Location = new System.Drawing.Point(155, 62);
             this.cmbProductType.Name = "cmbProductType";
-            this.cmbProductType.Size = new System.Drawing.Size(121, 21);
+            this.cmbProductType.Size = new System.Drawing.Size(190, 21);
             this.cmbProductType.TabIndex = 3;
             // 
-            // checkBox1
+            // chB_TopProduct
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(585, 33);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(55, 17);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "new ?";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chB_TopProduct.AutoSize = true;
+            this.chB_TopProduct.Location = new System.Drawing.Point(370, 22);
+            this.chB_TopProduct.Name = "chB_TopProduct";
+            this.chB_TopProduct.Size = new System.Drawing.Size(180, 17);
+            this.chB_TopProduct.TabIndex = 4;
+            this.chB_TopProduct.Text = "Đưa sản phẩm này lên trang chủ";
+            this.chB_TopProduct.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // btn_NewProduct
             // 
-            this.textBox3.Location = new System.Drawing.Point(674, 30);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 5;
-            this.textBox3.Text = "1";
+            this.btn_NewProduct.Image = ((System.Drawing.Image)(resources.GetObject("btn_NewProduct.Image")));
+            this.btn_NewProduct.Location = new System.Drawing.Point(553, 431);
+            this.btn_NewProduct.Name = "btn_NewProduct";
+            this.btn_NewProduct.Size = new System.Drawing.Size(180, 50);
+            this.btn_NewProduct.TabIndex = 6;
+            this.btn_NewProduct.Text = "Thêm sản phẩm mới";
+            this.btn_NewProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_NewProduct.UseVisualStyleBackColor = true;
+            this.btn_NewProduct.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button1
+            // btn_Exit
             // 
-            this.button1.Location = new System.Drawing.Point(873, 344);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Create";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_Exit.Image = ((System.Drawing.Image)(resources.GetObject("btn_Exit.Image")));
+            this.btn_Exit.Location = new System.Drawing.Point(763, 431);
+            this.btn_Exit.Name = "btn_Exit";
+            this.btn_Exit.Size = new System.Drawing.Size(130, 50);
+            this.btn_Exit.TabIndex = 7;
+            this.btn_Exit.Text = "Thoát";
+            this.btn_Exit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Exit.UseVisualStyleBackColor = true;
+            this.btn_Exit.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button2
+            // picB_ImageProduct
             // 
-            this.button2.Location = new System.Drawing.Point(747, 343);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Exit";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.picB_ImageProduct.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.picB_ImageProduct.BackColor = System.Drawing.SystemColors.Control;
+            this.picB_ImageProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picB_ImageProduct.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picB_ImageProduct.Image = ((System.Drawing.Image)(resources.GetObject("picB_ImageProduct.Image")));
+            this.picB_ImageProduct.Location = new System.Drawing.Point(567, 51);
+            this.picB_ImageProduct.Name = "picB_ImageProduct";
+            this.picB_ImageProduct.Size = new System.Drawing.Size(303, 277);
+            this.picB_ImageProduct.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picB_ImageProduct.TabIndex = 8;
+            this.picB_ImageProduct.TabStop = false;
             // 
-            // pictureBox1
+            // btn_UploadImage
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(497, 74);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(315, 214);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
+            this.btn_UploadImage.Image = ((System.Drawing.Image)(resources.GetObject("btn_UploadImage.Image")));
+            this.btn_UploadImage.Location = new System.Drawing.Point(669, 343);
+            this.btn_UploadImage.Name = "btn_UploadImage";
+            this.btn_UploadImage.Size = new System.Drawing.Size(100, 40);
+            this.btn_UploadImage.TabIndex = 9;
+            this.btn_UploadImage.Text = "Tải lên";
+            this.btn_UploadImage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_UploadImage.UseVisualStyleBackColor = true;
+            this.btn_UploadImage.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button3
+            // btn_taoLoaiSP
             // 
-            this.button3.Location = new System.Drawing.Point(842, 74);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Choose Picture";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btn_taoLoaiSP.Image = ((System.Drawing.Image)(resources.GetObject("btn_taoLoaiSP.Image")));
+            this.btn_taoLoaiSP.Location = new System.Drawing.Point(370, 51);
+            this.btn_taoLoaiSP.Name = "btn_taoLoaiSP";
+            this.btn_taoLoaiSP.Size = new System.Drawing.Size(160, 40);
+            this.btn_taoLoaiSP.TabIndex = 10;
+            this.btn_taoLoaiSP.Text = "Tạo loại sản phẩm mới";
+            this.btn_taoLoaiSP.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_taoLoaiSP.UseVisualStyleBackColor = true;
+            this.btn_taoLoaiSP.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button4
+            // lb_LoaiSP
             // 
-            this.button4.Location = new System.Drawing.Point(462, 31);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "New";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.lb_LoaiSP.AutoSize = true;
+            this.lb_LoaiSP.Location = new System.Drawing.Point(60, 65);
+            this.lb_LoaiSP.Name = "lb_LoaiSP";
+            this.lb_LoaiSP.Size = new System.Drawing.Size(79, 13);
+            this.lb_LoaiSP.TabIndex = 11;
+            this.lb_LoaiSP.Text = "Loại sản phẩm:";
+            // 
+            // lb_TenSP
+            // 
+            this.lb_TenSP.AutoSize = true;
+            this.lb_TenSP.Location = new System.Drawing.Point(61, 23);
+            this.lb_TenSP.Name = "lb_TenSP";
+            this.lb_TenSP.Size = new System.Drawing.Size(78, 13);
+            this.lb_TenSP.TabIndex = 12;
+            this.lb_TenSP.Text = "Tên sản phẩm:";
+            // 
+            // lb_DonGia
+            // 
+            this.lb_DonGia.AutoSize = true;
+            this.lb_DonGia.Location = new System.Drawing.Point(36, 105);
+            this.lb_DonGia.Name = "lb_DonGia";
+            this.lb_DonGia.Size = new System.Drawing.Size(103, 13);
+            this.lb_DonGia.TabIndex = 13;
+            this.lb_DonGia.Text = "Giá bán 1 kg (VNĐ):";
+            // 
+            // lb_MieuTaSP
+            // 
+            this.lb_MieuTaSP.AutoSize = true;
+            this.lb_MieuTaSP.Location = new System.Drawing.Point(45, 149);
+            this.lb_MieuTaSP.Name = "lb_MieuTaSP";
+            this.lb_MieuTaSP.Size = new System.Drawing.Size(94, 13);
+            this.lb_MieuTaSP.TabIndex = 14;
+            this.lb_MieuTaSP.Text = "Miêu tả sản phẩm:";
+            // 
+            // lb_HinhSP
+            // 
+            this.lb_HinhSP.AutoSize = true;
+            this.lb_HinhSP.Location = new System.Drawing.Point(638, 27);
+            this.lb_HinhSP.Name = "lb_HinhSP";
+            this.lb_HinhSP.Size = new System.Drawing.Size(148, 13);
+            this.lb_HinhSP.TabIndex = 15;
+            this.lb_HinhSP.Text = "Hình minh họa cho sản phẩm:";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Info;
+            this.panel1.Controls.Add(this.lb_TenSP);
+            this.panel1.Controls.Add(this.picB_ImageProduct);
+            this.panel1.Controls.Add(this.btn_UploadImage);
+            this.panel1.Controls.Add(this.lb_HinhSP);
+            this.panel1.Controls.Add(this.lb_LoaiSP);
+            this.panel1.Controls.Add(this.btn_taoLoaiSP);
+            this.panel1.Controls.Add(this.lb_MieuTaSP);
+            this.panel1.Controls.Add(this.lb_DonGia);
+            this.panel1.Controls.Add(this.rTxtB_DescriptionProduct);
+            this.panel1.Controls.Add(this.chB_TopProduct);
+            this.panel1.Controls.Add(this.txtB_ProductName);
+            this.panel1.Controls.Add(this.cmbProductType);
+            this.panel1.Controls.Add(this.txtB_ProductPrice);
+            this.panel1.Location = new System.Drawing.Point(3, 13);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(918, 403);
+            this.panel1.TabIndex = 16;
             // 
             // NewProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(971, 388);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.cmbProductType);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(921, 497);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btn_Exit);
+            this.Controls.Add(this.btn_NewProduct);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "NewProductForm";
-            this.Text = "NewProductForm";
+            this.Text = "Quản lý sản phẩm";
             this.Load += new System.EventHandler(this.NewProductForm_Load);
             this.VisibleChanged += new System.EventHandler(this.NewProductForm_VisibleChanged);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picB_ImageProduct)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TextBox txtB_ProductName;
+        private System.Windows.Forms.TextBox txtB_ProductPrice;
+        private System.Windows.Forms.RichTextBox rTxtB_DescriptionProduct;
         private System.Windows.Forms.ComboBox cmbProductType;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.CheckBox chB_TopProduct;
+        private System.Windows.Forms.Button btn_NewProduct;
+        private System.Windows.Forms.Button btn_Exit;
+        private System.Windows.Forms.PictureBox picB_ImageProduct;
+        private System.Windows.Forms.Button btn_UploadImage;
+        private System.Windows.Forms.Button btn_taoLoaiSP;
+        private System.Windows.Forms.Label lb_LoaiSP;
+        private System.Windows.Forms.Label lb_TenSP;
+        private System.Windows.Forms.Label lb_DonGia;
+        private System.Windows.Forms.Label lb_MieuTaSP;
+        private System.Windows.Forms.Label lb_HinhSP;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -22,12 +22,12 @@ namespace DAO
 
         public bool CreateNewSupplier(string name, string addr, string mail, string phone)
         {
-            const string query = "INSERT INTO suppliers (name, addr, phone, email) VALUES(@name, @add, @mail, @phone)";
+            const string query = "INSERT INTO suppliers (name, addr, phone, email) VALUES(@name, @add, @phone, @mail)";
             var sqlParameters = new MySqlParameter[4];
-            sqlParameters[0] = new MySqlParameter("@name", MySqlDbType.String) {Value = name};
-            sqlParameters[1] = new MySqlParameter("@add", MySqlDbType.String) { Value = addr };
-            sqlParameters[2] = new MySqlParameter("@mail", MySqlDbType.String) { Value = mail };
-            sqlParameters[3] = new MySqlParameter("@phone", MySqlDbType.String) { Value = phone };
+            sqlParameters[0] = new MySqlParameter("@name", MySqlDbType.VarChar) {Value = name};
+            sqlParameters[1] = new MySqlParameter("@add", MySqlDbType.VarChar) { Value = addr };
+            sqlParameters[2] = new MySqlParameter("@mail", MySqlDbType.VarChar) { Value = mail };
+            sqlParameters[3] = new MySqlParameter("@phone", MySqlDbType.VarChar) { Value = phone };
             return _mySqlDbConnection.ExecuteInsertQuery(query,sqlParameters);
         }
 
@@ -35,10 +35,10 @@ namespace DAO
         {
             const string query = "UPDATE suppliers set name = @name, addr = @addr, email= @mail, phone =@phone where id = @id";
             var sqlParameters = new MySqlParameter[5];
-            sqlParameters[0] = new MySqlParameter("@name", MySqlDbType.String) { Value = supplierName };
-            sqlParameters[1] = new MySqlParameter("@addr", MySqlDbType.String) { Value = supplierAddress };
-            sqlParameters[2] = new MySqlParameter("@mail", MySqlDbType.String) { Value = supplierEmail };
-            sqlParameters[3] = new MySqlParameter("@phone", MySqlDbType.String) { Value = supplierEmail };
+            sqlParameters[0] = new MySqlParameter("@name", MySqlDbType.VarChar) { Value = supplierName };
+            sqlParameters[1] = new MySqlParameter("@addr", MySqlDbType.VarChar) { Value = supplierAddress };
+            sqlParameters[2] = new MySqlParameter("@mail", MySqlDbType.VarChar) { Value = supplierEmail };
+            sqlParameters[3] = new MySqlParameter("@phone", MySqlDbType.VarChar) { Value = supplierPhone };
             sqlParameters[4] = new MySqlParameter("@id", MySqlDbType.Int32) { Value = supplierId };
             return _mySqlDbConnection.ExecuteUpdateQuery(query, sqlParameters);
         }

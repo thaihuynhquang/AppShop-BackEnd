@@ -59,11 +59,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DetailBill.cs">
+    <Compile Include="BillDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DetailBill.Designer.cs">
-      <DependentUpon>DetailBill.cs</DependentUpon>
+    <Compile Include="BillDetailForm.Designer.cs">
+      <DependentUpon>BillDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePassForm.Designer.cs">
+      <DependentUpon>ChangePassForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ImportProduct.cs">
       <SubType>Form</SubType>
@@ -83,23 +89,23 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewBillForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NewBillForm.Designer.cs">
-      <DependentUpon>NewBillForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="NewProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="NewProductForm.Designer.cs">
       <DependentUpon>NewProductForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewProductType.cs">
+    <Compile Include="NewProductTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewProductType.Designer.cs">
-      <DependentUpon>NewProductType.cs</DependentUpon>
+    <Compile Include="NewProductTypeForm.Designer.cs">
+      <DependentUpon>NewProductTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewShipperForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewShipperForm.Designer.cs">
+      <DependentUpon>NewShipperForm.cs</DependentUpon>
     </Compile>
     <Compile Include="NewSupplierForm.cs">
       <SubType>Form</SubType>
@@ -109,8 +115,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DetailBill.resx">
-      <DependentUpon>DetailBill.cs</DependentUpon>
+    <EmbeddedResource Include="BillDetailForm.resx">
+      <DependentUpon>BillDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePassForm.resx">
+      <DependentUpon>ChangePassForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ImportProduct.resx">
       <DependentUpon>ImportProduct.cs</DependentUpon>
@@ -121,14 +130,14 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewBillForm.resx">
-      <DependentUpon>NewBillForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="NewProductForm.resx">
       <DependentUpon>NewProductForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewProductType.resx">
-      <DependentUpon>NewProductType.cs</DependentUpon>
+    <EmbeddedResource Include="NewProductTypeForm.resx">
+      <DependentUpon>NewProductTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewShipperForm.resx">
+      <DependentUpon>NewShipperForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewSupplierForm.resx">
       <DependentUpon>NewSupplierForm.cs</DependentUpon>

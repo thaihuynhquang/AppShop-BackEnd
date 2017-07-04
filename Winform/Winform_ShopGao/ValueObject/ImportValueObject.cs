@@ -9,13 +9,15 @@ namespace ValueObject
    public class ImportValueObject
     {
         public int? Id { get; set; }
-        public int IdNcc { get; set; }
-        public int IdSp { get; set; }
-        public int Soluong { get; set; }
+        public int IdNCC { get; set; }
+        public string NhaCungCap { get; set; }
+        public int IdSP { get; set; }
+        public string SanPham { get; set; }
+        public int SoLuongSanPham { get; set; }
         public int Dongia { get; set; }
-        public int Tong { get; set; }
+        public int TongTien { get; set; }
 
-    public ImportValueObject(int? id, int idncc, int idsp, int sl, int dongia, int tong)
+    public ImportValueObject(int? id, int supplierId, string supplierName, int productId, string productName, int unitInStock, int unitPrice)
         {
             this.Id = id;
             this.IdNcc = idncc;

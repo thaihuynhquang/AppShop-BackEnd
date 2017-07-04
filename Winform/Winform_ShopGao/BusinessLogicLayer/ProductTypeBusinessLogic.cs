@@ -9,21 +9,37 @@ using ValueObject;
 
 namespace BusinessLogicLayer
 {
-   public class ProductTypeBusinessLogic
-   {
-       private ProductTypeDataAccessLayer _productTypeDataAccessLayer;
+    public class ProductTypeBusinessLogic
+    {
+        private ProductTypeDataAccessLayer _productTypeDataAccessLayer;
 
-       public ProductTypeBusinessLogic()
-       {
-           _productTypeDataAccessLayer = new ProductTypeDataAccessLayer();
-       }
+        public ProductTypeBusinessLogic()
+        {
+            _productTypeDataAccessLayer = new ProductTypeDataAccessLayer();
+        }
 
-       public List<ProductTypeValueObject> GetAllProductType()
-       {
-           var data = _productTypeDataAccessLayer.GetAllProductType();
-           return (from DataRow row in data.Rows
-               select new ProductTypeValueObject(int.Parse(row["id"].ToString()), row["name"].ToString(),
-                   row["image"].ToString())).ToList();
-       }
-   }
+        public List<ProductTypeValueObject> GetAllProductTypes()
+        {
+            var dataTable = _productTypeDataAccessLayer.GetAllProductTypes();
+            return (from DataRow row in dataTable.Rows
+                    select new ProductTypeValueObject(int.Parse(row["id"].ToString()), row["name"].ToString(), row["image"].ToString())).ToList();
+        }
+
+        public bool CreateProductType(ProductTypeValueObject productType)
+        {
+            return _productTypeDataAccessLayer.CreateNewProductType(productType.Name, productType.Image);
+        }
+
+        public bool UpdateProductType(ProductTypeValueObject productType)
+        {
+            return _productTypeDataAccessLayer.UpdateProductType(productType.Id, productType.Name, productType.Image);
+        }
+
+        public ProductTypeValueObject GetDetailProductType(int id)
+        {
+            var dataTable = _productTypeDataAccessLayer.GetDetailProductType(id);
+            return (from DataRow row in dataTable.Rows
+                    select new ProductTypeValueObject(int.Parse(row["id"].ToString()), row["name"].ToString(), row["image"].ToString())).ToList().First();
+        }
+    }
 }

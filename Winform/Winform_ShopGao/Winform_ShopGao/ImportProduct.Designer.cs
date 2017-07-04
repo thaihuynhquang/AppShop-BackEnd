@@ -28,123 +28,130 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImportProduct));
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lb_TenNCC = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lb_TenSP = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.lb_DonGIa = new System.Windows.Forms.Label();
+            this.lb_SL = new System.Windows.Forms.Label();
+            this.btn_importProduct = new System.Windows.Forms.Button();
+            this.btn_Exit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(91, 29);
+            this.comboBox1.Location = new System.Drawing.Point(222, 29);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(219, 21);
             this.comboBox1.TabIndex = 0;
             // 
-            // label1
+            // lb_TenNCC
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "nhà cung cấp";
+            this.lb_TenNCC.AutoSize = true;
+            this.lb_TenNCC.Location = new System.Drawing.Point(122, 32);
+            this.lb_TenNCC.Name = "lb_TenNCC";
+            this.lb_TenNCC.Size = new System.Drawing.Size(78, 13);
+            this.lb_TenNCC.TabIndex = 1;
+            this.lb_TenNCC.Text = "Nhà cung cấp:";
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(423, 28);
+            this.comboBox2.Location = new System.Drawing.Point(222, 78);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.Size = new System.Drawing.Size(219, 21);
             this.comboBox2.TabIndex = 2;
             // 
-            // label2
+            // lb_TenSP
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(329, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "sản phẩm";
+            this.lb_TenSP.AutoSize = true;
+            this.lb_TenSP.Location = new System.Drawing.Point(142, 81);
+            this.lb_TenSP.Name = "lb_TenSP";
+            this.lb_TenSP.Size = new System.Drawing.Size(58, 13);
+            this.lb_TenSP.TabIndex = 3;
+            this.lb_TenSP.Text = "Sản phẩm:";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(91, 91);
+            this.textBox1.Location = new System.Drawing.Point(222, 125);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(219, 20);
             this.textBox1.TabIndex = 4;
             this.textBox1.Text = "10";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(423, 91);
+            this.textBox2.Location = new System.Drawing.Point(222, 169);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.Size = new System.Drawing.Size(219, 20);
             this.textBox2.TabIndex = 5;
             this.textBox2.Text = "10";
             // 
-            // label3
+            // lb_DonGIa
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(329, 94);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "đơn giá";
+            this.lb_DonGIa.AutoSize = true;
+            this.lb_DonGIa.Location = new System.Drawing.Point(121, 172);
+            this.lb_DonGIa.Name = "lb_DonGIa";
+            this.lb_DonGIa.Size = new System.Drawing.Size(79, 13);
+            this.lb_DonGIa.TabIndex = 6;
+            this.lb_DonGIa.Text = "Đơn giá (VNĐ):";
             // 
-            // label4
+            // lb_SL
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 91);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "số lượng";
+            this.lb_SL.AutoSize = true;
+            this.lb_SL.Location = new System.Drawing.Point(148, 128);
+            this.lb_SL.Name = "lb_SL";
+            this.lb_SL.Size = new System.Drawing.Size(52, 13);
+            this.lb_SL.TabIndex = 7;
+            this.lb_SL.Text = "Số lượng:";
             // 
-            // button1
+            // btn_importProduct
             // 
-            this.button1.Location = new System.Drawing.Point(585, 208);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_importProduct.Image = ((System.Drawing.Image)(resources.GetObject("btn_importProduct.Image")));
+            this.btn_importProduct.Location = new System.Drawing.Point(165, 228);
+            this.btn_importProduct.Name = "btn_importProduct";
+            this.btn_importProduct.Size = new System.Drawing.Size(130, 50);
+            this.btn_importProduct.TabIndex = 8;
+            this.btn_importProduct.Text = "Nhập hàng";
+            this.btn_importProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_importProduct.UseVisualStyleBackColor = true;
+            this.btn_importProduct.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btn_Exit
             // 
-            this.button2.Location = new System.Drawing.Point(473, 208);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Exit";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_Exit.Image = ((System.Drawing.Image)(resources.GetObject("btn_Exit.Image")));
+            this.btn_Exit.Location = new System.Drawing.Point(344, 228);
+            this.btn_Exit.Name = "btn_Exit";
+            this.btn_Exit.Size = new System.Drawing.Size(130, 50);
+            this.btn_Exit.TabIndex = 9;
+            this.btn_Exit.Text = "Thoát";
+            this.btn_Exit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Exit.UseVisualStyleBackColor = true;
+            this.btn_Exit.Click += new System.EventHandler(this.button2_Click);
             // 
             // ImportProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 300);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(627, 300);
+            this.Controls.Add(this.btn_Exit);
+            this.Controls.Add(this.btn_importProduct);
+            this.Controls.Add(this.lb_SL);
+            this.Controls.Add(this.lb_DonGIa);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lb_TenSP);
             this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lb_TenNCC);
             this.Controls.Add(this.comboBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "ImportProduct";
-            this.Text = "ImportProduct";
+            this.Text = "Nhập hàng";
             this.Load += new System.EventHandler(this.ImportProduct_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -154,14 +161,14 @@
         #endregion
 
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lb_TenNCC;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lb_TenSP;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lb_DonGIa;
+        private System.Windows.Forms.Label lb_SL;
+        private System.Windows.Forms.Button btn_importProduct;
+        private System.Windows.Forms.Button btn_Exit;
     }
 }

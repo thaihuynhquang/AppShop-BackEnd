@@ -27,26 +27,26 @@ namespace Winform_ShopGao
             InitializeComponent();
             _supplierBusinessLogic = new SupplierBusinessLogic();
             if (rowId == null) return;
-            button1.Text = @"Update";
+            btn_themNCC.Text = @"Cập nhật thay đổi";
             _isUpdate = true;
             _rowId = (int) rowId;
 
             var supplier = _supplierBusinessLogic.GetDetailSupplier(_rowId);
-            name.Text = supplier.Name;
-            address.Text = supplier.Address;
-            mail.Text = supplier.Email;
-            phone.Text = supplier.Phone;
+            txtB_TenNCC.Text = supplier.Name;
+            txtB_DiaChiNCC.Text = supplier.Address;
+            txtB_emailNCC.Text = supplier.Email;
+            txtB_SđtNCC.Text = supplier.Phone;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.RefToFormMain.Show();
+            RefToFormMain.Show();
             this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var supplierValueObject = new SupplierValueObject(_isUpdate ? _rowId: 0, name.Text.Trim(), address.Text.Trim(), mail.Text.Trim(),phone.Text.Trim());
+            var supplierValueObject = new SupplierValueObject(_isUpdate ? _rowId: 0, txtB_TenNCC.Text.Trim(), txtB_DiaChiNCC.Text.Trim(), txtB_emailNCC.Text.Trim(),txtB_SđtNCC.Text.Trim());
             var success = _isUpdate ? _supplierBusinessLogic.UpdateSupplier(supplierValueObject) : _supplierBusinessLogic.CreateSupplier(supplierValueObject);
 
             MessageBox.Show(success ? "Success" : "Fail");

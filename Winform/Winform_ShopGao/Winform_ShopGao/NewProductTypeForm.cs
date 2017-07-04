@@ -16,19 +16,28 @@ using ValueObject;
 
 namespace Winform_ShopGao
 {
-    public partial class NewProductType : Form
+    public partial class NewProductTypeForm : Form
     {
         private string _filePath;
         private bool _isUpdate = false;
+        private readonly int _rowId;
         private readonly ProductBusinessLogic _productBusinessLogic;
+        private readonly ProductTypeBusinessLogic _productTypeBusinessLogic;
+        public Form RefToPreForm { get; set; }
 
-        public NewProductType()
+        public NewProductTypeForm(int? rowId = null)
         {
             InitializeComponent();
             _productBusinessLogic = new ProductBusinessLogic();
-        }
+            _productTypeBusinessLogic = new ProductTypeBusinessLogic();
+            if (rowId == null) return;
+            btn_InsertProductType.Text = @"Cập nhật thay đổi";
+            _isUpdate = true;
+            _rowId = (int)rowId;
 
-        public NewProductForm RefToPreForm { get; set; }
+            var productTpye = _productTypeBusinessLogic.GetDetailProductType(_rowId);
+            txtB_NameProductType.Text = productTpye.Name;
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -49,21 +58,20 @@ namespace Winform_ShopGao
             if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
 
             _filePath = openFileDialog1.FileName;
-            pictureBox1.Size = new Size(200, 200);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.Image = Image.FromFile(openFileDialog1.FileName);
-            pictureBox1.BackColor = Color.White;
+            picBox_ImageProductType.SizeMode = PictureBoxSizeMode.CenterImage;
+            picBox_ImageProductType.Image = Image.FromFile(openFileDialog1.FileName);
+            picBox_ImageProductType.BackColor = Color.White;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            RefToPreForm.Show();
-            Close();
+            this.RefToPreForm.Show();
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var name = textBox1.Text.Trim();
+            var name = txtB_NameProductType.Text.Trim();
             using (var tran = new TransactionScope())
             {
                 const string actionUrl = "http://localhost:4000/api/upload_image_productType";
@@ -92,8 +100,8 @@ namespace Winform_ShopGao
                         fileNameInServer = stuff.link.ToString();
                     }
                 }
-                ProductTypeValueObject productValueObject = new ProductTypeValueObject(null, name, fileNameInServer);
-                var success = _isUpdate ? _productBusinessLogic.UpdateProductType(productValueObject) : _productBusinessLogic.CreateNewProductType(productValueObject);
+                ProductTypeValueObject productTypeValueObject = new ProductTypeValueObject(null, name, fileNameInServer);
+                var success = _isUpdate ? _productTypeBusinessLogic.UpdateProductType(productTypeValueObject) : _productTypeBusinessLogic.CreateProductType(productTypeValueObject);
                 MessageBox.Show(success ? "Success" : "Fail");
                 tran.Complete();
             }

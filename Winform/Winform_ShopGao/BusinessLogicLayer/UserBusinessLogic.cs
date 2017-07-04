@@ -25,5 +25,13 @@ namespace BusinessLogicLayer
                 row[1].ToString(), row[2].ToString(), row[4].ToString(), row[5].ToString())).ToList();
            
         }
+
+        public UserValueObject GetDetailUser(int id)
+        {
+            var dataTable = _userDataAccessLayer.GetDetailUser(id);
+            return (from DataRow row in dataTable.Rows
+                    select new UserValueObject(int.Parse(row[0].ToString()), row[3].ToString(),
+                row[1].ToString(), row[2].ToString(), row[4].ToString(), row[5].ToString())).ToList().First();
+        }
     }
 }

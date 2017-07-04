@@ -17,7 +17,7 @@ namespace ValueObject
         public string Dis { get; set; }
         public string City { get; set; }
         public string Note { get; set; }
-        public int Status { get; set; }
+        public string Status { get; set; }
         public int IdShipper { get; set; }
 
         public BillValueObject(int? id, int idCus, DateTime dateOrder, DateTime expectedDateOrder, int total, string addr, string dis, string city, string note, int status, int idShipper)
@@ -31,7 +31,7 @@ namespace ValueObject
             this.Dis = dis;
             this.City = city;
             this.Note = note;
-            this.Status = status;
+            this.Status = status == 1 ? "Đã xong" : "Đang chờ";
             this.IdShipper = idShipper;
         }
     }

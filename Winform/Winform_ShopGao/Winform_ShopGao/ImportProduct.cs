@@ -29,14 +29,16 @@ namespace Winform_ShopGao
         private void ImportProduct_Load(object sender, EventArgs e)
         {
             // combo box nha cung cap
-            comboBox1.DataSource = _supplierBusinessLogic.GetallSupplier();
             comboBox1.DisplayMember = "name";
             comboBox1.ValueMember = "id";
+            comboBox1.DataSource = _supplierBusinessLogic.GetallSupplier();
+
 
             // combo box san pham
-            comboBox2.DataSource = _productBusinessLogic.GetAllProduct();
             comboBox2.DisplayMember = "name";
             comboBox2.ValueMember = "id";
+            comboBox2.DataSource = _productBusinessLogic.GetAllProduct();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -39,5 +39,40 @@ namespace DAO
             sqlParameters[9] = new MySqlParameter("@shipper", MySqlDbType.Int32) { Value = idShipper };
             return _mySqlDbConnection.ExecuteInsertQuery(query, sqlParameters);
         }
+
+        public bool UpdateBillNote(int? BillId, string note)
+        {
+            const string query = "UPDATE bill set note = @note where id = @id";
+            var sqlParameters = new MySqlParameter[2];
+            sqlParameters[0] = new MySqlParameter("@note", MySqlDbType.VarChar) { Value = note };
+            sqlParameters[1] = new MySqlParameter("@id", MySqlDbType.Int32) { Value = BillId };
+            return _mySqlDbConnection.ExecuteUpdateQuery(query, sqlParameters);
+        }
+
+        public bool UpdateBillStatus(int? BillId, int status)
+        {
+            const string query = "UPDATE bill set status = @status where id = @id";
+            var sqlParameters = new MySqlParameter[2];
+            sqlParameters[0] = new MySqlParameter("@status", MySqlDbType.Int32) { Value = status };
+            sqlParameters[1] = new MySqlParameter("@id", MySqlDbType.Int32) { Value = BillId };
+            return _mySqlDbConnection.ExecuteUpdateQuery(query, sqlParameters);
+        }
+
+        public bool UpdateBillShipper(int? BillId, int shipperId)
+        {
+            const string query = "UPDATE bill set id_shipper = @shipperId where id = @id";
+            var sqlParameters = new MySqlParameter[2];
+            sqlParameters[0] = new MySqlParameter("@shipperId", MySqlDbType.Int32) { Value = shipperId };
+            sqlParameters[1] = new MySqlParameter("@id", MySqlDbType.Int32) { Value = BillId };
+            return _mySqlDbConnection.ExecuteUpdateQuery(query, sqlParameters);
+        }
+
+        public DataTable GetBillById(int? id)
+        {
+            const string query = "select * from bill where id = @id limit 1";
+            var sqlParameters = new MySqlParameter[1];
+            sqlParameters[0] = new MySqlParameter("@id", MySqlDbType.Int32) { Value = id };
+            return _mySqlDbConnection.ExecuteSelectQuery(query, sqlParameters);
+        }
     }
 }

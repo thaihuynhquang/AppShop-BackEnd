@@ -39,12 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminDataAccessLayer.cs" />
     <Compile Include="BillDataAccessLayer.cs" />
+    <Compile Include="BillDetailDataAccessLayer.cs" />
     <Compile Include="ImageDataAccessLayer.cs" />
     <Compile Include="ImportDataAccessLayer.cs" />
     <Compile Include="MySqlDbConnection.cs" />
     <Compile Include="ProductDataAccessLayer.cs" />
     <Compile Include="ProductTypeDataAccessLayer.cs" />
+    <Compile Include="ShipperDataAccessLayer.cs" />
     <Compile Include="SupplierDataAccessLayer.cs" />
     <Compile Include="UserDataAccessLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
