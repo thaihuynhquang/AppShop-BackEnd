@@ -16,12 +16,14 @@ namespace Winform_ShopGao
     {
         private SupplierBusinessLogic _supplierBusinessLogic;
         private ProductBusinessLogic _productBusinessLogic;
-      
+        private ImportBusinessLogic _importBusinessLogic;
+
         public ImportProduct()
         {
             InitializeComponent();
             _supplierBusinessLogic = new SupplierBusinessLogic();
             _productBusinessLogic = new ProductBusinessLogic();
+            _importBusinessLogic = new ImportBusinessLogic();
         }
 
         public MainForm RefToFormMain { get; set; }
@@ -29,15 +31,15 @@ namespace Winform_ShopGao
         private void ImportProduct_Load(object sender, EventArgs e)
         {
             // combo box nha cung cap
-            comboBox1.DisplayMember = "name";
-            comboBox1.ValueMember = "id";
-            comboBox1.DataSource = _supplierBusinessLogic.GetallSupplier();
+            cmb_Supplier.DisplayMember = "name";
+            cmb_Supplier.ValueMember = "id";
+            cmb_Supplier.DataSource = _supplierBusinessLogic.GetallSupplier();
 
 
             // combo box san pham
-            comboBox2.DisplayMember = "name";
-            comboBox2.ValueMember = "id";
-            comboBox2.DataSource = _productBusinessLogic.GetAllProduct();
+            cmn_Product.DisplayMember = "name";
+            cmn_Product.ValueMember = "id";
+            cmn_Product.DataSource = _productBusinessLogic.GetAllProduct();
             
         }
 
@@ -49,22 +51,21 @@ namespace Winform_ShopGao
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int idNcc = (int) comboBox1.SelectedValue;
-                int idSp = (int) comboBox2.SelectedValue;
-                int sl = Convert.ToInt32(textBox1.Text);
-                int dongia = Convert.ToInt32(textBox2.Text);
+            int supplierId = (int)cmb_Supplier.SelectedValue;
+            int productId = (int)cmn_Product.SelectedValue;
+            int unitInStock = Convert.ToInt32(txtB_UnitInStock.Text);
+            int unitPrice = Convert.ToInt32(txtB_UnitPrice.Text);
 
-                // luu xuong data base
-                 _productBusinessLogic.ImportProduct(idSp, idNcc, sl, dongia);
-                MessageBox.Show("Success");
+            var supplier = _supplierBusinessLogic.GetDetailSupplier(supplierId);
+            string supplierName = supplier.Name;
 
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show("Error");
-            }
+            var product = _productBusinessLogic.GetProductById(productId);
+            string productName = product.Name;
+
+            var import = new ImportValueObject(0, supplierId, supplierName, productId, productName, unitInStock, 0, unitPrice, 0);
+            var success = _importBusinessLogic.ImportProduct(import);
+            MessageBox.Show(success ? "Thành công." : "Thất bại");
+            
         }
     }
 }

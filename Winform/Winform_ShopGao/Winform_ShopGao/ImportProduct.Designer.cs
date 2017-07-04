@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImportProduct));
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmb_Supplier = new System.Windows.Forms.ComboBox();
             this.lb_TenNCC = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmn_Product = new System.Windows.Forms.ComboBox();
             this.lb_TenSP = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtB_UnitInStock = new System.Windows.Forms.TextBox();
+            this.txtB_UnitPrice = new System.Windows.Forms.TextBox();
             this.lb_DonGIa = new System.Windows.Forms.Label();
             this.lb_SL = new System.Windows.Forms.Label();
             this.btn_importProduct = new System.Windows.Forms.Button();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cmb_Supplier
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(222, 29);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(219, 21);
-            this.comboBox1.TabIndex = 0;
+            this.cmb_Supplier.FormattingEnabled = true;
+            this.cmb_Supplier.Location = new System.Drawing.Point(222, 29);
+            this.cmb_Supplier.Name = "cmb_Supplier";
+            this.cmb_Supplier.Size = new System.Drawing.Size(219, 21);
+            this.cmb_Supplier.TabIndex = 0;
             // 
             // lb_TenNCC
             // 
@@ -58,13 +58,13 @@
             this.lb_TenNCC.TabIndex = 1;
             this.lb_TenNCC.Text = "Nhà cung cấp:";
             // 
-            // comboBox2
+            // cmn_Product
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(222, 78);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(219, 21);
-            this.comboBox2.TabIndex = 2;
+            this.cmn_Product.FormattingEnabled = true;
+            this.cmn_Product.Location = new System.Drawing.Point(222, 78);
+            this.cmn_Product.Name = "cmn_Product";
+            this.cmn_Product.Size = new System.Drawing.Size(219, 21);
+            this.cmn_Product.TabIndex = 2;
             // 
             // lb_TenSP
             // 
@@ -75,21 +75,21 @@
             this.lb_TenSP.TabIndex = 3;
             this.lb_TenSP.Text = "Sản phẩm:";
             // 
-            // textBox1
+            // txtB_UnitInStock
             // 
-            this.textBox1.Location = new System.Drawing.Point(222, 125);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(219, 20);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "10";
+            this.txtB_UnitInStock.Location = new System.Drawing.Point(222, 125);
+            this.txtB_UnitInStock.Name = "txtB_UnitInStock";
+            this.txtB_UnitInStock.Size = new System.Drawing.Size(219, 20);
+            this.txtB_UnitInStock.TabIndex = 4;
+            this.txtB_UnitInStock.Text = "10";
             // 
-            // textBox2
+            // txtB_UnitPrice
             // 
-            this.textBox2.Location = new System.Drawing.Point(222, 169);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(219, 20);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.Text = "10";
+            this.txtB_UnitPrice.Location = new System.Drawing.Point(222, 169);
+            this.txtB_UnitPrice.Name = "txtB_UnitPrice";
+            this.txtB_UnitPrice.Size = new System.Drawing.Size(219, 20);
+            this.txtB_UnitPrice.TabIndex = 5;
+            this.txtB_UnitPrice.Text = "10";
             // 
             // lb_DonGIa
             // 
@@ -142,12 +142,12 @@
             this.Controls.Add(this.btn_importProduct);
             this.Controls.Add(this.lb_SL);
             this.Controls.Add(this.lb_DonGIa);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtB_UnitPrice);
+            this.Controls.Add(this.txtB_UnitInStock);
             this.Controls.Add(this.lb_TenSP);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cmn_Product);
             this.Controls.Add(this.lb_TenNCC);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmb_Supplier);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "ImportProduct";
@@ -160,12 +160,12 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmb_Supplier;
         private System.Windows.Forms.Label lb_TenNCC;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmn_Product;
         private System.Windows.Forms.Label lb_TenSP;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtB_UnitInStock;
+        private System.Windows.Forms.TextBox txtB_UnitPrice;
         private System.Windows.Forms.Label lb_DonGIa;
         private System.Windows.Forms.Label lb_SL;
         private System.Windows.Forms.Button btn_importProduct;

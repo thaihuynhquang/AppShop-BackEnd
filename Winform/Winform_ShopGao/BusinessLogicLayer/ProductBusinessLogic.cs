@@ -91,6 +91,7 @@ namespace BusinessLogicLayer
 
         public bool ImportProduct(int id, int idncc, int total, int dongia)
         {
+            /*
             var product = GetProductById(id);
             using (var transactionScope = new TransactionScope())
             {
@@ -104,17 +105,10 @@ namespace BusinessLogicLayer
                 transactionScope.Dispose();
                 return false;
             }
+            */
+            return false;
         }
-
-        public List<ImportValueObject> GetAllImportValueObjects()
-        {
-            var data = importDataAccessLayer.GetAll();
-            return (from DataRow row in data.Rows
-                select new ImportValueObject(int.Parse(row[0].ToString()), int.Parse(row[1].ToString()),
-                    int.Parse(row[2].ToString()),
-                    int.Parse(row[3].ToString()), int.Parse(row[4].ToString()), int.Parse(row[5].ToString()))).ToList();
-        }
-
+        
         public string GetImageFileName(int? id)
         {
             var data = imageDataAccessLayer.GetImageFileNameByProductId(id);

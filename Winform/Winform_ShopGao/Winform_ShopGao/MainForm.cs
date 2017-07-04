@@ -13,6 +13,7 @@ namespace Winform_ShopGao
         private readonly BillBusinessLogic _billBusinessLogic;
         private readonly ShipperBussinessLogic _shipperBusinessLogic;
         private readonly ProductTypeBusinessLogic _productTypeBusinessLogic;
+        private readonly ImportBusinessLogic _importBusinessLogic;
 
         public MainForm()
         {
@@ -23,6 +24,7 @@ namespace Winform_ShopGao
             _billBusinessLogic = new BillBusinessLogic();
             _shipperBusinessLogic = new ShipperBussinessLogic();
             _productTypeBusinessLogic = new ProductTypeBusinessLogic();
+            _importBusinessLogic = new ImportBusinessLogic();
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -128,7 +130,7 @@ namespace Winform_ShopGao
         private void tabNavigationPage4_VisibleChanged(object sender, EventArgs e)
         {
             if (tabPaneMainForm.SelectedPage != tabNaviPage_NhapHang) return;
-            dataGridView2.DataSource = _productBusinessLogic.GetAllImportValueObjects();
+            dataGridView2.DataSource = _importBusinessLogic.GetAllImportProducts();
         }
 
         private void button9_Click(object sender, EventArgs e)
