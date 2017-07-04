@@ -7,8 +7,8 @@ namespace Winform_ShopGao
 {
     public class Utility
     {
-        readonly MySqlDbConnection _mySqlDbConnection = MySqlDbConnection.GetConnection();
-        public DataTable Search(string table, List<string> column,string value)
+        private static readonly MySqlDbConnection _mySqlDbConnection = MySqlDbConnection.GetConnection();
+        public static DataTable Search(string table, List<string> column,string value)
         {
             var query = $"select * from {table} where CONCAT_WS('',{string.Join(",", column)}) LIKE '%{value}%'";
             return _mySqlDbConnection.ExecuteSelectQuery(query);

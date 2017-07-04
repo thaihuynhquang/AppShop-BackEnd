@@ -36,6 +36,8 @@
             this.btt_newSupplier = new System.Windows.Forms.Button();
             this.supplierGridControl = new System.Windows.Forms.DataGridView();
             this.tabNaviPage_SanPham = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.btt_EditProduct = new System.Windows.Forms.Button();
             this.btt_newProduct = new System.Windows.Forms.Button();
             this.productGridView = new System.Windows.Forms.DataGridView();
@@ -56,8 +58,8 @@
             this.btn_InsertProductType = new System.Windows.Forms.Button();
             this.GridView_ProductType = new System.Windows.Forms.DataGridView();
             this.btn_ChangePass = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tabPaneMainForm)).BeginInit();
             this.tabPaneMainForm.SuspendLayout();
             this.tabNaviPage_NhaCungCap.SuspendLayout();
@@ -174,6 +176,24 @@
             this.tabNaviPage_SanPham.Size = new System.Drawing.Size(953, 422);
             this.tabNaviPage_SanPham.VisibleChanged += new System.EventHandler(this.tabNavigationPage2_VisibleChanged);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(15, 360);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(270, 20);
+            this.textBox1.TabIndex = 4;
+            this.textBox1.Text = "hang";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(302, 360);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Search";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btt_EditProduct
             // 
             this.btt_EditProduct.Image = ((System.Drawing.Image)(resources.GetObject("btt_EditProduct.Image")));
@@ -227,6 +247,8 @@
             // tabNaviPage_DonHang
             // 
             this.tabNaviPage_DonHang.Caption = "ĐƠN HÀNG";
+            this.tabNaviPage_DonHang.Controls.Add(this.textBox2);
+            this.tabNaviPage_DonHang.Controls.Add(this.button2);
             this.tabNaviPage_DonHang.Controls.Add(this.btn_newBill);
             this.tabNaviPage_DonHang.Controls.Add(this.GridView_Bills);
             this.tabNaviPage_DonHang.Name = "tabNaviPage_DonHang";
@@ -382,23 +404,22 @@
             this.btn_ChangePass.UseVisualStyleBackColor = true;
             this.btn_ChangePass.Click += new System.EventHandler(this.btn_ChangePass_Click);
             // 
-            // button1
+            // button2
             // 
-            this.button1.Location = new System.Drawing.Point(302, 360);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button2.Location = new System.Drawing.Point(239, 359);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
-            // textBox1
+            // textBox2
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 360);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(270, 20);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "hang";
+            this.textBox2.Location = new System.Drawing.Point(23, 359);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(192, 20);
+            this.textBox2.TabIndex = 3;
             // 
             // MainForm
             // 
@@ -424,6 +445,7 @@
             this.tabNaviPage_KhachHang.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.userGridView)).EndInit();
             this.tabNaviPage_DonHang.ResumeLayout(false);
+            this.tabNaviPage_DonHang.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridView_Bills)).EndInit();
             this.tabNaviPage_NhapHang.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -466,5 +488,7 @@
         private System.Windows.Forms.Button btn_RefreshDataSupplier;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button2;
     }
 }

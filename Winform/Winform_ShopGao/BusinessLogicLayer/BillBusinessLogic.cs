@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAO;
 using ValueObject;
+using Winform_ShopGao;
 
 namespace BusinessLogicLayer
 {
@@ -51,6 +52,17 @@ namespace BusinessLogicLayer
                         DateTime.Parse(row[2].ToString()), DateTime.Parse(row[3].ToString()), int.Parse(row[4].ToString()), row[5].ToString(),
                         row[6].ToString(), row[7].ToString(), row[8].ToString(), int.Parse(row[9].ToString()),
                         int.Parse(row[10].ToString()))).ToList().First();
+        }
+
+        public List<BillValueObject> Search(List<string> column, string value)
+        {
+            var data = Utility.Search("Bill", column, value);
+            return (from DataRow row in data.Rows
+                select new BillValueObject(int.Parse(row[0].ToString()), int.Parse(row[1].ToString()),
+                    DateTime.Parse(row[2].ToString()), DateTime.Parse(row[3].ToString()), int.Parse(row[4].ToString()),
+                    row[5].ToString(),
+                    row[6].ToString(), row[7].ToString(), row[8].ToString(), int.Parse(row[9].ToString()),
+                    int.Parse(row[10].ToString()))).ToList();
         }
     }
 }

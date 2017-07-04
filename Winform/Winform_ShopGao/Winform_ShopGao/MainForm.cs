@@ -1,5 +1,6 @@
 ﻿using BusinessLogicLayer;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -213,7 +214,16 @@ namespace Winform_ShopGao
 
         private void button1_Click(object sender, EventArgs e)
         {
+            List<string> column = new List<string>{"Name"};
+            String value = textBox1.Text.Trim();
+            productGridView.DataSource = _productBusinessLogic.Search(column,value);
+        }
 
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            List<string> column = new List<string> { "address" };
+            String value = textBox2.Text.Trim();
+            GridView_Bills.DataSource = _billBusinessLogic.Search(column, value);
         }
     }
 }

@@ -115,5 +115,15 @@ namespace BusinessLogicLayer
             var rows = data.Rows.Cast<DataRow>().ToArray();
             return rows.First().ItemArray.First().ToString();
         }
+
+        public List<ProductValueObject> Search(List<string> column, string value)
+        {
+            var data = Utility.Search("Product", column, value);
+            return (from DataRow row in data.Rows
+                select new ProductValueObject(int.Parse(row["id"].ToString()), row["name"].ToString(),
+                    int.Parse(row["id_type"].ToString()),
+                    int.Parse(row["price"].ToString()), row["description"].ToString(),
+                    int.Parse(row["new"].ToString()))).ToList();
+        }
     }
 }
