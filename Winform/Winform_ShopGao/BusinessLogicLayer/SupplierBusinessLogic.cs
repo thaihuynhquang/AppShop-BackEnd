@@ -39,7 +39,8 @@ namespace BusinessLogicLayer
         {
             var dataTable = _supplierDataAccessLayer.GetDetailSupplier(id);
             return (from DataRow row in dataTable.Rows
-                    select new SupplierValueObject(int.Parse(row["id"].ToString()), row["name"].ToString(), row["addr"].ToString(), row["email"].ToString(), row["phone"].ToString())).ToList().First();
+                    select new SupplierValueObject(int.Parse(row["id"].ToString()),
+row["name"].ToString(), row["addr"].ToString(), row["email"].ToString(), row["phone"].ToString())).ToList().First();
         }
 
         public bool DeleteSupplier(int id)

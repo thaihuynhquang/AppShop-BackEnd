@@ -40,32 +40,32 @@ namespace Winform_ShopGao
             _productTypeBusinessLogic = new ProductTypeBusinessLogic();
             _productBusinessLogic = new ProductBusinessLogic();
 
-            var productTypes = _productTypeBusinessLogic.GetAllProductTypes();
-            cmbProductType.DisplayMember = "Name";
-            cmbProductType.ValueMember = "Id";
+
+            var productTypes = _productTypeBusinessLogic.GetAllProductType();
             cmbProductType.DataSource = productTypes;
-            
+            cmbProductType.DisplayMember = "name";
+            cmbProductType.ValueMember = "id";
 
             if (rowId == null) return;
-            btn_NewProduct.Text = @"Cập nhật thay đổi";
+            button1.Text = @"Update";
             _isUpdate = true;
             _rowId = (int)rowId;
-
-
+          
             product = _productBusinessLogic.GetProductById(rowId);
             
-            txtB_ProductName.Text = product.Name;
-            txtB_ProductPrice.Text = product.Price.ToString();
+            textBox1.Text = product.Name;
+            textBox2.Text = product.Price.ToString();
             cmbProductType.SelectedValue = product.IdType;
-            chB_TopProduct.Checked = product.Inew == 1;
-            rTxtB_DescriptionProduct.Text = product.Description;
+            checkBox1.Checked = product.Inew == 1;
+            richTextBox1.Text = product.Description;
             
             try
             {
                 var image= GetImage(rowId);
-                picB_ImageProduct.Image = image;
-                picB_ImageProduct.SizeMode = PictureBoxSizeMode.CenterImage;
-                picB_ImageProduct.BackColor = Color.AliceBlue;
+                pictureBox1.Image = image;
+                pictureBox1.Size = new Size(200, 200);
+                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                pictureBox1.BackColor = Color.White;
             }
             catch (Exception e)
             {
@@ -81,11 +81,12 @@ namespace Winform_ShopGao
 
         private  void button1_Click(object sender, EventArgs e)
         {
-            var name = txtB_ProductName.Text.Trim();
-            var price = int.Parse(txtB_ProductPrice.Text.Trim());
+            var name = textBox1.Text.Trim();
+            var price = int.Parse(textBox2.Text.Trim());
             var type = int.Parse(cmbProductType.SelectedValue.ToString());
-            var des = rTxtB_DescriptionProduct.Text.Trim();
-            var isNew = chB_TopProduct.Checked ? 1 : 0;
+            var des = richTextBox1.Text.Trim();
+            var isNew = checkBox1.Checked ? 1 : 0;
+            var collection = int.Parse(textBox3.Text.Trim());
             var productValueObject = new ProductValueObject(_isUpdate ? _rowId : 0, name, type, price, des, isNew);
             using (var tran = new TransactionScope())
             {
@@ -146,9 +147,10 @@ namespace Winform_ShopGao
             if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
 
             _filePath = openFileDialog1.FileName;
-            picB_ImageProduct.SizeMode = PictureBoxSizeMode.CenterImage;
-            picB_ImageProduct.Image = Image.FromFile(openFileDialog1.FileName);
-            picB_ImageProduct.BackColor = Color.AliceBlue;
+            pictureBox1.Size = new Size(200, 200);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.Image = Image.FromFile(openFileDialog1.FileName);
+            pictureBox1.BackColor = Color.White;
             isUpdateImage = true;
         }
 
@@ -190,7 +192,7 @@ namespace Winform_ShopGao
 
         private void button4_Click(object sender, EventArgs e)
         {
-            var newProductType = new NewProductTypeForm {RefToPreForm = this};
+            var newProductType = new NewProductType {RefToPreForm = this};
             newProductType.Show();
             Hide();
         }
@@ -199,7 +201,7 @@ namespace Winform_ShopGao
         {
             if (Visible)
             {
-                cmbProductType.DataSource = _productTypeBusinessLogic.GetAllProductTypes();
+                cmbProductType.DataSource = _productTypeBusinessLogic.GetAllProductType();
                 if (product!= null)
                 {
                     cmbProductType.SelectedValue = product.IdType;
