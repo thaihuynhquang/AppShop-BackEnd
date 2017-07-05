@@ -33,6 +33,11 @@ namespace BusinessLogicLayer
             return _importDataAccessLayer.CreateImportProduct(import.IdNCC, import.NhaCungCap, import.IdSP, import.SanPham, import.SoLuongTrongKho, import.Dongia);
         }
 
+        public bool UpdateImportProduct(ImportValueObject import)
+        {
+            return _importDataAccessLayer.UpdateImportProduct(import.Id, import.IdNCC, import.NhaCungCap, import.IdSP, import.SanPham, import.SoLuongTrongKho, import.Dongia);
+        }
+
         public List<ImportValueObject> Search(List<string> column, string value)
         {
             var data = Utility.Search("import", column, value);

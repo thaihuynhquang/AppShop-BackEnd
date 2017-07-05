@@ -140,6 +140,21 @@ namespace Winform_ShopGao
             importProduct.Show();
         }
 
+        private void btn_EditImportProduct_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var row = importGridControl.SelectedRows;
+                var cells = row[0].Cells;
+                var importProduct = new ImportProduct(int.Parse(cells[0].Value.ToString()), int.Parse(cells[1].Value.ToString()), int.Parse(cells[3].Value.ToString())) { RefToFormMain = this };
+                importProduct.Show();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Please select row");
+            }
+        }
+
         private void btn_ChangePass_Click(object sender, EventArgs e)
         {
             //show form chang pass
