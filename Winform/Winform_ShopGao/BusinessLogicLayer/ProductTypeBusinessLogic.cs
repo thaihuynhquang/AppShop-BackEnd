@@ -49,5 +49,12 @@ namespace BusinessLogicLayer
             return (from DataRow row in data.Rows
                     select new ProductTypeValueObject(int.Parse(row["id"].ToString()), row["name"].ToString(), row["image"].ToString())).ToList();
         }
+
+        public string GetImageFileName(int? id)
+        {
+            var data = _productTypeDataAccessLayer.GetImageFileNameByProductTypeId(id);
+            var rows = data.Rows.Cast<DataRow>().ToArray();
+            return rows.First().ItemArray.First().ToString();
+        }
     }
 }

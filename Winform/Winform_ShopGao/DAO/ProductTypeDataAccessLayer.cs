@@ -49,5 +49,13 @@ namespace DAO
             sqlParameters[0] = new MySqlParameter("@id", MySqlDbType.Int32) { Value = id };
             return _mySqlDbConnection.ExecuteSelectQuery(query, sqlParameters);
         }
+
+        public DataTable GetImageFileNameByProductTypeId(int? id)
+        {
+            const string query = "SELECT image FROM product_type WHERE product_type.id = @id";
+            var sqlParameters = new MySqlParameter[1];
+            sqlParameters[0] = new MySqlParameter("@id", MySqlDbType.Int32) { Value = id };
+            return _mySqlDbConnection.ExecuteSelectQuery(query, sqlParameters);
+        }
     }
 }

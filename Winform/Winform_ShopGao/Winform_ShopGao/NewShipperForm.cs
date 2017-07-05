@@ -25,7 +25,7 @@ namespace Winform_ShopGao
             InitializeComponent();
             _shipperBussinessLogic = new ShipperBussinessLogic();
             if (rowId == null) return;
-            btn_InsertShipper.Text = @"Cập nhật thay đổi";
+            btn_InsertShipper.Text = @"Cập nhật";
             _isUpdate = true;
             _rowId = (int)rowId;
 

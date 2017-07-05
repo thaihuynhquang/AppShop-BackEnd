@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using BusinessLogicLayer;
 using Newtonsoft.Json;
 using ValueObject;
+using System.Net;
 
 namespace Winform_ShopGao
 {
@@ -31,12 +32,24 @@ namespace Winform_ShopGao
             _productBusinessLogic = new ProductBusinessLogic();
             _productTypeBusinessLogic = new ProductTypeBusinessLogic();
             if (rowId == null) return;
-            btn_InsertProductType.Text = @"Cập nhật thay đổi";
+            btn_InsertProductType.Text = @"Cập nhật";
             _isUpdate = true;
             _rowId = (int)rowId;
 
             var productTpye = _productTypeBusinessLogic.GetDetailProductType(_rowId);
             txtB_NameProductType.Text = productTpye.Name;
+
+            try
+            {
+                var image = GetImage(rowId);
+                picBox_ImageProductType.Image = image;
+                picBox_ImageProductType.SizeMode = PictureBoxSizeMode.CenterImage;
+                picBox_ImageProductType.BackColor = Color.AliceBlue;
+            }
+            catch (Exception e)
+            {
+                // do not thing
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -104,6 +117,42 @@ namespace Winform_ShopGao
                 var success = _isUpdate ? _productTypeBusinessLogic.UpdateProductType(productTypeValueObject) : _productTypeBusinessLogic.CreateProductType(productTypeValueObject);
                 MessageBox.Show(success ? "Success" : "Fail");
                 tran.Complete();
+            }
+        }
+
+        private Image GetImage(int? id)
+        {
+            var imageFile = _productTypeBusinessLogic.GetImageFileName(id);
+
+            byte[] lnFile;
+
+            var lxRequest = (HttpWebRequest)WebRequest.Create("http://localhost:4000/api/images/type/" + imageFile);
+            using (var lxResponse = (HttpWebResponse)lxRequest.GetResponse())
+            {
+                using (var lxBr = new BinaryReader(lxResponse.GetResponseStream()))
+                {
+                    using (var lxMs = new MemoryStream())
+                    {
+                        var lnBuffer = lxBr.ReadBytes(1024);
+                        while (lnBuffer.Length > 0)
+                        {
+                            lxMs.Write(lnBuffer, 0, lnBuffer.Length);
+                            lnBuffer = lxBr.ReadBytes(1024);
+                        }
+                        lnFile = new byte[(int)lxMs.Length];
+                        lxMs.Position = 0;
+                        lxMs.Read(lnFile, 0, lnFile.Length);
+                    }
+                }
+            }
+
+            using (var lxFs = new FileStream("xxxx.jpg", FileMode.Create))
+            {
+                lxFs.Write(lnFile, 0, lnFile.Length);
+            }
+            using (var ms = new MemoryStream(lnFile))
+            {
+                return Image.FromStream(ms);
             }
         }
     }
