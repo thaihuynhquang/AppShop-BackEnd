@@ -141,6 +141,38 @@ router.get('/search/:key', function (req, res, next) {
         res.json([]);
 });
 
+router.get('/setUnitOnBill/:productId', function (req, res, next) {
+    var productId = req.params.productId;
+    SQLquery.getUnitOnBillByProductId(productId, function (err, data) {
+        if (err) {
+            console.log(err);
+            res.send("LOI_TRUY_VAN");
+        }
+        else {
+            if (data) {
+                var unitOnBill = data[0].unitOnBill;
+                SQLquery.setUnitOnBillByProductId(productId, unitOnBill, function (err, data) {
+                    if (err) {
+                        console.log(err);
+                        res.send("LOI_TRUY_VAN");
+                    }
+                    else {
+                        if (data) {
+                            res.send("THANH_CONG");
+                        }
+                        else {
+                            res.send("PRODUCTID_NOT_FOUND_DB");
+                        }
+                    }
+                });
+            }
+            else {
+                res.send("PRODUCTID_NOT_FOUND_DB");
+            }
+        }
+    });
+});
+
 router.get('/init', function (req, res, next) {
     SQLquery.getTopProducts(function (err, data) {
         if (err) {
@@ -524,7 +556,7 @@ router.post('/notify_order', jsonParser, function (req, res, next) {
                         var results = data[0];
                         var expDate = Date.parse(results.expected_date_order);
                         var today = new Date().getTime();
-                        var kq = expDate - today;
+                        var kq = Math.abs(expDate - today);
                         var numDate = Math.floor(kq / msec1Date);
                         if (kq <= warningTime)
                             res.json({ msg: "CANH_BAO", numDate: numDate });
