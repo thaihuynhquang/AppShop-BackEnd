@@ -18,7 +18,7 @@ namespace DAO
             _mySqlDbConnection = MySqlDbConnection.GetConnection();
         }
 
-        public bool CreateImportProduct(int supplierId, string supplierName, int productId, string productName, int unitInStock, int unitPrice)
+        public bool CreateImportProduct(int supplierId, string supplierName, int productId, string productName, uint unitInStock, uint unitPrice)
         {
             const string query = "INSERT INTO import (supplierId, supplierName, productId, productName, unitPrice, unitInStock, totalPrice) VALUES (@supplierId, @supplierName, @productId, @productName, @unitPrice, @unitInStock, @totalPrice)";
 
@@ -34,7 +34,7 @@ namespace DAO
             return _mySqlDbConnection.ExecuteInsertQuery(query, sqlParameters);
         }
 
-        public bool UpdateImportProduct(int? Id, int supplierId, string supplierName, int productId, string productName, int unitInStock, int unitPrice)
+        public bool UpdateImportProduct(int? Id, int supplierId, string supplierName, int productId, string productName, uint unitInStock, uint unitPrice)
         {
             const string query = "UPDATE import set supplierId = @supplierId, supplierName = @supplierName, productId = @productId, productName = @productName, unitInStock = @unitInStock, unitPrice = @unitPrice, totalPrice = @totalPrice  where id = @id";
 

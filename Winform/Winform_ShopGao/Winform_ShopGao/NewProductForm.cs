@@ -23,20 +23,19 @@ namespace Winform_ShopGao
 {
     public partial class NewProductForm : Form
     {
+        
+        private readonly bool _isUpdate = false;
+        private readonly int _rowId = 0;
+        private string _filePath;
+        private bool isUpdateImage = false;
+        private ProductValueObject product = null;
+        public Form RefToFormMain { get; set; }
         private readonly ProductTypeBusinessLogic _productTypeBusinessLogic;
         private readonly ProductBusinessLogic _productBusinessLogic;
-        private readonly bool _isUpdate;
-        private readonly int _rowId;
-        private string _filePath;
-        private bool isUpdateImage;
-        private ProductValueObject product = null;
-       
 
-        public Form RefToFormMain { get; set; }
         public NewProductForm(int? rowId = null)
         {
             InitializeComponent();
-            isUpdateImage = false;
             _productTypeBusinessLogic = new ProductTypeBusinessLogic();
             _productBusinessLogic = new ProductBusinessLogic();
 
@@ -72,19 +71,35 @@ namespace Winform_ShopGao
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void txtB_ProductPrice_Leave(object sender, EventArgs e)
         {
-            RefToFormMain.Show();
-            this.Close();
+            uint price;
+            uint.TryParse(txtB_ProductPrice.Text.Trim(), out price);
+            if (price == 0)
+            {
+                MessageBox.Show("Giá bán phải là số nguyên không âm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private  void button1_Click(object sender, EventArgs e)
+        private void btn_NewProduct_Click(object sender, EventArgs e)
         {
             var name = txtB_ProductName.Text.Trim();
-            var price = int.Parse(txtB_ProductPrice.Text.Trim());
-            var type = int.Parse(cmbProductType.SelectedValue.ToString());
             var des = rTxtB_DescriptionProduct.Text.Trim();
+            if(name == "" || des == "")
+            {
+                MessageBox.Show("Xin điền đầy đủ thông tin trước khi thực hiện thao tác khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            uint price;
+            uint.TryParse(txtB_ProductPrice.Text.Trim(), out price);
+            if (price == 0)
+            {
+                MessageBox.Show("Giá bán phải là số nguyên không âm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            var type = int.Parse(cmbProductType.SelectedValue.ToString());
             var isNew = chB_TopProduct.Checked ? 1 : 0;
+
             var productValueObject = new ProductValueObject(_isUpdate ? _rowId : 0, name, type, price, des, isNew);
 
             using (var tran = new TransactionScope())
@@ -111,7 +126,7 @@ namespace Winform_ShopGao
                             string mess = stuff.msg.ToString();
                             if (mess.Equals("Error"))
                             {
-                                MessageBox.Show(@"Error whern upload image ");
+                                MessageBox.Show("Có lỗi tải hình lên, xin thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
                             fileNameInServer = stuff.link.ToString();
@@ -119,15 +134,30 @@ namespace Winform_ShopGao
                     }
                     image = new ImageValueObject(null, fileNameInServer, productValueObject.Id);
                 }
-                
-                var success = _isUpdate ? _productBusinessLogic.UpdateProduct(productValueObject,image) : _productBusinessLogic.CreateNewProduct(productValueObject,image);
-                MessageBox.Show(success ? "Success" : "Fail");
+                else
+                {
+                    if(_rowId == 0)//thêm mới sản phẩm
+                    {
+                        MessageBox.Show("Thêm mới sản phẩm phải có hình ảnh miêu tả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
+                var success = _isUpdate ? _productBusinessLogic.UpdateProduct(productValueObject, image) : _productBusinessLogic.CreateNewProduct(productValueObject, image);
+                if (success)
+                {
+                    MessageBox.Show("Cật nhật thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Có gì đó không đúng, có thể dữ liệu đã có trong cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 tran.Complete();
-               
+
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btn_UploadImage_Click(object sender, EventArgs e)
         {
             var openFileDialog1 = new OpenFileDialog
             {
@@ -150,6 +180,18 @@ namespace Winform_ShopGao
             picB_ImageProduct.Image = Image.FromFile(openFileDialog1.FileName);
             picB_ImageProduct.BackColor = Color.AliceBlue;
             isUpdateImage = true;
+        }
+
+        private void btn_taoLoaiSP_Click(object sender, EventArgs e)
+        {
+            var newProductType = new NewProductTypeForm { RefToPreForm = this };
+            newProductType.Show();
+        }
+
+        private void btn_Exit_Click(object sender, EventArgs e)
+        {
+            RefToFormMain.Show();
+            this.Close();
         }
 
         private  Image GetImage(int? id)
@@ -187,14 +229,7 @@ namespace Winform_ShopGao
                 return Image.FromStream(ms);
             }
         }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            var newProductType = new NewProductTypeForm { RefToPreForm = this };
-            newProductType.Show();
-            Hide();
-        }
-
+        
         private void NewProductForm_VisibleChanged(object sender, EventArgs e)
         {
             if (Visible)
@@ -208,9 +243,6 @@ namespace Winform_ShopGao
             }
         }
 
-        private void NewProductForm_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

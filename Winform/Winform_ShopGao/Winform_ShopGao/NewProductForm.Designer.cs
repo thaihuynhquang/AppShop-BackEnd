@@ -62,6 +62,7 @@
             this.txtB_ProductPrice.Name = "txtB_ProductPrice";
             this.txtB_ProductPrice.Size = new System.Drawing.Size(190, 20);
             this.txtB_ProductPrice.TabIndex = 1;
+            this.txtB_ProductPrice.Leave += new System.EventHandler(this.txtB_ProductPrice_Leave);
             // 
             // rTxtB_DescriptionProduct
             // 
@@ -99,7 +100,7 @@
             this.btn_NewProduct.Text = "Thêm sản phẩm mới";
             this.btn_NewProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_NewProduct.UseVisualStyleBackColor = true;
-            this.btn_NewProduct.Click += new System.EventHandler(this.button1_Click);
+            this.btn_NewProduct.Click += new System.EventHandler(this.btn_NewProduct_Click);
             // 
             // btn_Exit
             // 
@@ -111,7 +112,7 @@
             this.btn_Exit.Text = "Thoát";
             this.btn_Exit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Exit.UseVisualStyleBackColor = true;
-            this.btn_Exit.Click += new System.EventHandler(this.button2_Click);
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
             // picB_ImageProduct
             // 
@@ -137,7 +138,7 @@
             this.btn_UploadImage.Text = "Tải lên";
             this.btn_UploadImage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_UploadImage.UseVisualStyleBackColor = true;
-            this.btn_UploadImage.Click += new System.EventHandler(this.button3_Click);
+            this.btn_UploadImage.Click += new System.EventHandler(this.btn_UploadImage_Click);
             // 
             // btn_taoLoaiSP
             // 
@@ -149,7 +150,7 @@
             this.btn_taoLoaiSP.Text = "Tạo loại sản phẩm mới";
             this.btn_taoLoaiSP.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_taoLoaiSP.UseVisualStyleBackColor = true;
-            this.btn_taoLoaiSP.Click += new System.EventHandler(this.button4_Click);
+            this.btn_taoLoaiSP.Click += new System.EventHandler(this.btn_taoLoaiSP_Click);
             // 
             // lb_LoaiSP
             // 
@@ -229,7 +230,6 @@
             this.MaximizeBox = false;
             this.Name = "NewProductForm";
             this.Text = "Quản lý sản phẩm";
-            this.Load += new System.EventHandler(this.NewProductForm_Load);
             this.VisibleChanged += new System.EventHandler(this.NewProductForm_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.picB_ImageProduct)).EndInit();
             this.panel1.ResumeLayout(false);

@@ -42,6 +42,7 @@ namespace Winform_ShopGao
 
             btn_UpdateNote.Enabled = false;
             btn_UpdateShipperForBill.Enabled = false;
+            rTxtB_Note.Enabled = false;
 
             bill = _billBusinessLogic.GetBillById(_BillId);
             txtB_BillId.Text = bill.Id.ToString();
@@ -78,12 +79,20 @@ namespace Winform_ShopGao
         {
             var success = _billBusinessLogic.UpdateBillNote(_BillId, rTxtB_Note.Text);
 
-            MessageBox.Show(success ? "Thành công." : "Thất bại");
+            if (success)
+            {
+                MessageBox.Show("Cật nhật thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Xin lỗi, hãy thử lại sau.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btn_Note_Click(object sender, EventArgs e)
         {
             btn_UpdateNote.Enabled = true;
+            rTxtB_Note.Enabled = true;
         }
 
         private void btn_ChangeBillStatus_Click(object sender, EventArgs e)
@@ -140,9 +149,13 @@ namespace Winform_ShopGao
             if(action == DialogResult.OK)
             {
                 var updated = _billBusinessLogic.UpdateBillShipper(_BillId, _ShipperId);
-                if(updated)
+                if (updated)
                 {
-                    MessageBox.Show("Cập nhật thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Cật nhật thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi, xin thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

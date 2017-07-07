@@ -28,11 +28,29 @@ namespace BusinessLogicLayer
 
         public bool CreateProductType(ProductTypeValueObject productType)
         {
-            return _productTypeDataAccessLayer.CreateNewProductType(productType.Name, productType.Image);
+            try
+            {
+                var listProductType = GetAllProductTypes();
+                if (listProductType.Any(x => x.Name.Trim() == productType.Name.Trim()))
+                {
+                    return false;
+                }
+                return _productTypeDataAccessLayer.CreateNewProductType(productType.Name, productType.Image);
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+            
         }
 
         public bool UpdateProductType(ProductTypeValueObject productType)
         {
+            if(productType.Image == "")
+            {
+                return _productTypeDataAccessLayer.UpdateProductTypeNotImage(productType.Id, productType.Name);
+            }
             return _productTypeDataAccessLayer.UpdateProductType(productType.Id, productType.Name, productType.Image);
         }
 

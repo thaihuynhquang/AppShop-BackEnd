@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillDetailForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.btn_UpdateNote = new System.Windows.Forms.Button();
@@ -172,6 +172,7 @@
             // 
             // txtB_city
             // 
+            this.txtB_city.Enabled = false;
             this.txtB_city.Location = new System.Drawing.Point(383, 139);
             this.txtB_city.Name = "txtB_city";
             this.txtB_city.Size = new System.Drawing.Size(190, 20);
@@ -179,6 +180,7 @@
             // 
             // txtB_Dis
             // 
+            this.txtB_Dis.Enabled = false;
             this.txtB_Dis.Location = new System.Drawing.Point(383, 104);
             this.txtB_Dis.Name = "txtB_Dis";
             this.txtB_Dis.Size = new System.Drawing.Size(190, 20);
@@ -186,6 +188,7 @@
             // 
             // txtB_Addr
             // 
+            this.txtB_Addr.Enabled = false;
             this.txtB_Addr.Location = new System.Drawing.Point(383, 74);
             this.txtB_Addr.Name = "txtB_Addr";
             this.txtB_Addr.Size = new System.Drawing.Size(190, 20);
@@ -193,6 +196,7 @@
             // 
             // txtB_NameCus
             // 
+            this.txtB_NameCus.Enabled = false;
             this.txtB_NameCus.Location = new System.Drawing.Point(383, 45);
             this.txtB_NameCus.Name = "txtB_NameCus";
             this.txtB_NameCus.Size = new System.Drawing.Size(190, 20);
@@ -200,6 +204,7 @@
             // 
             // txtB_TotalMoney
             // 
+            this.txtB_TotalMoney.Enabled = false;
             this.txtB_TotalMoney.Location = new System.Drawing.Point(142, 139);
             this.txtB_TotalMoney.Name = "txtB_TotalMoney";
             this.txtB_TotalMoney.Size = new System.Drawing.Size(100, 20);
@@ -207,6 +212,7 @@
             // 
             // txtB_DateOrder
             // 
+            this.txtB_DateOrder.Enabled = false;
             this.txtB_DateOrder.Location = new System.Drawing.Point(142, 107);
             this.txtB_DateOrder.Name = "txtB_DateOrder";
             this.txtB_DateOrder.Size = new System.Drawing.Size(100, 20);
@@ -214,6 +220,7 @@
             // 
             // txtB_BillStatus
             // 
+            this.txtB_BillStatus.Enabled = false;
             this.txtB_BillStatus.Location = new System.Drawing.Point(142, 74);
             this.txtB_BillStatus.Name = "txtB_BillStatus";
             this.txtB_BillStatus.Size = new System.Drawing.Size(100, 20);
@@ -221,6 +228,7 @@
             // 
             // txtB_BillId
             // 
+            this.txtB_BillId.Enabled = false;
             this.txtB_BillId.Location = new System.Drawing.Point(142, 42);
             this.txtB_BillId.Name = "txtB_BillId";
             this.txtB_BillId.Size = new System.Drawing.Size(100, 20);
@@ -318,33 +326,33 @@
             // 
             // GridView_BillDetails
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridView_BillDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridView_BillDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.GridView_BillDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridView_BillDetails.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridView_BillDetails.DefaultCellStyle = dataGridViewCellStyle5;
             this.GridView_BillDetails.Location = new System.Drawing.Point(16, 42);
             this.GridView_BillDetails.Name = "GridView_BillDetails";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridView_BillDetails.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridView_BillDetails.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.GridView_BillDetails.Size = new System.Drawing.Size(381, 323);
             this.GridView_BillDetails.TabIndex = 2;
             // 
@@ -371,6 +379,7 @@
             // 
             // txtB_ShipperPhone
             // 
+            this.txtB_ShipperPhone.Enabled = false;
             this.txtB_ShipperPhone.Location = new System.Drawing.Point(98, 269);
             this.txtB_ShipperPhone.Name = "txtB_ShipperPhone";
             this.txtB_ShipperPhone.Size = new System.Drawing.Size(131, 20);
@@ -378,6 +387,7 @@
             // 
             // txtB_ShipperEmail
             // 
+            this.txtB_ShipperEmail.Enabled = false;
             this.txtB_ShipperEmail.Location = new System.Drawing.Point(98, 233);
             this.txtB_ShipperEmail.Name = "txtB_ShipperEmail";
             this.txtB_ShipperEmail.Size = new System.Drawing.Size(131, 20);
@@ -385,6 +395,7 @@
             // 
             // txtB_ShiperName
             // 
+            this.txtB_ShiperName.Enabled = false;
             this.txtB_ShiperName.Location = new System.Drawing.Point(98, 199);
             this.txtB_ShiperName.Name = "txtB_ShiperName";
             this.txtB_ShiperName.Size = new System.Drawing.Size(131, 20);

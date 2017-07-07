@@ -12,7 +12,7 @@ namespace ValueObject
         public string Name { get; set; }
         public string Image { get; set; }
 
-        public ProductTypeValueObject(int? id, string name, string img)
+        public ProductTypeValueObject(int? id, string name, string img = "")
         {
             this.Id = id;
             this.Name = name;

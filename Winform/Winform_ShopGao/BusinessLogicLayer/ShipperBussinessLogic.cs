@@ -27,7 +27,21 @@ namespace BusinessLogicLayer
 
         public bool CreateShipper(ShipperValueObject shipper)
         {
-            return _shipperDataAccessLayer.CreateNewShipper(shipper.Name, shipper.Phone, shipper.Email);
+            try
+            {
+                var listShippers = GetAllShippers();
+                if (listShippers.Any(el => el.Email == shipper.Email && el.Phone == shipper.Phone))
+                {
+                    return false;
+                }
+                return _shipperDataAccessLayer.CreateNewShipper(shipper.Name, shipper.Phone, shipper.Email);
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+            
         }
 
         public bool UpdateSupplier(ShipperValueObject shipper)

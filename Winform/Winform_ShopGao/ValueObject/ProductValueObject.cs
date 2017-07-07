@@ -12,11 +12,11 @@ namespace ValueObject
         public string Name { get; set; }
 
         public int IdType { get; set; }
-        public int Price { get; set; }
+        public uint Price { get; set; }
         public string Description { get; set; }
         public int Inew { get; set; }
 
-        public ProductValueObject(int? id, string name, int idType, int price, string desc, int inew)
+        public ProductValueObject(int? id, string name, int idType, uint price, string desc, int inew)
         {
             this.Id = id;
             this.Name = name;

@@ -24,13 +24,27 @@ namespace BusinessLogicLayer
             var data = _importDataAccessLayer.GetAllImportProducts();
             return (from DataRow row in data.Rows
                     select new ImportValueObject(int.Parse(row[0].ToString()), int.Parse(row[1].ToString()), row[2].ToString(),
-                    int.Parse(row[3].ToString()), row[4].ToString(), int.Parse(row[5].ToString()), int.Parse(row[6].ToString()),
-                    int.Parse(row[7].ToString()), int.Parse(row[8].ToString()))).ToList();
+                    int.Parse(row[3].ToString()), row[4].ToString(), uint.Parse(row[5].ToString()), int.Parse(row[6].ToString()),
+                    uint.Parse(row[7].ToString()), int.Parse(row[8].ToString()))).ToList();
         }
 
         public bool ImportProduct(ImportValueObject import)
         {
-            return _importDataAccessLayer.CreateImportProduct(import.IdNCC, import.NhaCungCap, import.IdSP, import.SanPham, import.SoLuongTrongKho, import.Dongia);
+            try
+            {
+                var listImport = GetAllImportProducts();
+                if (listImport.Any(x => x.IdNCC == import.IdNCC && x.IdSP == import.IdSP))
+                {
+                    return false;
+                }
+                return _importDataAccessLayer.CreateImportProduct(import.IdNCC, import.NhaCungCap, import.IdSP, import.SanPham, import.SoLuongTrongKho, import.Dongia);
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+            
         }
 
         public bool UpdateImportProduct(ImportValueObject import)
@@ -43,8 +57,8 @@ namespace BusinessLogicLayer
             var data = Utility.Search("import", column, value);
             return (from DataRow row in data.Rows
                     select new ImportValueObject(int.Parse(row[0].ToString()), int.Parse(row[1].ToString()), row[2].ToString(),
-                    int.Parse(row[3].ToString()), row[4].ToString(), int.Parse(row[5].ToString()), int.Parse(row[6].ToString()),
-                    int.Parse(row[7].ToString()), int.Parse(row[8].ToString()))).ToList();
+                    int.Parse(row[3].ToString()), row[4].ToString(), uint.Parse(row[5].ToString()), int.Parse(row[6].ToString()),
+                    uint.Parse(row[7].ToString()), int.Parse(row[8].ToString()))).ToList();
         }
     }
 }

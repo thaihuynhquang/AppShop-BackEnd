@@ -46,7 +46,7 @@
             this.btt_SignIn.Text = "Đăng Nhập";
             this.btt_SignIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btt_SignIn.UseVisualStyleBackColor = true;
-            this.btt_SignIn.Click += new System.EventHandler(this.button1_Click);
+            this.btt_SignIn.Click += new System.EventHandler(this.btt_SignIn_Click);
             // 
             // label_username
             // 

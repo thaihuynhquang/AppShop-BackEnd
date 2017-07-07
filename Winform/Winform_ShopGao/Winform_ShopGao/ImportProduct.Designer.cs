@@ -100,6 +100,7 @@
             this.txtB_UnitInStock.Name = "txtB_UnitInStock";
             this.txtB_UnitInStock.Size = new System.Drawing.Size(154, 20);
             this.txtB_UnitInStock.TabIndex = 4;
+            this.txtB_UnitInStock.Leave += new System.EventHandler(this.txtB_UnitInStock_Leave);
             // 
             // txtB_UnitPrice
             // 
@@ -107,6 +108,7 @@
             this.txtB_UnitPrice.Name = "txtB_UnitPrice";
             this.txtB_UnitPrice.Size = new System.Drawing.Size(154, 20);
             this.txtB_UnitPrice.TabIndex = 5;
+            this.txtB_UnitPrice.Leave += new System.EventHandler(this.txtB_UnitPrice_Leave);
             // 
             // lb_ImportPrice
             // 
@@ -136,7 +138,7 @@
             this.btn_importProduct.Text = "Cập nhật";
             this.btn_importProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_importProduct.UseVisualStyleBackColor = true;
-            this.btn_importProduct.Click += new System.EventHandler(this.button1_Click);
+            this.btn_importProduct.Click += new System.EventHandler(this.btn_importProduct_Click);
             // 
             // btn_Exit
             // 
@@ -148,7 +150,7 @@
             this.btn_Exit.Text = "Thoát";
             this.btn_Exit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Exit.UseVisualStyleBackColor = true;
-            this.btn_Exit.Click += new System.EventHandler(this.button2_Click);
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
             // panel1
             // 
@@ -189,6 +191,7 @@
             // 
             // txtB_ProductPrice
             // 
+            this.txtB_ProductPrice.Enabled = false;
             this.txtB_ProductPrice.Location = new System.Drawing.Point(137, 266);
             this.txtB_ProductPrice.Name = "txtB_ProductPrice";
             this.txtB_ProductPrice.Size = new System.Drawing.Size(146, 20);
@@ -196,6 +199,7 @@
             // 
             // txtB_ProductName
             // 
+            this.txtB_ProductName.Enabled = false;
             this.txtB_ProductName.Location = new System.Drawing.Point(137, 227);
             this.txtB_ProductName.Name = "txtB_ProductName";
             this.txtB_ProductName.Size = new System.Drawing.Size(146, 20);
@@ -230,6 +234,7 @@
             // 
             // txtB_SupplierPhone
             // 
+            this.txtB_SupplierPhone.Enabled = false;
             this.txtB_SupplierPhone.Location = new System.Drawing.Point(137, 124);
             this.txtB_SupplierPhone.Name = "txtB_SupplierPhone";
             this.txtB_SupplierPhone.Size = new System.Drawing.Size(146, 20);
@@ -237,6 +242,7 @@
             // 
             // txtB_SupplierEmail
             // 
+            this.txtB_SupplierEmail.Enabled = false;
             this.txtB_SupplierEmail.Location = new System.Drawing.Point(137, 86);
             this.txtB_SupplierEmail.Name = "txtB_SupplierEmail";
             this.txtB_SupplierEmail.Size = new System.Drawing.Size(146, 20);
@@ -244,6 +250,7 @@
             // 
             // txtB_SupplierName
             // 
+            this.txtB_SupplierName.Enabled = false;
             this.txtB_SupplierName.Location = new System.Drawing.Point(137, 47);
             this.txtB_SupplierName.Name = "txtB_SupplierName";
             this.txtB_SupplierName.Size = new System.Drawing.Size(146, 20);
@@ -310,7 +317,6 @@
             this.MaximizeBox = false;
             this.Name = "ImportProduct";
             this.Text = "Nhập hàng";
-            this.Load += new System.EventHandler(this.ImportProduct_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

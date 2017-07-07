@@ -41,7 +41,7 @@ namespace Winform_ShopGao
             var x = _adminDataAccessLayer.ChangePassword(newPass);
             if (!x)
             {
-                MessageBox.Show("Có lỗi, xin hãy thử lại sau", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Xin lỗi, hãy thử lại sau", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

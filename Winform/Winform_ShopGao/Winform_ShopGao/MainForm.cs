@@ -33,6 +33,8 @@ namespace Winform_ShopGao
             Application.Exit();
         }
         
+
+        //xử lý phần nhà cung cấp
         private void MainForm_Load(object sender, EventArgs e)
         {
             tabPaneMainForm.SelectedPage = tabNaviPage_NhaCungCap;
@@ -41,13 +43,19 @@ namespace Winform_ShopGao
             supplierGridControl.Refresh();
         }
 
+        private void tabNaviPage_NhaCungCap_VisibleChanged(object sender, EventArgs e)
+        {
+            if (tabPaneMainForm.SelectedPage != tabNaviPage_NhaCungCap) return;
+            supplierGridControl.DataSource = _supplierBusinessLogic.GetallSupplier();
+        }
+
         private void newSupp_Click(object sender, EventArgs e)
         {
             var newSupplierForm = new NewSupplierForm { RefToFormMain = this };
             newSupplierForm.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btt_EditSupplier_Click(object sender, EventArgs e)
         {
             try
             {
@@ -56,12 +64,12 @@ namespace Winform_ShopGao
                 var newSupplierForm = new NewSupplierForm(int.Parse(cells[0].Value.ToString())) { RefToFormMain = this };
                 newSupplierForm.Show();
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                MessageBox.Show(@"Please select row");
+                MessageBox.Show("Vui lòng chọn một dòng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
+        
         private void MainForm_VisibleChanged(object sender, EventArgs e)
         {
             if (!Visible) return;
@@ -71,21 +79,20 @@ namespace Winform_ShopGao
             }
         }
 
-        private void tabNavigationPage2_VisibleChanged(object sender, EventArgs e)
+        //Xử lý phần sản phẩm
+        private void tabNaviPage_SanPham_VisibleChanged(object sender, EventArgs e)
         {
             if (tabPaneMainForm.SelectedPage != tabNaviPage_SanPham) return;
             productGridControl.DataSource = _productBusinessLogic.GetAllProduct();
-            productGridControl.Refresh();
         }
-
-        private void button3_Click(object sender, EventArgs e)
+        
+        private void btt_newProduct_Click(object sender, EventArgs e)
         {
             var newProductForm = new NewProductForm { RefToFormMain = this };
             newProductForm.Show();
-
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btt_EditProduct_Click(object sender, EventArgs e)
         {
             try
             {
@@ -94,26 +101,26 @@ namespace Winform_ShopGao
                 var newSupplierForm = new NewProductForm(int.Parse(cells[0].Value.ToString())) { RefToFormMain = this };
                 newSupplierForm.Show();
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                MessageBox.Show(@"Please select row");
+                MessageBox.Show("Vui lòng chọn một dòng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        
-        private void Users_VisibleChanged(object sender, EventArgs e)
+
+        private void tabNaviPage_KhachHang_VisibleChanged(object sender, EventArgs e)
         {
             if (tabPaneMainForm.SelectedPage != tabNaviPage_KhachHang) return;
             userGridControl.DataSource = _userBusinessLogic.GetAllUser();
-            userGridControl.Refresh();
         }
-        
-        private void tabNavigationPage3_VisibleChanged(object sender, EventArgs e)
+
+        //xử lý phần đơn hàng
+        private void tabNaviPage_DonHang_VisibleChanged(object sender, EventArgs e)
         {
             if (tabPaneMainForm.SelectedPage != tabNaviPage_DonHang) return;
             billGridControl.DataSource = _billBusinessLogic.GetAllBill();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void btn_newBill_Click(object sender, EventArgs e)
         {
             try
             {
@@ -122,24 +129,25 @@ namespace Winform_ShopGao
                 var billDetailForm = new BillDetailForm(int.Parse(cells[0].Value.ToString()), int.Parse(cells[1].Value.ToString()), int.Parse(cells[10].Value.ToString())) { RefToFormMain = this };
                 billDetailForm.Show();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show(@"Please select row");
+                MessageBox.Show("Vui lòng chọn một dòng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        private void tabNavigationPage4_VisibleChanged(object sender, EventArgs e)
+        //Xử lý phần nhập hàng
+        private void tabNaviPage_NhapHang_VisibleChanged(object sender, EventArgs e)
         {
             if (tabPaneMainForm.SelectedPage != tabNaviPage_NhapHang) return;
             importGridControl.DataSource = _importBusinessLogic.GetAllImportProducts();
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void btn_importProduct_Click(object sender, EventArgs e)
         {
             var importProduct = new ImportProduct { RefToFormMain = this };
             importProduct.Show();
         }
-
+        
         private void btn_EditImportProduct_Click(object sender, EventArgs e)
         {
             try
@@ -149,19 +157,20 @@ namespace Winform_ShopGao
                 var importProduct = new ImportProduct(int.Parse(cells[0].Value.ToString()), int.Parse(cells[1].Value.ToString()), int.Parse(cells[3].Value.ToString())) { RefToFormMain = this };
                 importProduct.Show();
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                MessageBox.Show(@"Please select row");
+                MessageBox.Show("Vui lòng chọn một dòng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
+        
+        //xử lý sự kiện click btn thay đổi password admin
         private void btn_ChangePass_Click(object sender, EventArgs e)
         {
-            //show form chang pass
             var changePassForm = new ChangePassForm { RefToFormMain = this };
             changePassForm.Show();
         }
 
+        //xử lý phần nhân viên giao hàng
         private void tabNaviPage_Shipper_VisibleChanged(object sender, EventArgs e)
         {
             if (tabPaneMainForm.SelectedPage != tabNaviPage_GiaoHang) return;
@@ -183,10 +192,17 @@ namespace Winform_ShopGao
                 var newShipperForm = new NewShipperForm(int.Parse(cells[0].Value.ToString())) { RefToFormMain = this };
                 newShipperForm.Show();
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                MessageBox.Show(@"Please select row");
+                MessageBox.Show("Vui lòng chọn một dòng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        //xử lý phần loại sản phẩm
+        private void tabNaviPage_ProductType_VisibleChanged(object sender, EventArgs e)
+        {
+            if (tabPaneMainForm.SelectedPage != tabNaviPage_LoaiSanPham) return;
+            productTypeGridControl.DataSource = _productTypeBusinessLogic.GetAllProductTypes();
         }
 
         private void btn_InsertProductType_Click(object sender, EventArgs e)
@@ -204,24 +220,13 @@ namespace Winform_ShopGao
                 var newProductType = new NewProductTypeForm(int.Parse(cells[0].Value.ToString())) { RefToPreForm = this };
                 newProductType.Show();
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                MessageBox.Show(@"Please select row");
+                MessageBox.Show("Vui lòng chọn một dòng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-        private void tabNaviPage_ProductType_VisibleChanged(object sender, EventArgs e)
-        {
-            if (tabPaneMainForm.SelectedPage != tabNaviPage_LoaiSanPham) return;
-            productTypeGridControl.DataSource = _productTypeBusinessLogic.GetAllProductTypes();
-        }
         
-        private void tabNaviPage_NhaCungCap_VisibleChanged(object sender, EventArgs e)
-        {
-            if (tabPaneMainForm.SelectedPage != tabNaviPage_NhaCungCap) return;
-            supplierGridControl.DataSource = _supplierBusinessLogic.GetallSupplier();
-        }
-        
+        //xử lý tải lại dữ liệu
         private void btn_RefreshDataImport_Click(object sender, EventArgs e)
         {
             importGridControl.DataSource = _importBusinessLogic.GetAllImportProducts();
@@ -257,6 +262,8 @@ namespace Winform_ShopGao
             userGridControl.DataSource = _userBusinessLogic.GetAllUser();
         }
 
+
+        //xử lý tìm kiếm thông tin
         private void btn_SearchProduct_Click(object sender, EventArgs e)
         {
             List<string> column = new List<string> { "Name", "price" };
@@ -340,20 +347,6 @@ namespace Winform_ShopGao
         {
             txtB_SearchImport.Text = "";
         }
-
         
-
-        /**
-         *  List<string> column = new List<string> { "address" };
-            String value = txtB_SearchBill.Text.Trim();
-            billGridControl.DataSource = _billBusinessLogic.Search(column, value);
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            List<string> column = new List<string> { "address" };
-            String value = txtB_SearchBill.Text.Trim();
-            billGridControl.DataSource = _billBusinessLogic.Search(column, value);
-        }
-         */
     }
 }

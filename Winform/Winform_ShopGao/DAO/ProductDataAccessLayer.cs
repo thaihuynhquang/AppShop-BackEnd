@@ -24,7 +24,7 @@ namespace DAO
         }
 
 
-        public bool CreateNewProduct(string name, int idType, int price, string description, int inew)
+        public bool CreateNewProduct(string name, int idType, uint price, string description, int inew)
         {
             const string query =
                 "INSERT INTO product (name, id_type, price, description, new) VALUES (@name,@type,@pri,@des,@inew)";
@@ -32,7 +32,7 @@ namespace DAO
             var sqlParameters = new MySqlParameter[5];
             sqlParameters[0] = new MySqlParameter("@name", MySqlDbType.String) { Value = name };
             sqlParameters[1] = new MySqlParameter("@type", MySqlDbType.Int32) { Value = idType };
-            sqlParameters[2] = new MySqlParameter("@pri", MySqlDbType.Int32) { Value = price };
+            sqlParameters[2] = new MySqlParameter("@pri", MySqlDbType.UInt32) { Value = price };
             sqlParameters[3] = new MySqlParameter("@des", MySqlDbType.String) { Value = description };
             sqlParameters[4] = new MySqlParameter("@inew", MySqlDbType.Int32) { Value = inew };
             return _mySqlDbConnection.ExecuteInsertQuery(query, sqlParameters);
@@ -46,7 +46,7 @@ namespace DAO
             return _mySqlDbConnection.ExecuteSelectQuery(query, sqlParameters);
         }
 
-        public bool UpdateProduct(int? id, string name, int idType, int price, string description, int inew)
+        public bool UpdateProduct(int? id, string name, int idType, uint price, string description, int inew)
         {
             const string query = "UPDATE product SET name=@name, id_type=@ty, price=@pr, " +
                                  "description=@des, new=@n WHERE id=@id";
@@ -54,7 +54,7 @@ namespace DAO
             var sqlParameters = new MySqlParameter[6];
             sqlParameters[0] = new MySqlParameter("@name", MySqlDbType.String) { Value = name };
             sqlParameters[1] = new MySqlParameter("@ty", MySqlDbType.Int32) { Value = idType };
-            sqlParameters[2] = new MySqlParameter("@pr", MySqlDbType.Float) { Value = price };
+            sqlParameters[2] = new MySqlParameter("@pr", MySqlDbType.UInt32) { Value = price };
             sqlParameters[3] = new MySqlParameter("@des", MySqlDbType.String) { Value = description };
             sqlParameters[4] = new MySqlParameter("@n", MySqlDbType.Int32) { Value = inew };
             sqlParameters[5] = new MySqlParameter("@id", MySqlDbType.Int32) { Value = id };

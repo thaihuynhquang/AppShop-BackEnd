@@ -33,8 +33,8 @@
             this.lb_EmailShipper = new System.Windows.Forms.Label();
             this.lb_PhoneShipper = new System.Windows.Forms.Label();
             this.txtB_NameShipper = new System.Windows.Forms.TextBox();
-            this.txt_EmailShipper = new System.Windows.Forms.TextBox();
-            this.txt_PhoneShipper = new System.Windows.Forms.TextBox();
+            this.txtB_EmailShipper = new System.Windows.Forms.TextBox();
+            this.txtB_PhoneShipper = new System.Windows.Forms.TextBox();
             this.btn_InsertShipper = new System.Windows.Forms.Button();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -73,19 +73,19 @@
             this.txtB_NameShipper.Size = new System.Drawing.Size(168, 20);
             this.txtB_NameShipper.TabIndex = 3;
             // 
-            // txt_EmailShipper
+            // txtB_EmailShipper
             // 
-            this.txt_EmailShipper.Location = new System.Drawing.Point(177, 91);
-            this.txt_EmailShipper.Name = "txt_EmailShipper";
-            this.txt_EmailShipper.Size = new System.Drawing.Size(168, 20);
-            this.txt_EmailShipper.TabIndex = 4;
+            this.txtB_EmailShipper.Location = new System.Drawing.Point(177, 91);
+            this.txtB_EmailShipper.Name = "txtB_EmailShipper";
+            this.txtB_EmailShipper.Size = new System.Drawing.Size(168, 20);
+            this.txtB_EmailShipper.TabIndex = 4;
             // 
-            // txt_PhoneShipper
+            // txtB_PhoneShipper
             // 
-            this.txt_PhoneShipper.Location = new System.Drawing.Point(177, 125);
-            this.txt_PhoneShipper.Name = "txt_PhoneShipper";
-            this.txt_PhoneShipper.Size = new System.Drawing.Size(168, 20);
-            this.txt_PhoneShipper.TabIndex = 5;
+            this.txtB_PhoneShipper.Location = new System.Drawing.Point(177, 125);
+            this.txtB_PhoneShipper.Name = "txtB_PhoneShipper";
+            this.txtB_PhoneShipper.Size = new System.Drawing.Size(168, 20);
+            this.txtB_PhoneShipper.TabIndex = 5;
             // 
             // btn_InsertShipper
             // 
@@ -118,8 +118,8 @@
             this.ClientSize = new System.Drawing.Size(439, 261);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.btn_InsertShipper);
-            this.Controls.Add(this.txt_PhoneShipper);
-            this.Controls.Add(this.txt_EmailShipper);
+            this.Controls.Add(this.txtB_PhoneShipper);
+            this.Controls.Add(this.txtB_EmailShipper);
             this.Controls.Add(this.txtB_NameShipper);
             this.Controls.Add(this.lb_PhoneShipper);
             this.Controls.Add(this.lb_EmailShipper);
@@ -139,8 +139,8 @@
         private System.Windows.Forms.Label lb_EmailShipper;
         private System.Windows.Forms.Label lb_PhoneShipper;
         private System.Windows.Forms.TextBox txtB_NameShipper;
-        private System.Windows.Forms.TextBox txt_EmailShipper;
-        private System.Windows.Forms.TextBox txt_PhoneShipper;
+        private System.Windows.Forms.TextBox txtB_EmailShipper;
+        private System.Windows.Forms.TextBox txtB_PhoneShipper;
         private System.Windows.Forms.Button btn_InsertShipper;
         private System.Windows.Forms.Button btn_Exit;
     }

@@ -30,6 +30,8 @@ namespace Winform_ShopGao
             _importBusinessLogic = new ImportBusinessLogic();
 
             btn_importProduct.Enabled = false;
+            txtB_UnitInStock.Enabled = false;
+            txtB_UnitPrice.Enabled = false;
 
             if (rowId == null || SupplierId == null || ProductId == null) return;
             btn_Unclock.Text = @"Chỉnh sửa";
@@ -49,24 +51,53 @@ namespace Winform_ShopGao
         }
 
         public MainForm RefToFormMain { get; set; }
-
-        private void ImportProduct_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        
+        private void btn_Exit_Click(object sender, EventArgs e)
         {
             RefToFormMain.Show();
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void txtB_UnitInStock_Leave(object sender, EventArgs e)
         {
+            uint unitInStock;
+            uint.TryParse(txtB_UnitInStock.Text.Trim(), out unitInStock);
+            if (unitInStock == 0)
+            {
+                MessageBox.Show("Số lượng phải là số nguyên không âm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtB_UnitPrice_Leave(object sender, EventArgs e)
+        {
+            uint unitPrice;
+            uint.TryParse(txtB_UnitPrice.Text.Trim(), out unitPrice);
+            if (unitPrice == 0)
+            {
+                MessageBox.Show("Giá nhập phải là số nguyên không âm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_importProduct_Click(object sender, EventArgs e)
+        {
+            uint unitInStock;
+            uint.TryParse(txtB_UnitInStock.Text.Trim(), out unitInStock);
+            if (unitInStock == 0)
+            {
+                MessageBox.Show("Số lượng phải là số nguyên không âm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            uint unitPrice;
+            uint.TryParse(txtB_UnitPrice.Text.Trim(), out unitPrice);
+            if (unitPrice == 0)
+            {
+                MessageBox.Show("Giá nhập phải là số nguyên không âm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             int supplierId = (int)cmb_ChooseSupplier.SelectedValue;
             int productId = (int)cmb_ChooseProduct.SelectedValue;
-            int unitInStock = Convert.ToInt32(txtB_UnitInStock.Text);
-            int unitPrice = Convert.ToInt32(txtB_UnitPrice.Text);
 
             var supplier = _supplierBusinessLogic.GetDetailSupplier(supplierId);
             string supplierName = supplier.Name;
@@ -76,10 +107,16 @@ namespace Winform_ShopGao
 
             var import = new ImportValueObject(_isUpdate ? _rowId : 0, supplierId, supplierName, productId, productName, unitInStock, 0, unitPrice, 0);
             var success = _isUpdate ? _importBusinessLogic.UpdateImportProduct(import) : _importBusinessLogic.ImportProduct(import);
-            MessageBox.Show(success ? "Thành công." : "Thất bại");
-            
+            if (success)
+            {
+                MessageBox.Show("Cật nhật thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Có gì đó không đúng, có thể dữ liệu đã có trong cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
+        
         private void cmb_ChooseSupplier_SelectedIndexChanged(object sender, EventArgs e)
         {
             _supplierId = (int)cmb_ChooseSupplier.SelectedValue;
@@ -110,6 +147,10 @@ namespace Winform_ShopGao
             cmb_ChooseProduct.DataSource = _productBusinessLogic.GetAllProduct();
 
             btn_importProduct.Enabled = true;
+            txtB_UnitInStock.Enabled = true;
+            txtB_UnitPrice.Enabled = true;
         }
+
+        
     }
 }

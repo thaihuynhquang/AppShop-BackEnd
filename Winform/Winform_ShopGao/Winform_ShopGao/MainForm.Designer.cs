@@ -60,6 +60,7 @@
             this.btn_newBill = new System.Windows.Forms.Button();
             this.billGridControl = new System.Windows.Forms.DataGridView();
             this.tabNaviPage_NhapHang = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.btn_EditImportProduct = new System.Windows.Forms.Button();
             this.btn_ClearImport = new System.Windows.Forms.Button();
             this.btn_SearchImport = new System.Windows.Forms.Button();
             this.txtB_SearchImport = new System.Windows.Forms.TextBox();
@@ -83,7 +84,6 @@
             this.btn_InsertProductType = new System.Windows.Forms.Button();
             this.productTypeGridControl = new System.Windows.Forms.DataGridView();
             this.btn_ChangePass = new System.Windows.Forms.Button();
-            this.btn_EditImportProduct = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tabPaneMainForm)).BeginInit();
             this.tabPaneMainForm.SuspendLayout();
             this.tabNaviPage_NhaCungCap.SuspendLayout();
@@ -200,7 +200,7 @@
             this.btt_EditSupplier.Text = "Thay đổi thông tin";
             this.btt_EditSupplier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btt_EditSupplier.UseVisualStyleBackColor = true;
-            this.btt_EditSupplier.Click += new System.EventHandler(this.button2_Click);
+            this.btt_EditSupplier.Click += new System.EventHandler(this.btt_EditSupplier_Click);
             // 
             // btt_newSupplier
             // 
@@ -235,7 +235,7 @@
             this.tabNaviPage_SanPham.Controls.Add(this.productGridControl);
             this.tabNaviPage_SanPham.Name = "tabNaviPage_SanPham";
             this.tabNaviPage_SanPham.Size = new System.Drawing.Size(953, 471);
-            this.tabNaviPage_SanPham.VisibleChanged += new System.EventHandler(this.tabNavigationPage2_VisibleChanged);
+            this.tabNaviPage_SanPham.VisibleChanged += new System.EventHandler(this.tabNaviPage_SanPham_VisibleChanged);
             // 
             // btn_RefreshDataProduct
             // 
@@ -291,7 +291,7 @@
             this.btt_EditProduct.Text = "Thay đổi thông tin";
             this.btt_EditProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btt_EditProduct.UseVisualStyleBackColor = true;
-            this.btt_EditProduct.Click += new System.EventHandler(this.button4_Click);
+            this.btt_EditProduct.Click += new System.EventHandler(this.btt_EditProduct_Click);
             // 
             // btt_newProduct
             // 
@@ -303,7 +303,7 @@
             this.btt_newProduct.Text = "Thêm sản phẩm mới";
             this.btt_newProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btt_newProduct.UseVisualStyleBackColor = true;
-            this.btt_newProduct.Click += new System.EventHandler(this.button3_Click);
+            this.btt_newProduct.Click += new System.EventHandler(this.btt_newProduct_Click);
             // 
             // productGridControl
             // 
@@ -324,7 +324,7 @@
             this.tabNaviPage_KhachHang.Controls.Add(this.userGridControl);
             this.tabNaviPage_KhachHang.Name = "tabNaviPage_KhachHang";
             this.tabNaviPage_KhachHang.Size = new System.Drawing.Size(953, 471);
-            this.tabNaviPage_KhachHang.VisibleChanged += new System.EventHandler(this.Users_VisibleChanged);
+            this.tabNaviPage_KhachHang.VisibleChanged += new System.EventHandler(this.tabNaviPage_KhachHang_VisibleChanged);
             // 
             // btn_ClearCustomer
             // 
@@ -390,7 +390,7 @@
             this.tabNaviPage_DonHang.Controls.Add(this.billGridControl);
             this.tabNaviPage_DonHang.Name = "tabNaviPage_DonHang";
             this.tabNaviPage_DonHang.Size = new System.Drawing.Size(953, 471);
-            this.tabNaviPage_DonHang.VisibleChanged += new System.EventHandler(this.tabNavigationPage3_VisibleChanged);
+            this.tabNaviPage_DonHang.VisibleChanged += new System.EventHandler(this.tabNaviPage_DonHang_VisibleChanged);
             // 
             // btn_ClearBill
             // 
@@ -446,7 +446,7 @@
             this.btn_newBill.Text = "Chi tiết đơn hàng";
             this.btn_newBill.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_newBill.UseVisualStyleBackColor = true;
-            this.btn_newBill.Click += new System.EventHandler(this.button7_Click);
+            this.btn_newBill.Click += new System.EventHandler(this.btn_newBill_Click);
             // 
             // billGridControl
             // 
@@ -469,7 +469,19 @@
             this.tabNaviPage_NhapHang.Controls.Add(this.importGridControl);
             this.tabNaviPage_NhapHang.Name = "tabNaviPage_NhapHang";
             this.tabNaviPage_NhapHang.Size = new System.Drawing.Size(953, 471);
-            this.tabNaviPage_NhapHang.VisibleChanged += new System.EventHandler(this.tabNavigationPage4_VisibleChanged);
+            this.tabNaviPage_NhapHang.VisibleChanged += new System.EventHandler(this.tabNaviPage_NhapHang_VisibleChanged);
+            // 
+            // btn_EditImportProduct
+            // 
+            this.btn_EditImportProduct.Image = ((System.Drawing.Image)(resources.GetObject("btn_EditImportProduct.Image")));
+            this.btn_EditImportProduct.Location = new System.Drawing.Point(755, 408);
+            this.btn_EditImportProduct.Name = "btn_EditImportProduct";
+            this.btn_EditImportProduct.Size = new System.Drawing.Size(180, 50);
+            this.btn_EditImportProduct.TabIndex = 6;
+            this.btn_EditImportProduct.Text = "Nhập thêm hàng";
+            this.btn_EditImportProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_EditImportProduct.UseVisualStyleBackColor = true;
+            this.btn_EditImportProduct.Click += new System.EventHandler(this.btn_EditImportProduct_Click);
             // 
             // btn_ClearImport
             // 
@@ -525,7 +537,7 @@
             this.btn_importProduct.Text = "Nhập hàng cho sản phẩm mới";
             this.btn_importProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_importProduct.UseVisualStyleBackColor = true;
-            this.btn_importProduct.Click += new System.EventHandler(this.button9_Click);
+            this.btn_importProduct.Click += new System.EventHandler(this.btn_importProduct_Click);
             // 
             // importGridControl
             // 
@@ -729,18 +741,6 @@
             this.btn_ChangePass.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_ChangePass.UseVisualStyleBackColor = true;
             this.btn_ChangePass.Click += new System.EventHandler(this.btn_ChangePass_Click);
-            // 
-            // btn_EditImportProduct
-            // 
-            this.btn_EditImportProduct.Image = ((System.Drawing.Image)(resources.GetObject("btn_EditImportProduct.Image")));
-            this.btn_EditImportProduct.Location = new System.Drawing.Point(755, 408);
-            this.btn_EditImportProduct.Name = "btn_EditImportProduct";
-            this.btn_EditImportProduct.Size = new System.Drawing.Size(180, 50);
-            this.btn_EditImportProduct.TabIndex = 6;
-            this.btn_EditImportProduct.Text = "Nhập thêm hàng";
-            this.btn_EditImportProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_EditImportProduct.UseVisualStyleBackColor = true;
-            this.btn_EditImportProduct.Click += new System.EventHandler(this.btn_EditImportProduct_Click);
             // 
             // MainForm
             // 

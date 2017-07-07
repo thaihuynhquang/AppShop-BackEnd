@@ -27,7 +27,21 @@ namespace BusinessLogicLayer
 
         public bool CreateSupplier(SupplierValueObject supplier)
         {
-            return _supplierDataAccessLayer.CreateNewSupplier(supplier.Name, supplier.Address, supplier.Email, supplier.Phone);
+            try
+            {
+                var listSuppliers = GetallSupplier();
+                if(listSuppliers.Any(el => el.Email == supplier.Email && el.Phone == supplier.Phone))
+                {
+                    return false;
+                }
+                return _supplierDataAccessLayer.CreateNewSupplier(supplier.Name, supplier.Address, supplier.Email, supplier.Phone);
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+            
         }
 
         public bool UpdateSupplier(SupplierValueObject supplier)

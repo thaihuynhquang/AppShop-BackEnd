@@ -32,7 +32,7 @@ namespace BusinessLogicLayer
             var data = _productDataAccessLayer.GetAllProduct();
              return (from DataRow row in data.Rows select new ProductValueObject(int.Parse(row["id"].ToString()), 
                  row["name"].ToString(), int.Parse(row["id_type"].ToString()),
-                 int.Parse(row["price"].ToString()), row["description"].ToString(), int.Parse(row["new"].ToString()))).ToList();
+                 uint.Parse(row["price"].ToString()), row["description"].ToString(), int.Parse(row["new"].ToString()))).ToList();
      
         }
 
@@ -41,7 +41,7 @@ namespace BusinessLogicLayer
             try
             {
                 var listProduct = GetAllProduct();
-                if (listProduct.Any(x => x.IdType == productValueObject.IdType && x.Name == productValueObject.Name))
+                if (listProduct.Any(x => x.IdType == productValueObject.IdType && x.Name.Trim() == productValueObject.Name.Trim()))
                 {
                     return false;
                 }
@@ -68,7 +68,7 @@ namespace BusinessLogicLayer
             var data = _productDataAccessLayer.GetProductById(rowId);
             return (from DataRow row in data.Rows
                 select new ProductValueObject(int.Parse(row["id"].ToString()), row["name"].ToString(), int.Parse(row["id_type"].ToString()),
-                    int.Parse(row["price"].ToString()), row["description"].ToString(), 
+                    uint.Parse(row["price"].ToString()), row["description"].ToString(), 
                     int.Parse(row["new"].ToString()))).First();
         }
 
@@ -82,7 +82,7 @@ namespace BusinessLogicLayer
             var x  = imageDataAccessLayer.UpdateImage(image.idSp, image.link);
             if (!x )
             {
-                throw new Exception("RRR");
+                throw new Exception("Cannot update image.");
             }
             return _productDataAccessLayer.UpdateProduct(productValueObject.Id, productValueObject.Name,
                 productValueObject.IdType, productValueObject.Price, productValueObject.Description,
@@ -122,7 +122,7 @@ namespace BusinessLogicLayer
             return (from DataRow row in data.Rows
                 select new ProductValueObject(int.Parse(row["id"].ToString()), row["name"].ToString(),
                     int.Parse(row["id_type"].ToString()),
-                    int.Parse(row["price"].ToString()), row["description"].ToString(),
+                    uint.Parse(row["price"].ToString()), row["description"].ToString(),
                     int.Parse(row["new"].ToString()))).ToList();
         }
     }

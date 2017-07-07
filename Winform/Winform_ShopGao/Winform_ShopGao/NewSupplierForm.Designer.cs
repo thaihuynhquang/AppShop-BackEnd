@@ -51,7 +51,7 @@
             this.btn_themNCC.Text = "Thêm nhà cung cấp";
             this.btn_themNCC.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_themNCC.UseVisualStyleBackColor = true;
-            this.btn_themNCC.Click += new System.EventHandler(this.button1_Click);
+            this.btn_themNCC.Click += new System.EventHandler(this.btn_themNCC_Click);
             // 
             // txtB_TenNCC
             // 
@@ -91,7 +91,7 @@
             this.btn_exitNCC.Text = "Thoát";
             this.btn_exitNCC.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_exitNCC.UseVisualStyleBackColor = true;
-            this.btn_exitNCC.Click += new System.EventHandler(this.button2_Click);
+            this.btn_exitNCC.Click += new System.EventHandler(this.btn_exitNCC_Click);
             // 
             // lb_TenNCC
             // 

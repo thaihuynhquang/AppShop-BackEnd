@@ -20,8 +20,9 @@ namespace Winform_ShopGao
     public partial class NewProductTypeForm : Form
     {
         private string _filePath;
+        private bool isUpdateImage = false;
         private bool _isUpdate = false;
-        private readonly int _rowId;
+        private readonly int _rowId = 0;
         private readonly ProductBusinessLogic _productBusinessLogic;
         private readonly ProductTypeBusinessLogic _productTypeBusinessLogic;
         public Form RefToPreForm { get; set; }
@@ -52,7 +53,7 @@ namespace Winform_ShopGao
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_chooseImage_Click(object sender, EventArgs e)
         {
             var openFileDialog1 = new OpenFileDialog
             {
@@ -74,52 +75,76 @@ namespace Winform_ShopGao
             picBox_ImageProductType.SizeMode = PictureBoxSizeMode.CenterImage;
             picBox_ImageProductType.Image = Image.FromFile(openFileDialog1.FileName);
             picBox_ImageProductType.BackColor = Color.White;
+            isUpdateImage = true;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btn_Exit_Click(object sender, EventArgs e)
         {
-            this.RefToPreForm.Show();
+            RefToPreForm.Show();
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btn_InsertProductType_Click(object sender, EventArgs e)
         {
             var name = txtB_NameProductType.Text.Trim();
+            if (name == "")
+            {
+                MessageBox.Show("Xin điền đầy đủ thông tin trước khi thực hiện thao tác khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             using (var tran = new TransactionScope())
             {
-                const string actionUrl = "http://localhost:4000/api/upload_image_productType";
-
-                var fileStream = File.OpenRead(_filePath);
-                string fileNameInServer;
-                HttpContent fileStreamContent = new StreamContent(fileStream);
-                using (var client = new HttpClient())
+                string fileNameInServer = "";
+                if (isUpdateImage)
                 {
-                    using (var formData = new MultipartFormDataContent())
+                    const string actionUrl = "http://localhost:4000/api/upload_image_productType";
+                    var fileStream = File.OpenRead(_filePath);
+                    HttpContent fileStreamContent = new StreamContent(fileStream);
+                    using (var client = new HttpClient())
                     {
-                        formData.Add(fileStreamContent, "image", "image.jpg");
-                        var response = client.PostAsync(actionUrl, formData).Result;
-
-                        var receiveStream = response.Content.ReadAsStreamAsync().Result;
-                        StreamReader readStream = new StreamReader(receiveStream, Encoding.UTF8);
-
-                        var message = readStream.ReadToEnd();
-                        dynamic stuff = JsonConvert.DeserializeObject(message);
-                        string mess = stuff.msg.ToString();
-                        if (mess.Equals("Error"))
+                        using (var formData = new MultipartFormDataContent())
                         {
-                            MessageBox.Show(@"Error whern upload image ");
-                            return;
+                            formData.Add(fileStreamContent, "image", "image.jpg");
+                            var response = client.PostAsync(actionUrl, formData).Result;
+
+                            var receiveStream = response.Content.ReadAsStreamAsync().Result;
+                            StreamReader readStream = new StreamReader(receiveStream, Encoding.UTF8);
+
+                            var message = readStream.ReadToEnd();
+                            dynamic stuff = JsonConvert.DeserializeObject(message);
+                            string mess = stuff.msg.ToString();
+                            if (mess.Equals("Error"))
+                            {
+                                MessageBox.Show("Có lỗi tải hình lên, xin thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                            fileNameInServer = stuff.link.ToString();
                         }
-                        fileNameInServer = stuff.link.ToString();
                     }
                 }
+                else
+                {
+                    if (_rowId == 0)//thêm mới sản phẩm
+                    {
+                        MessageBox.Show("Thêm mới loại sản phẩm phải có hình ảnh miêu tả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
                 ProductTypeValueObject productTypeValueObject = new ProductTypeValueObject(_isUpdate ? _rowId : 0, name, fileNameInServer);
                 var success = _isUpdate ? _productTypeBusinessLogic.UpdateProductType(productTypeValueObject) : _productTypeBusinessLogic.CreateProductType(productTypeValueObject);
-                MessageBox.Show(success ? "Success" : "Fail");
+                if (success)
+                {
+                    MessageBox.Show("Cật nhật thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Có gì đó không đúng, có thể dữ liệu đã có trong cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 tran.Complete();
             }
         }
-
+        
         private Image GetImage(int? id)
         {
             var imageFile = _productTypeBusinessLogic.GetImageFileName(id);
@@ -155,5 +180,6 @@ namespace Winform_ShopGao
                 return Image.FromStream(ms);
             }
         }
+        
     }
 }

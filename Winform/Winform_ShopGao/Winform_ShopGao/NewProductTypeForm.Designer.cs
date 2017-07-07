@@ -68,7 +68,7 @@
             this.btn_chooseImage.Text = "Tải lên";
             this.btn_chooseImage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_chooseImage.UseVisualStyleBackColor = true;
-            this.btn_chooseImage.Click += new System.EventHandler(this.button1_Click);
+            this.btn_chooseImage.Click += new System.EventHandler(this.btn_chooseImage_Click);
             // 
             // btn_InsertProductType
             // 
@@ -80,7 +80,7 @@
             this.btn_InsertProductType.Text = "Tạo";
             this.btn_InsertProductType.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_InsertProductType.UseVisualStyleBackColor = true;
-            this.btn_InsertProductType.Click += new System.EventHandler(this.button2_Click);
+            this.btn_InsertProductType.Click += new System.EventHandler(this.btn_InsertProductType_Click);
             // 
             // btn_Exit
             // 
@@ -92,7 +92,7 @@
             this.btn_Exit.Text = "Thoát";
             this.btn_Exit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Exit.UseVisualStyleBackColor = true;
-            this.btn_Exit.Click += new System.EventHandler(this.button3_Click);
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
             // lb_NameProductType
             // 

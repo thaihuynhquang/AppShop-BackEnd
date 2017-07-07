@@ -42,6 +42,15 @@ namespace DAO
             return _mySqlDbConnection.ExecuteUpdateQuery(query, sqlParameters);
         }
 
+        public bool UpdateProductTypeNotImage(int? productTypeId, string productTypeName)
+        {
+            const string query = "UPDATE product_type set name = @name where id = @id";
+            var sqlParameters = new MySqlParameter[2];
+            sqlParameters[0] = new MySqlParameter("@name", MySqlDbType.VarChar) { Value = productTypeName };
+            sqlParameters[1] = new MySqlParameter("@id", MySqlDbType.Int32) { Value = productTypeId };
+            return _mySqlDbConnection.ExecuteUpdateQuery(query, sqlParameters);
+        }
+
         public DataTable GetDetailProductType(int id)
         {
             const string query = "select * from product_type where id = @id limit 1";

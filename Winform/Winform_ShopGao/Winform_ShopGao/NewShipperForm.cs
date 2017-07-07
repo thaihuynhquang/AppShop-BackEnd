@@ -31,8 +31,8 @@ namespace Winform_ShopGao
 
             var shipper = _shipperBussinessLogic.GetDetailShipper(_rowId);
             txtB_NameShipper.Text = shipper.Name;
-            txt_EmailShipper.Text = shipper.Email;
-            txt_PhoneShipper.Text = shipper.Phone;
+            txtB_EmailShipper.Text = shipper.Email;
+            txtB_PhoneShipper.Text = shipper.Phone;
         }
 
         private void btn_Exit_Click(object sender, EventArgs e)
@@ -43,10 +43,27 @@ namespace Winform_ShopGao
 
         private void btn_InsertShipper_Click(object sender, EventArgs e)
         {
-            var shipperValueObject = new ShipperValueObject(_isUpdate ? _rowId : 0, txtB_NameShipper.Text.Trim(), txt_EmailShipper.Text.Trim(), txt_PhoneShipper.Text.Trim());
+            var name = txtB_NameShipper.Text.Trim();
+            var email = txtB_EmailShipper.Text.Trim();
+            var phone = txtB_PhoneShipper.Text.Trim();
+
+            if (name == "" || email == "" || phone == "")
+            {
+                MessageBox.Show("Xin điền đầy đủ thông tin trước khi thực hiện thao tác khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var shipperValueObject = new ShipperValueObject(_isUpdate ? _rowId : 0, name, email, phone);
             var success = _isUpdate ? _shipperBussinessLogic.UpdateSupplier(shipperValueObject) : _shipperBussinessLogic.CreateShipper(shipperValueObject);
 
-            MessageBox.Show(success ? "Thành công." : "Thất bại");
+            if (success)
+            {
+                MessageBox.Show("Cật nhật thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Có gì đó không đúng, có thể dữ liệu đã có trong cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
