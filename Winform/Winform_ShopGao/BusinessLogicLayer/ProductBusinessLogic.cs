@@ -88,26 +88,6 @@ namespace BusinessLogicLayer
                 productValueObject.IdType, productValueObject.Price, productValueObject.Description,
                 productValueObject.Inew);
         }
-
-        public bool ImportProduct(int id, int idncc, int total, int dongia)
-        {
-            /*
-            var product = GetProductById(id);
-            using (var transactionScope = new TransactionScope())
-            {
-               var isProductUpdate = UpdateProduct(product);
-                var isImport = importDataAccessLayer.InsertImportBill(idncc, id, total, dongia);
-                if (isImport && isProductUpdate)
-                {
-                    transactionScope.Complete();
-                    return true;
-                }
-                transactionScope.Dispose();
-                return false;
-            }
-            */
-            return false;
-        }
         
         public string GetImageFileName(int? id)
         {
