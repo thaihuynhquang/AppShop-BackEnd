@@ -135,7 +135,7 @@
             this.btn_importProduct.Name = "btn_importProduct";
             this.btn_importProduct.Size = new System.Drawing.Size(100, 40);
             this.btn_importProduct.TabIndex = 8;
-            this.btn_importProduct.Text = "Cập nhật";
+            this.btn_importProduct.Text = "Lưu";
             this.btn_importProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_importProduct.UseVisualStyleBackColor = true;
             this.btn_importProduct.Click += new System.EventHandler(this.btn_importProduct_Click);

@@ -263,12 +263,28 @@ namespace Winform_ShopGao
         }
 
 
-        //xử lý tìm kiếm thông tin
+        //xử lý tìm kiếm thông tin sản phẩm
         private void btn_SearchProduct_Click(object sender, EventArgs e)
         {
-            List<string> column = new List<string> { "Name", "price" };
+            List<string> column = new List<string> { "id", "Name", "id_type" };
             String value = txtB_SearchProduct.Text.Trim();
             productGridControl.DataSource = _productBusinessLogic.Search(column, value);
+        }
+
+        private void txtB_SearchProduct_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == 13)
+            {
+                List<string> column = new List<string> { "id", "Name", "id_type" };
+                String value = txtB_SearchProduct.Text.Trim();
+                productGridControl.DataSource = _productBusinessLogic.Search(column, value);
+            }
+            
+        }
+
+        private void txtB_SearchProduct_Enter(object sender, EventArgs e)
+        {
+            txtB_SearchProduct.Text = "";
         }
 
         private void btn_Clear_Click(object sender, EventArgs e)
@@ -276,11 +292,27 @@ namespace Winform_ShopGao
             txtB_SearchProduct.Text = "";
         }
 
+        //xử lý tìm kiếm thông tin đơn hàng
         private void btn_SearchBill_Click(object sender, EventArgs e)
         {
-            List<string> column = new List<string> { "id", "id_customer", "	total", "address", "district", "city", "note" };
+            List<string> column = new List<string> { "id", "id_customer", "id_shipper" };
             String value = txtB_SearchBill.Text.Trim();
             billGridControl.DataSource = _billBusinessLogic.Search(column, value);
+        }
+
+        private void txtB_SearchBill_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == 13)
+            {
+                List<string> column = new List<string> { "id", "id_customer", "id_shipper" };
+                String value = txtB_SearchBill.Text.Trim();
+                billGridControl.DataSource = _billBusinessLogic.Search(column, value);
+            }
+        }
+
+        private void txtB_SearchBill_Enter(object sender, EventArgs e)
+        {
+            txtB_SearchBill.Text = "";
         }
 
         private void btn_ClearBill_Click(object sender, EventArgs e)
@@ -288,11 +320,28 @@ namespace Winform_ShopGao
             txtB_SearchBill.Text = "";
         }
 
+        //xử lý tìm kiếm thông tin loại sản phẩm
         private void btn_SearchProductType_Click(object sender, EventArgs e)
         {
-            List<string> column = new List<string> { "Name" };
+            List<string> column = new List<string> { "id", "Name" };
             String value = txtB_SearchProductType.Text.Trim();
             productTypeGridControl.DataSource = _productTypeBusinessLogic.Search(column, value);
+        }
+
+        private void txtB_SearchProductType_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == 13)
+            {
+                List<string> column = new List<string> { "id", "Name" };
+                String value = txtB_SearchProductType.Text.Trim();
+                productTypeGridControl.DataSource = _productTypeBusinessLogic.Search(column, value);
+            }
+            
+        }
+
+        private void txtB_SearchProductType_Enter(object sender, EventArgs e)
+        {
+            txtB_SearchProductType.Text = "";
         }
 
         private void btn_ClearProductType_Click(object sender, EventArgs e)
@@ -300,11 +349,28 @@ namespace Winform_ShopGao
             txtB_SearchProductType.Text = "";
         }
 
+
+        //Xử lý tìm kiếm thông tin nhà cung cấp
         private void btn_SearchSupplier_Click(object sender, EventArgs e)
         {
-            List<string> column = new List<string> { "Name", "email", "phone", "addr" };
+            List<string> column = new List<string> { "id", "Name", "email", "phone", "addr" };
             String value = txtB_SearchSupplier.Text.Trim();
             supplierGridControl.DataSource = _supplierBusinessLogic.Search(column, value);
+        }
+
+        private void txtB_SearchSupplier_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == 13)
+            {
+                List<string> column = new List<string> { "id", "Name", "email", "phone", "addr" };
+                String value = txtB_SearchSupplier.Text.Trim();
+                supplierGridControl.DataSource = _supplierBusinessLogic.Search(column, value);
+            }
+        }
+
+        private void txtB_SearchSupplier_Enter(object sender, EventArgs e)
+        {
+            txtB_SearchSupplier.Text = "";
         }
 
         private void btn_clearSupplier_Click(object sender, EventArgs e)
@@ -312,11 +378,27 @@ namespace Winform_ShopGao
             txtB_SearchSupplier.Text = "";
         }
 
+        //xử lý tìm kiếm thông tin nhân viên giao hàng
         private void btn_SearchShipper_Click(object sender, EventArgs e)
         {
-            List<string> column = new List<string> { "name", "email", "phone" };
+            List<string> column = new List<string> { "id", "name", "email", "phone" };
             String value = txtB_SearchShipper.Text.Trim();
             shippersGridControl.DataSource = _shipperBusinessLogic.Search(column, value);
+        }
+
+        private void txtB_SearchShipper_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == 13)
+            {
+                List<string> column = new List<string> { "id", "name", "email", "phone" };
+                String value = txtB_SearchShipper.Text.Trim();
+                shippersGridControl.DataSource = _shipperBusinessLogic.Search(column, value);
+            }
+        }
+
+        private void txtB_SearchShipper_Enter(object sender, EventArgs e)
+        {
+            txtB_SearchShipper.Text = "";
         }
 
         private void btn_ClearShipper_Click(object sender, EventArgs e)
@@ -324,11 +406,27 @@ namespace Winform_ShopGao
             txtB_SearchShipper.Text = "";
         }
 
+        //xử lý tìm kiếm thông tin khách hàng
         private void btn_SearchCustomer_Click(object sender, EventArgs e)
         {
-            List<string> column = new List<string> { "name", "email", "phone" };
+            List<string> column = new List<string> { "id", "name", "email", "phone" };
             String value = txtB_SearchCus.Text.Trim();
             userGridControl.DataSource = _userBusinessLogic.Search(column, value);
+        }
+
+        private void txtB_SearchCus_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                List<string> column = new List<string> { "id", "name", "email", "phone" };
+                String value = txtB_SearchCus.Text.Trim();
+                userGridControl.DataSource = _userBusinessLogic.Search(column, value);
+            }
+        }
+
+        private void txtB_SearchCus_Enter(object sender, EventArgs e)
+        {
+            txtB_SearchCus.Text = "";
         }
 
         private void btn_ClearCustomer_Click(object sender, EventArgs e)
@@ -336,17 +434,34 @@ namespace Winform_ShopGao
             txtB_SearchCus.Text = "";
         }
 
+        //xử lý tìm kiếm thông tin nhập hàng
         private void btn_SearchImport_Click(object sender, EventArgs e)
         {
-            List<string> column = new List<string> { "supplierName", "productName" };
+            List<string> column = new List<string> { "supplierId", "supplierName", "productId", "productName" };
             String value = txtB_SearchImport.Text.Trim();
             importGridControl.DataSource = _importBusinessLogic.Search(column, value);
+        }
+
+        private void txtB_SearchImport_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == 13)
+            {
+                List<string> column = new List<string> { "supplierId", "supplierName", "productId", "productName" };
+                String value = txtB_SearchImport.Text.Trim();
+                importGridControl.DataSource = _importBusinessLogic.Search(column, value);
+            }
+        }
+
+        private void txtB_SearchImport_Enter(object sender, EventArgs e)
+        {
+            txtB_SearchImport.Text = "";
         }
 
         private void btn_ClearImport_Click(object sender, EventArgs e)
         {
             txtB_SearchImport.Text = "";
         }
+
         
     }
 }

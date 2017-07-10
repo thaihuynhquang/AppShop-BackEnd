@@ -149,7 +149,7 @@
             // btn_clearSupplier
             // 
             this.btn_clearSupplier.Image = ((System.Drawing.Image)(resources.GetObject("btn_clearSupplier.Image")));
-            this.btn_clearSupplier.Location = new System.Drawing.Point(416, 15);
+            this.btn_clearSupplier.Location = new System.Drawing.Point(516, 15);
             this.btn_clearSupplier.Name = "btn_clearSupplier";
             this.btn_clearSupplier.Size = new System.Drawing.Size(60, 30);
             this.btn_clearSupplier.TabIndex = 5;
@@ -161,7 +161,7 @@
             // btn_SearchSupplier
             // 
             this.btn_SearchSupplier.Image = ((System.Drawing.Image)(resources.GetObject("btn_SearchSupplier.Image")));
-            this.btn_SearchSupplier.Location = new System.Drawing.Point(310, 15);
+            this.btn_SearchSupplier.Location = new System.Drawing.Point(410, 15);
             this.btn_SearchSupplier.Name = "btn_SearchSupplier";
             this.btn_SearchSupplier.Size = new System.Drawing.Size(100, 30);
             this.btn_SearchSupplier.TabIndex = 4;
@@ -172,16 +172,18 @@
             // 
             // txtB_SearchSupplier
             // 
-            this.txtB_SearchSupplier.Location = new System.Drawing.Point(4, 15);
-            this.txtB_SearchSupplier.Multiline = true;
+            this.txtB_SearchSupplier.Location = new System.Drawing.Point(4, 21);
             this.txtB_SearchSupplier.Name = "txtB_SearchSupplier";
-            this.txtB_SearchSupplier.Size = new System.Drawing.Size(300, 30);
+            this.txtB_SearchSupplier.Size = new System.Drawing.Size(400, 20);
             this.txtB_SearchSupplier.TabIndex = 3;
+            this.txtB_SearchSupplier.Text = "Tìm kiếm theo mã/tên nhà cung cấp, email, điện thoại, địa chỉ";
+            this.txtB_SearchSupplier.Enter += new System.EventHandler(this.txtB_SearchSupplier_Enter);
+            this.txtB_SearchSupplier.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtB_SearchSupplier_KeyPress);
             // 
             // btn_RefreshDataSupplier
             // 
             this.btn_RefreshDataSupplier.Image = ((System.Drawing.Image)(resources.GetObject("btn_RefreshDataSupplier.Image")));
-            this.btn_RefreshDataSupplier.Location = new System.Drawing.Point(417, 406);
+            this.btn_RefreshDataSupplier.Location = new System.Drawing.Point(410, 405);
             this.btn_RefreshDataSupplier.Name = "btn_RefreshDataSupplier";
             this.btn_RefreshDataSupplier.Size = new System.Drawing.Size(130, 50);
             this.btn_RefreshDataSupplier.TabIndex = 2;
@@ -193,7 +195,7 @@
             // btt_EditSupplier
             // 
             this.btt_EditSupplier.Image = ((System.Drawing.Image)(resources.GetObject("btt_EditSupplier.Image")));
-            this.btt_EditSupplier.Location = new System.Drawing.Point(758, 406);
+            this.btt_EditSupplier.Location = new System.Drawing.Point(760, 405);
             this.btt_EditSupplier.Name = "btt_EditSupplier";
             this.btt_EditSupplier.Size = new System.Drawing.Size(180, 50);
             this.btt_EditSupplier.TabIndex = 2;
@@ -205,7 +207,7 @@
             // btt_newSupplier
             // 
             this.btt_newSupplier.Image = ((System.Drawing.Image)(resources.GetObject("btt_newSupplier.Image")));
-            this.btt_newSupplier.Location = new System.Drawing.Point(563, 406);
+            this.btt_newSupplier.Location = new System.Drawing.Point(560, 405);
             this.btt_newSupplier.Name = "btt_newSupplier";
             this.btt_newSupplier.Size = new System.Drawing.Size(180, 50);
             this.btt_newSupplier.TabIndex = 1;
@@ -216,10 +218,15 @@
             // 
             // supplierGridControl
             // 
+            this.supplierGridControl.AllowUserToAddRows = false;
+            this.supplierGridControl.AllowUserToDeleteRows = false;
             this.supplierGridControl.BackgroundColor = System.Drawing.SystemColors.HighlightText;
             this.supplierGridControl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.supplierGridControl.Location = new System.Drawing.Point(4, 55);
+            this.supplierGridControl.MultiSelect = false;
             this.supplierGridControl.Name = "supplierGridControl";
+            this.supplierGridControl.ReadOnly = true;
+            this.supplierGridControl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.supplierGridControl.Size = new System.Drawing.Size(946, 340);
             this.supplierGridControl.TabIndex = 0;
             // 
@@ -240,7 +247,7 @@
             // btn_RefreshDataProduct
             // 
             this.btn_RefreshDataProduct.Image = ((System.Drawing.Image)(resources.GetObject("btn_RefreshDataProduct.Image")));
-            this.btn_RefreshDataProduct.Location = new System.Drawing.Point(412, 410);
+            this.btn_RefreshDataProduct.Location = new System.Drawing.Point(410, 405);
             this.btn_RefreshDataProduct.Name = "btn_RefreshDataProduct";
             this.btn_RefreshDataProduct.Size = new System.Drawing.Size(130, 50);
             this.btn_RefreshDataProduct.TabIndex = 6;
@@ -252,7 +259,7 @@
             // btn_ClearProduct
             // 
             this.btn_ClearProduct.Image = ((System.Drawing.Image)(resources.GetObject("btn_ClearProduct.Image")));
-            this.btn_ClearProduct.Location = new System.Drawing.Point(416, 14);
+            this.btn_ClearProduct.Location = new System.Drawing.Point(516, 15);
             this.btn_ClearProduct.Name = "btn_ClearProduct";
             this.btn_ClearProduct.Size = new System.Drawing.Size(60, 30);
             this.btn_ClearProduct.TabIndex = 5;
@@ -263,16 +270,18 @@
             // 
             // txtB_SearchProduct
             // 
-            this.txtB_SearchProduct.Location = new System.Drawing.Point(4, 15);
-            this.txtB_SearchProduct.Multiline = true;
+            this.txtB_SearchProduct.Location = new System.Drawing.Point(4, 21);
             this.txtB_SearchProduct.Name = "txtB_SearchProduct";
-            this.txtB_SearchProduct.Size = new System.Drawing.Size(300, 30);
+            this.txtB_SearchProduct.Size = new System.Drawing.Size(400, 20);
             this.txtB_SearchProduct.TabIndex = 4;
+            this.txtB_SearchProduct.Text = "Tìm kiếm theo mã/tên sản phẩm, mã loại sản phẩm";
+            this.txtB_SearchProduct.Enter += new System.EventHandler(this.txtB_SearchProduct_Enter);
+            this.txtB_SearchProduct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtB_SearchProduct_KeyPress);
             // 
             // btn_SearchProduct
             // 
             this.btn_SearchProduct.Image = ((System.Drawing.Image)(resources.GetObject("btn_SearchProduct.Image")));
-            this.btn_SearchProduct.Location = new System.Drawing.Point(310, 14);
+            this.btn_SearchProduct.Location = new System.Drawing.Point(410, 15);
             this.btn_SearchProduct.Name = "btn_SearchProduct";
             this.btn_SearchProduct.Size = new System.Drawing.Size(100, 30);
             this.btn_SearchProduct.TabIndex = 3;
@@ -284,7 +293,7 @@
             // btt_EditProduct
             // 
             this.btt_EditProduct.Image = ((System.Drawing.Image)(resources.GetObject("btt_EditProduct.Image")));
-            this.btt_EditProduct.Location = new System.Drawing.Point(756, 410);
+            this.btt_EditProduct.Location = new System.Drawing.Point(760, 405);
             this.btt_EditProduct.Name = "btt_EditProduct";
             this.btt_EditProduct.Size = new System.Drawing.Size(180, 50);
             this.btt_EditProduct.TabIndex = 2;
@@ -296,7 +305,7 @@
             // btt_newProduct
             // 
             this.btt_newProduct.Image = ((System.Drawing.Image)(resources.GetObject("btt_newProduct.Image")));
-            this.btt_newProduct.Location = new System.Drawing.Point(557, 410);
+            this.btt_newProduct.Location = new System.Drawing.Point(560, 405);
             this.btt_newProduct.Name = "btt_newProduct";
             this.btt_newProduct.Size = new System.Drawing.Size(180, 50);
             this.btt_newProduct.TabIndex = 1;
@@ -307,10 +316,15 @@
             // 
             // productGridControl
             // 
+            this.productGridControl.AllowUserToAddRows = false;
+            this.productGridControl.AllowUserToDeleteRows = false;
             this.productGridControl.BackgroundColor = System.Drawing.SystemColors.HighlightText;
             this.productGridControl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productGridControl.Location = new System.Drawing.Point(4, 55);
+            this.productGridControl.MultiSelect = false;
             this.productGridControl.Name = "productGridControl";
+            this.productGridControl.ReadOnly = true;
+            this.productGridControl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productGridControl.Size = new System.Drawing.Size(946, 340);
             this.productGridControl.TabIndex = 0;
             // 
@@ -329,7 +343,7 @@
             // btn_ClearCustomer
             // 
             this.btn_ClearCustomer.Image = ((System.Drawing.Image)(resources.GetObject("btn_ClearCustomer.Image")));
-            this.btn_ClearCustomer.Location = new System.Drawing.Point(416, 15);
+            this.btn_ClearCustomer.Location = new System.Drawing.Point(516, 15);
             this.btn_ClearCustomer.Name = "btn_ClearCustomer";
             this.btn_ClearCustomer.Size = new System.Drawing.Size(60, 30);
             this.btn_ClearCustomer.TabIndex = 4;
@@ -341,7 +355,7 @@
             // btn_SearchCustomer
             // 
             this.btn_SearchCustomer.Image = ((System.Drawing.Image)(resources.GetObject("btn_SearchCustomer.Image")));
-            this.btn_SearchCustomer.Location = new System.Drawing.Point(310, 15);
+            this.btn_SearchCustomer.Location = new System.Drawing.Point(410, 15);
             this.btn_SearchCustomer.Name = "btn_SearchCustomer";
             this.btn_SearchCustomer.Size = new System.Drawing.Size(100, 30);
             this.btn_SearchCustomer.TabIndex = 3;
@@ -352,16 +366,18 @@
             // 
             // txtB_SearchCus
             // 
-            this.txtB_SearchCus.Location = new System.Drawing.Point(4, 15);
-            this.txtB_SearchCus.Multiline = true;
+            this.txtB_SearchCus.Location = new System.Drawing.Point(4, 21);
             this.txtB_SearchCus.Name = "txtB_SearchCus";
-            this.txtB_SearchCus.Size = new System.Drawing.Size(300, 30);
+            this.txtB_SearchCus.Size = new System.Drawing.Size(400, 20);
             this.txtB_SearchCus.TabIndex = 2;
+            this.txtB_SearchCus.Text = "Tìm kiếm theo mã/tên khách hàng, email, điện thoai";
+            this.txtB_SearchCus.Enter += new System.EventHandler(this.txtB_SearchCus_Enter);
+            this.txtB_SearchCus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtB_SearchCus_KeyPress);
             // 
             // btn_RefreshDataCustomer
             // 
             this.btn_RefreshDataCustomer.Image = ((System.Drawing.Image)(resources.GetObject("btn_RefreshDataCustomer.Image")));
-            this.btn_RefreshDataCustomer.Location = new System.Drawing.Point(795, 411);
+            this.btn_RefreshDataCustomer.Location = new System.Drawing.Point(811, 405);
             this.btn_RefreshDataCustomer.Name = "btn_RefreshDataCustomer";
             this.btn_RefreshDataCustomer.Size = new System.Drawing.Size(130, 50);
             this.btn_RefreshDataCustomer.TabIndex = 1;
@@ -372,10 +388,15 @@
             // 
             // userGridControl
             // 
+            this.userGridControl.AllowUserToAddRows = false;
+            this.userGridControl.AllowUserToDeleteRows = false;
             this.userGridControl.BackgroundColor = System.Drawing.SystemColors.HighlightText;
             this.userGridControl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.userGridControl.Location = new System.Drawing.Point(4, 55);
+            this.userGridControl.MultiSelect = false;
             this.userGridControl.Name = "userGridControl";
+            this.userGridControl.ReadOnly = true;
+            this.userGridControl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.userGridControl.Size = new System.Drawing.Size(946, 340);
             this.userGridControl.TabIndex = 0;
             // 
@@ -395,7 +416,7 @@
             // btn_ClearBill
             // 
             this.btn_ClearBill.Image = ((System.Drawing.Image)(resources.GetObject("btn_ClearBill.Image")));
-            this.btn_ClearBill.Location = new System.Drawing.Point(416, 15);
+            this.btn_ClearBill.Location = new System.Drawing.Point(516, 15);
             this.btn_ClearBill.Name = "btn_ClearBill";
             this.btn_ClearBill.Size = new System.Drawing.Size(60, 30);
             this.btn_ClearBill.TabIndex = 5;
@@ -407,7 +428,7 @@
             // btn_RefreshDataBIll
             // 
             this.btn_RefreshDataBIll.Image = ((System.Drawing.Image)(resources.GetObject("btn_RefreshDataBIll.Image")));
-            this.btn_RefreshDataBIll.Location = new System.Drawing.Point(605, 411);
+            this.btn_RefreshDataBIll.Location = new System.Drawing.Point(610, 405);
             this.btn_RefreshDataBIll.Name = "btn_RefreshDataBIll";
             this.btn_RefreshDataBIll.Size = new System.Drawing.Size(130, 50);
             this.btn_RefreshDataBIll.TabIndex = 4;
@@ -418,16 +439,18 @@
             // 
             // txtB_SearchBill
             // 
-            this.txtB_SearchBill.Location = new System.Drawing.Point(4, 15);
-            this.txtB_SearchBill.Multiline = true;
+            this.txtB_SearchBill.Location = new System.Drawing.Point(4, 21);
             this.txtB_SearchBill.Name = "txtB_SearchBill";
-            this.txtB_SearchBill.Size = new System.Drawing.Size(300, 30);
+            this.txtB_SearchBill.Size = new System.Drawing.Size(400, 20);
             this.txtB_SearchBill.TabIndex = 3;
+            this.txtB_SearchBill.Text = "Tìm kiếm theo mã đơn hàng, mã khách hàng, mã nhân viên giao hàng";
+            this.txtB_SearchBill.Enter += new System.EventHandler(this.txtB_SearchBill_Enter);
+            this.txtB_SearchBill.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtB_SearchBill_KeyPress);
             // 
             // btn_SearchBill
             // 
             this.btn_SearchBill.Image = ((System.Drawing.Image)(resources.GetObject("btn_SearchBill.Image")));
-            this.btn_SearchBill.Location = new System.Drawing.Point(310, 15);
+            this.btn_SearchBill.Location = new System.Drawing.Point(410, 15);
             this.btn_SearchBill.Name = "btn_SearchBill";
             this.btn_SearchBill.Size = new System.Drawing.Size(100, 30);
             this.btn_SearchBill.TabIndex = 2;
@@ -439,7 +462,7 @@
             // btn_newBill
             // 
             this.btn_newBill.Image = ((System.Drawing.Image)(resources.GetObject("btn_newBill.Image")));
-            this.btn_newBill.Location = new System.Drawing.Point(756, 411);
+            this.btn_newBill.Location = new System.Drawing.Point(760, 405);
             this.btn_newBill.Name = "btn_newBill";
             this.btn_newBill.Size = new System.Drawing.Size(180, 50);
             this.btn_newBill.TabIndex = 1;
@@ -450,10 +473,15 @@
             // 
             // billGridControl
             // 
+            this.billGridControl.AllowUserToAddRows = false;
+            this.billGridControl.AllowUserToDeleteRows = false;
             this.billGridControl.BackgroundColor = System.Drawing.SystemColors.HighlightText;
             this.billGridControl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.billGridControl.Location = new System.Drawing.Point(4, 55);
+            this.billGridControl.MultiSelect = false;
             this.billGridControl.Name = "billGridControl";
+            this.billGridControl.ReadOnly = true;
+            this.billGridControl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.billGridControl.Size = new System.Drawing.Size(946, 340);
             this.billGridControl.TabIndex = 0;
             // 
@@ -474,7 +502,7 @@
             // btn_EditImportProduct
             // 
             this.btn_EditImportProduct.Image = ((System.Drawing.Image)(resources.GetObject("btn_EditImportProduct.Image")));
-            this.btn_EditImportProduct.Location = new System.Drawing.Point(755, 408);
+            this.btn_EditImportProduct.Location = new System.Drawing.Point(760, 405);
             this.btn_EditImportProduct.Name = "btn_EditImportProduct";
             this.btn_EditImportProduct.Size = new System.Drawing.Size(180, 50);
             this.btn_EditImportProduct.TabIndex = 6;
@@ -486,7 +514,7 @@
             // btn_ClearImport
             // 
             this.btn_ClearImport.Image = ((System.Drawing.Image)(resources.GetObject("btn_ClearImport.Image")));
-            this.btn_ClearImport.Location = new System.Drawing.Point(416, 15);
+            this.btn_ClearImport.Location = new System.Drawing.Point(516, 15);
             this.btn_ClearImport.Name = "btn_ClearImport";
             this.btn_ClearImport.Size = new System.Drawing.Size(60, 30);
             this.btn_ClearImport.TabIndex = 5;
@@ -498,7 +526,7 @@
             // btn_SearchImport
             // 
             this.btn_SearchImport.Image = ((System.Drawing.Image)(resources.GetObject("btn_SearchImport.Image")));
-            this.btn_SearchImport.Location = new System.Drawing.Point(310, 15);
+            this.btn_SearchImport.Location = new System.Drawing.Point(410, 15);
             this.btn_SearchImport.Name = "btn_SearchImport";
             this.btn_SearchImport.Size = new System.Drawing.Size(100, 30);
             this.btn_SearchImport.TabIndex = 4;
@@ -509,16 +537,18 @@
             // 
             // txtB_SearchImport
             // 
-            this.txtB_SearchImport.Location = new System.Drawing.Point(4, 15);
-            this.txtB_SearchImport.Multiline = true;
+            this.txtB_SearchImport.Location = new System.Drawing.Point(4, 21);
             this.txtB_SearchImport.Name = "txtB_SearchImport";
-            this.txtB_SearchImport.Size = new System.Drawing.Size(300, 30);
+            this.txtB_SearchImport.Size = new System.Drawing.Size(400, 20);
             this.txtB_SearchImport.TabIndex = 3;
+            this.txtB_SearchImport.Text = "Tìm kiếm theo mã/tên nhà cung cấp, mã/tên sản phẩm";
+            this.txtB_SearchImport.Enter += new System.EventHandler(this.txtB_SearchImport_Enter);
+            this.txtB_SearchImport.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtB_SearchImport_KeyPress);
             // 
             // btn_RefreshDataImport
             // 
             this.btn_RefreshDataImport.Image = ((System.Drawing.Image)(resources.GetObject("btn_RefreshDataImport.Image")));
-            this.btn_RefreshDataImport.Location = new System.Drawing.Point(389, 408);
+            this.btn_RefreshDataImport.Location = new System.Drawing.Point(390, 405);
             this.btn_RefreshDataImport.Name = "btn_RefreshDataImport";
             this.btn_RefreshDataImport.Size = new System.Drawing.Size(130, 50);
             this.btn_RefreshDataImport.TabIndex = 2;
@@ -530,7 +560,7 @@
             // btn_importProduct
             // 
             this.btn_importProduct.Image = ((System.Drawing.Image)(resources.GetObject("btn_importProduct.Image")));
-            this.btn_importProduct.Location = new System.Drawing.Point(539, 408);
+            this.btn_importProduct.Location = new System.Drawing.Point(540, 405);
             this.btn_importProduct.Name = "btn_importProduct";
             this.btn_importProduct.Size = new System.Drawing.Size(200, 50);
             this.btn_importProduct.TabIndex = 1;
@@ -541,10 +571,15 @@
             // 
             // importGridControl
             // 
+            this.importGridControl.AllowUserToAddRows = false;
+            this.importGridControl.AllowUserToDeleteRows = false;
             this.importGridControl.BackgroundColor = System.Drawing.SystemColors.HighlightText;
             this.importGridControl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.importGridControl.Location = new System.Drawing.Point(4, 55);
+            this.importGridControl.MultiSelect = false;
             this.importGridControl.Name = "importGridControl";
+            this.importGridControl.ReadOnly = true;
+            this.importGridControl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.importGridControl.Size = new System.Drawing.Size(946, 340);
             this.importGridControl.TabIndex = 0;
             // 
@@ -565,7 +600,7 @@
             // btn_ClearShipper
             // 
             this.btn_ClearShipper.Image = ((System.Drawing.Image)(resources.GetObject("btn_ClearShipper.Image")));
-            this.btn_ClearShipper.Location = new System.Drawing.Point(416, 15);
+            this.btn_ClearShipper.Location = new System.Drawing.Point(516, 15);
             this.btn_ClearShipper.Name = "btn_ClearShipper";
             this.btn_ClearShipper.Size = new System.Drawing.Size(60, 30);
             this.btn_ClearShipper.TabIndex = 6;
@@ -577,7 +612,7 @@
             // btn_SearchShipper
             // 
             this.btn_SearchShipper.Image = ((System.Drawing.Image)(resources.GetObject("btn_SearchShipper.Image")));
-            this.btn_SearchShipper.Location = new System.Drawing.Point(310, 15);
+            this.btn_SearchShipper.Location = new System.Drawing.Point(410, 15);
             this.btn_SearchShipper.Name = "btn_SearchShipper";
             this.btn_SearchShipper.Size = new System.Drawing.Size(100, 30);
             this.btn_SearchShipper.TabIndex = 5;
@@ -588,16 +623,18 @@
             // 
             // txtB_SearchShipper
             // 
-            this.txtB_SearchShipper.Location = new System.Drawing.Point(4, 15);
-            this.txtB_SearchShipper.Multiline = true;
+            this.txtB_SearchShipper.Location = new System.Drawing.Point(4, 21);
             this.txtB_SearchShipper.Name = "txtB_SearchShipper";
-            this.txtB_SearchShipper.Size = new System.Drawing.Size(300, 30);
+            this.txtB_SearchShipper.Size = new System.Drawing.Size(400, 20);
             this.txtB_SearchShipper.TabIndex = 4;
+            this.txtB_SearchShipper.Text = "Tìm kiếm theo mã/tên nhân viên, email, điiện thoại";
+            this.txtB_SearchShipper.Enter += new System.EventHandler(this.txtB_SearchShipper_Enter);
+            this.txtB_SearchShipper.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtB_SearchShipper_KeyPress);
             // 
             // btn_RefreshDataShipper
             // 
             this.btn_RefreshDataShipper.Image = ((System.Drawing.Image)(resources.GetObject("btn_RefreshDataShipper.Image")));
-            this.btn_RefreshDataShipper.Location = new System.Drawing.Point(408, 407);
+            this.btn_RefreshDataShipper.Location = new System.Drawing.Point(410, 405);
             this.btn_RefreshDataShipper.Name = "btn_RefreshDataShipper";
             this.btn_RefreshDataShipper.Size = new System.Drawing.Size(130, 50);
             this.btn_RefreshDataShipper.TabIndex = 3;
@@ -609,7 +646,7 @@
             // btn_EditShipper
             // 
             this.btn_EditShipper.Image = ((System.Drawing.Image)(resources.GetObject("btn_EditShipper.Image")));
-            this.btn_EditShipper.Location = new System.Drawing.Point(752, 407);
+            this.btn_EditShipper.Location = new System.Drawing.Point(760, 405);
             this.btn_EditShipper.Name = "btn_EditShipper";
             this.btn_EditShipper.Size = new System.Drawing.Size(180, 50);
             this.btn_EditShipper.TabIndex = 2;
@@ -621,7 +658,7 @@
             // btn_InsertShipper
             // 
             this.btn_InsertShipper.Image = ((System.Drawing.Image)(resources.GetObject("btn_InsertShipper.Image")));
-            this.btn_InsertShipper.Location = new System.Drawing.Point(555, 407);
+            this.btn_InsertShipper.Location = new System.Drawing.Point(560, 405);
             this.btn_InsertShipper.Name = "btn_InsertShipper";
             this.btn_InsertShipper.Size = new System.Drawing.Size(180, 50);
             this.btn_InsertShipper.TabIndex = 1;
@@ -632,10 +669,15 @@
             // 
             // shippersGridControl
             // 
+            this.shippersGridControl.AllowUserToAddRows = false;
+            this.shippersGridControl.AllowUserToDeleteRows = false;
             this.shippersGridControl.BackgroundColor = System.Drawing.SystemColors.HighlightText;
             this.shippersGridControl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.shippersGridControl.Location = new System.Drawing.Point(4, 55);
+            this.shippersGridControl.MultiSelect = false;
             this.shippersGridControl.Name = "shippersGridControl";
+            this.shippersGridControl.ReadOnly = true;
+            this.shippersGridControl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.shippersGridControl.Size = new System.Drawing.Size(946, 340);
             this.shippersGridControl.TabIndex = 0;
             // 
@@ -656,7 +698,7 @@
             // btn_ClearProductType
             // 
             this.btn_ClearProductType.Image = ((System.Drawing.Image)(resources.GetObject("btn_ClearProductType.Image")));
-            this.btn_ClearProductType.Location = new System.Drawing.Point(416, 15);
+            this.btn_ClearProductType.Location = new System.Drawing.Point(516, 15);
             this.btn_ClearProductType.Name = "btn_ClearProductType";
             this.btn_ClearProductType.Size = new System.Drawing.Size(60, 30);
             this.btn_ClearProductType.TabIndex = 6;
@@ -668,7 +710,7 @@
             // btn_SearchProductType
             // 
             this.btn_SearchProductType.Image = ((System.Drawing.Image)(resources.GetObject("btn_SearchProductType.Image")));
-            this.btn_SearchProductType.Location = new System.Drawing.Point(310, 15);
+            this.btn_SearchProductType.Location = new System.Drawing.Point(410, 15);
             this.btn_SearchProductType.Name = "btn_SearchProductType";
             this.btn_SearchProductType.Size = new System.Drawing.Size(100, 30);
             this.btn_SearchProductType.TabIndex = 5;
@@ -679,16 +721,18 @@
             // 
             // txtB_SearchProductType
             // 
-            this.txtB_SearchProductType.Location = new System.Drawing.Point(4, 15);
-            this.txtB_SearchProductType.Multiline = true;
+            this.txtB_SearchProductType.Location = new System.Drawing.Point(4, 21);
             this.txtB_SearchProductType.Name = "txtB_SearchProductType";
-            this.txtB_SearchProductType.Size = new System.Drawing.Size(300, 30);
+            this.txtB_SearchProductType.Size = new System.Drawing.Size(400, 20);
             this.txtB_SearchProductType.TabIndex = 4;
+            this.txtB_SearchProductType.Text = "Tìm kiếm theo mã/tên loại sản phẩm";
+            this.txtB_SearchProductType.Enter += new System.EventHandler(this.txtB_SearchProductType_Enter);
+            this.txtB_SearchProductType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtB_SearchProductType_KeyPress);
             // 
             // btn_RefreshDataProductType
             // 
             this.btn_RefreshDataProductType.Image = ((System.Drawing.Image)(resources.GetObject("btn_RefreshDataProductType.Image")));
-            this.btn_RefreshDataProductType.Location = new System.Drawing.Point(410, 404);
+            this.btn_RefreshDataProductType.Location = new System.Drawing.Point(410, 405);
             this.btn_RefreshDataProductType.Name = "btn_RefreshDataProductType";
             this.btn_RefreshDataProductType.Size = new System.Drawing.Size(130, 50);
             this.btn_RefreshDataProductType.TabIndex = 3;
@@ -700,7 +744,7 @@
             // btn_EditProductType
             // 
             this.btn_EditProductType.Image = ((System.Drawing.Image)(resources.GetObject("btn_EditProductType.Image")));
-            this.btn_EditProductType.Location = new System.Drawing.Point(756, 404);
+            this.btn_EditProductType.Location = new System.Drawing.Point(760, 405);
             this.btn_EditProductType.Name = "btn_EditProductType";
             this.btn_EditProductType.Size = new System.Drawing.Size(180, 50);
             this.btn_EditProductType.TabIndex = 2;
@@ -712,7 +756,7 @@
             // btn_InsertProductType
             // 
             this.btn_InsertProductType.Image = ((System.Drawing.Image)(resources.GetObject("btn_InsertProductType.Image")));
-            this.btn_InsertProductType.Location = new System.Drawing.Point(559, 404);
+            this.btn_InsertProductType.Location = new System.Drawing.Point(560, 405);
             this.btn_InsertProductType.Name = "btn_InsertProductType";
             this.btn_InsertProductType.Size = new System.Drawing.Size(180, 50);
             this.btn_InsertProductType.TabIndex = 1;
@@ -723,10 +767,15 @@
             // 
             // productTypeGridControl
             // 
+            this.productTypeGridControl.AllowUserToAddRows = false;
+            this.productTypeGridControl.AllowUserToDeleteRows = false;
             this.productTypeGridControl.BackgroundColor = System.Drawing.SystemColors.HighlightText;
             this.productTypeGridControl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productTypeGridControl.Location = new System.Drawing.Point(4, 55);
+            this.productTypeGridControl.MultiSelect = false;
             this.productTypeGridControl.Name = "productTypeGridControl";
+            this.productTypeGridControl.ReadOnly = true;
+            this.productTypeGridControl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productTypeGridControl.Size = new System.Drawing.Size(946, 340);
             this.productTypeGridControl.TabIndex = 0;
             // 

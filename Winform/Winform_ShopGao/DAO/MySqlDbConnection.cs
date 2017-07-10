@@ -58,6 +58,10 @@ namespace DAO
 
                 return null;
             }
+            finally
+            {
+                myCommand.Connection.Close();
+            }
             return dataTable;
         }
 
@@ -79,7 +83,7 @@ namespace DAO
             }
             finally
             {
-                myCommand.Cancel();
+                myCommand.Connection.Close();
             }
             return true;
         }
@@ -102,6 +106,7 @@ namespace DAO
             }
             finally
             {
+                myCommand.Connection.Close();
             }
             return true;
         }
