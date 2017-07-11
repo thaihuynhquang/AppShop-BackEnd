@@ -35,6 +35,7 @@ namespace Winform_ShopGao
             _billDetailBusinessLogicLayer = new BillDetailBusinessLogicLayer();
             _shipperBussinessLogic = new ShipperBussinessLogic();
             _userBusinessLogic = new UserBusinessLogic();
+            _productBusinessLogic = new ProductBusinessLogic();
 
             if (BillId == null || CusId == null || ShipperId == null) return;
             _BillId = (int)BillId;
@@ -110,7 +111,23 @@ namespace Winform_ShopGao
                     MessageBox.Show("Đơn hàng đã hoàn thành", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     bill = _billBusinessLogic.GetBillById(_BillId);
                     txtB_BillStatus.Text = bill.Status;
-                    
+
+                    var billDetails = _billDetailBusinessLogicLayer.GetBillDetailsByBillId(_BillId);
+                    billDetails.ForEach(billDetail =>
+                    {
+                        var product = _productBusinessLogic.GetProductById(billDetail.Id);
+                        var unitOnBill = (long)product.unitOnBill;
+                        var unitInStock = (long)product.unitInStock;
+                        unitInStock = unitInStock - billDetail.Quantity;
+                        unitOnBill = unitOnBill - billDetail.Quantity;
+
+                        if (unitInStock < 0 || unitOnBill < 0) return;
+                        product.unitInStock = (uint)unitInStock;
+                        product.unitOnBill = (uint)unitOnBill;
+                        _productBusinessLogic.UpdateUnitInStock(product);
+                        _productBusinessLogic.UpdateUnitOnBill(product);
+
+                    });
                 }
                 else
                 {
@@ -126,6 +143,22 @@ namespace Winform_ShopGao
                     MessageBox.Show("Trạng thái đơn hàng đang chờ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     bill = _billBusinessLogic.GetBillById(_BillId);
                     txtB_BillStatus.Text = bill.Status;
+
+                    var billDetails = _billDetailBusinessLogicLayer.GetBillDetailsByBillId(_BillId);
+                    billDetails.ForEach(billDetail =>
+                    {
+                        var product = _productBusinessLogic.GetProductById(billDetail.Id);
+                        var unitOnBill = (long)product.unitOnBill;
+                        var unitInStock = (long)product.unitInStock;
+                        unitInStock = unitInStock + billDetail.Quantity;
+                        unitOnBill = unitOnBill + billDetail.Quantity;
+                        
+                        product.unitInStock = (uint)unitInStock;
+                        product.unitOnBill = (uint)unitOnBill;
+                        _productBusinessLogic.UpdateUnitInStock(product);
+                        _productBusinessLogic.UpdateUnitOnBill(product);
+
+                    });
                 }
                 else
                 {

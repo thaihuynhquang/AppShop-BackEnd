@@ -96,6 +96,11 @@ namespace BusinessLogicLayer
             return _productDataAccessLayer.UpdateUnitInStock(product.Id, product.unitInStock);
         }
 
+        public bool UpdateUnitOnBill(ProductValueObject product)
+        {
+            return _productDataAccessLayer.UpdateUnitOnBill(product.Id, product.unitOnBill);
+        }
+
         public string GetImageFileName(int? id)
         {
             var data = imageDataAccessLayer.GetImageFileNameByProductId(id);

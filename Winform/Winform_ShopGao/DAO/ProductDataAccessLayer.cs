@@ -70,5 +70,15 @@ namespace DAO
             sqlParameters[1] = new MySqlParameter("@id", MySqlDbType.Int32) { Value = id };
             return _mySqlDbConnection.ExecuteUpdateQuery(query, sqlParameters);
         }
+
+        public bool UpdateUnitOnBill(int? id, uint unitOnBill)
+        {
+            const string query = "UPDATE product SET unitOnBill=@unitOnBill WHERE id=@id";
+
+            var sqlParameters = new MySqlParameter[2];
+            sqlParameters[0] = new MySqlParameter("@unitOnBill", MySqlDbType.UInt32) { Value = unitOnBill };
+            sqlParameters[1] = new MySqlParameter("@id", MySqlDbType.Int32) { Value = id };
+            return _mySqlDbConnection.ExecuteUpdateQuery(query, sqlParameters);
+        }
     }
 }
