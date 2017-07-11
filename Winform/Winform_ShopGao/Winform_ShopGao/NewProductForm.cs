@@ -100,7 +100,7 @@ namespace Winform_ShopGao
             var type = int.Parse(cmbProductType.SelectedValue.ToString());
             var isNew = chB_TopProduct.Checked ? 1 : 0;
 
-            var productValueObject = new ProductValueObject(_isUpdate ? _rowId : 0, name, type, price, des, isNew);
+            var productValueObject = new ProductValueObject(_isUpdate ? _rowId : 0, name, type, price, des, isNew, 0, 0);
 
             using (var tran = new TransactionScope())
             {

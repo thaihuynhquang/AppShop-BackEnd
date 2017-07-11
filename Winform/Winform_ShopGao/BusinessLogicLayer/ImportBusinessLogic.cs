@@ -23,33 +23,29 @@ namespace BusinessLogicLayer
         {
             var data = _importDataAccessLayer.GetAllImportProducts();
             return (from DataRow row in data.Rows
-                    select new ImportValueObject(int.Parse(row[0].ToString()), int.Parse(row[1].ToString()), row[2].ToString(),
-                    int.Parse(row[3].ToString()), row[4].ToString(), uint.Parse(row[5].ToString()), int.Parse(row[6].ToString()),
-                    uint.Parse(row[7].ToString()), int.Parse(row[8].ToString()))).ToList();
+                    select new ImportValueObject( int.Parse(row[0].ToString()), int.Parse(row[1].ToString()), row[2].ToString(),
+                    int.Parse(row[3].ToString()), row[4].ToString(), uint.Parse(row[5].ToString()), uint.Parse(row[6].ToString()),
+                    int.Parse(row[7].ToString()) )).ToList();
+        }
+
+        public ProductValueObject GetUnitInStock(int productId)
+        {
+            var data = _importDataAccessLayer.GetUnitInStockByProductId(productId);
+            return (from DataRow row in data.Rows
+                    select new ProductValueObject(int.Parse(row["id"].ToString()),
+                     row["name"].ToString(), int.Parse(row["id_type"].ToString()),
+                     uint.Parse(row["price"].ToString()), row["description"].ToString(), int.Parse(row["new"].ToString()), uint.Parse(row["unitInStock"].ToString()), uint.Parse(row["unitOnBill"].ToString()))).First();
         }
 
         public bool ImportProduct(ImportValueObject import)
         {
-            try
-            {
-                var listImport = GetAllImportProducts();
-                if (listImport.Any(x => x.IdNCC == import.IdNCC && x.IdSP == import.IdSP))
-                {
-                    return false;
-                }
-                return _importDataAccessLayer.CreateImportProduct(import.IdNCC, import.NhaCungCap, import.IdSP, import.SanPham, import.SoLuongTrongKho, import.Dongia);
-            }
-            catch (Exception)
-            {
-
-                return false;
-            }
-            
+            return _importDataAccessLayer.CreateImportProduct(import.supplierId, import.supplierName, import.productId, import.productName, import.quantity, import.unitPrice);
+                   
         }
 
         public bool UpdateImportProduct(ImportValueObject import)
         {
-            return _importDataAccessLayer.UpdateImportProduct(import.Id, import.IdNCC, import.NhaCungCap, import.IdSP, import.SanPham, import.SoLuongTrongKho, import.Dongia);
+            return _importDataAccessLayer.UpdateImportProduct(import.Id, import.supplierId, import.supplierName, import.productId, import.productName, import.quantity, import.unitPrice);
         }
 
         public List<ImportValueObject> Search(List<string> column, string value)
@@ -57,8 +53,8 @@ namespace BusinessLogicLayer
             var data = Utility.Search("import", column, value);
             return (from DataRow row in data.Rows
                     select new ImportValueObject(int.Parse(row[0].ToString()), int.Parse(row[1].ToString()), row[2].ToString(),
-                    int.Parse(row[3].ToString()), row[4].ToString(), uint.Parse(row[5].ToString()), int.Parse(row[6].ToString()),
-                    uint.Parse(row[7].ToString()), int.Parse(row[8].ToString()))).ToList();
+                    int.Parse(row[3].ToString()), row[4].ToString(), uint.Parse(row[5].ToString()), uint.Parse(row[6].ToString()),
+                    int.Parse(row[7].ToString()))).ToList();
         }
     }
 }

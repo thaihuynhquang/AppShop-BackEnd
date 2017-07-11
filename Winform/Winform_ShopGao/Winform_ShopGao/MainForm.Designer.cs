@@ -113,8 +113,9 @@
             this.tabPaneMainForm.Controls.Add(this.tabNaviPage_NhapHang);
             this.tabPaneMainForm.Controls.Add(this.tabNaviPage_GiaoHang);
             this.tabPaneMainForm.Controls.Add(this.tabNaviPage_LoaiSanPham);
-            this.tabPaneMainForm.Location = new System.Drawing.Point(12, 12);
+            this.tabPaneMainForm.Location = new System.Drawing.Point(2, 1);
             this.tabPaneMainForm.Name = "tabPaneMainForm";
+            this.tabPaneMainForm.Padding = new System.Windows.Forms.Padding(0, 0, 30, 0);
             this.tabPaneMainForm.PageProperties.ShowMode = DevExpress.XtraBars.Navigation.ItemShowMode.Text;
             this.tabPaneMainForm.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.tabNaviPage_NhaCungCap,
@@ -124,9 +125,9 @@
             this.tabNaviPage_DonHang,
             this.tabNaviPage_GiaoHang,
             this.tabNaviPage_KhachHang});
-            this.tabPaneMainForm.RegularSize = new System.Drawing.Size(971, 516);
+            this.tabPaneMainForm.RegularSize = new System.Drawing.Size(995, 527);
             this.tabPaneMainForm.SelectedPage = this.tabNaviPage_NhaCungCap;
-            this.tabPaneMainForm.Size = new System.Drawing.Size(971, 516);
+            this.tabPaneMainForm.Size = new System.Drawing.Size(995, 527);
             this.tabPaneMainForm.TabIndex = 0;
             this.tabPaneMainForm.Text = "asdas";
             // 
@@ -143,7 +144,7 @@
             this.tabNaviPage_NhaCungCap.Controls.Add(this.btt_newSupplier);
             this.tabNaviPage_NhaCungCap.Controls.Add(this.supplierGridControl);
             this.tabNaviPage_NhaCungCap.Name = "tabNaviPage_NhaCungCap";
-            this.tabNaviPage_NhaCungCap.Size = new System.Drawing.Size(953, 471);
+            this.tabNaviPage_NhaCungCap.Size = new System.Drawing.Size(977, 482);
             this.tabNaviPage_NhaCungCap.VisibleChanged += new System.EventHandler(this.tabNaviPage_NhaCungCap_VisibleChanged);
             // 
             // btn_clearSupplier
@@ -241,7 +242,7 @@
             this.tabNaviPage_SanPham.Controls.Add(this.btt_newProduct);
             this.tabNaviPage_SanPham.Controls.Add(this.productGridControl);
             this.tabNaviPage_SanPham.Name = "tabNaviPage_SanPham";
-            this.tabNaviPage_SanPham.Size = new System.Drawing.Size(953, 471);
+            this.tabNaviPage_SanPham.Size = new System.Drawing.Size(977, 482);
             this.tabNaviPage_SanPham.VisibleChanged += new System.EventHandler(this.tabNaviPage_SanPham_VisibleChanged);
             // 
             // btn_RefreshDataProduct
@@ -337,7 +338,7 @@
             this.tabNaviPage_KhachHang.Controls.Add(this.btn_RefreshDataCustomer);
             this.tabNaviPage_KhachHang.Controls.Add(this.userGridControl);
             this.tabNaviPage_KhachHang.Name = "tabNaviPage_KhachHang";
-            this.tabNaviPage_KhachHang.Size = new System.Drawing.Size(953, 471);
+            this.tabNaviPage_KhachHang.Size = new System.Drawing.Size(979, 557);
             this.tabNaviPage_KhachHang.VisibleChanged += new System.EventHandler(this.tabNaviPage_KhachHang_VisibleChanged);
             // 
             // btn_ClearCustomer
@@ -410,7 +411,7 @@
             this.tabNaviPage_DonHang.Controls.Add(this.btn_newBill);
             this.tabNaviPage_DonHang.Controls.Add(this.billGridControl);
             this.tabNaviPage_DonHang.Name = "tabNaviPage_DonHang";
-            this.tabNaviPage_DonHang.Size = new System.Drawing.Size(953, 471);
+            this.tabNaviPage_DonHang.Size = new System.Drawing.Size(979, 554);
             this.tabNaviPage_DonHang.VisibleChanged += new System.EventHandler(this.tabNaviPage_DonHang_VisibleChanged);
             // 
             // btn_ClearBill
@@ -496,7 +497,7 @@
             this.tabNaviPage_NhapHang.Controls.Add(this.btn_importProduct);
             this.tabNaviPage_NhapHang.Controls.Add(this.importGridControl);
             this.tabNaviPage_NhapHang.Name = "tabNaviPage_NhapHang";
-            this.tabNaviPage_NhapHang.Size = new System.Drawing.Size(953, 471);
+            this.tabNaviPage_NhapHang.Size = new System.Drawing.Size(977, 482);
             this.tabNaviPage_NhapHang.VisibleChanged += new System.EventHandler(this.tabNaviPage_NhapHang_VisibleChanged);
             // 
             // btn_EditImportProduct
@@ -506,7 +507,7 @@
             this.btn_EditImportProduct.Name = "btn_EditImportProduct";
             this.btn_EditImportProduct.Size = new System.Drawing.Size(180, 50);
             this.btn_EditImportProduct.TabIndex = 6;
-            this.btn_EditImportProduct.Text = "Nhập thêm hàng";
+            this.btn_EditImportProduct.Text = "Thay đổi thông tin";
             this.btn_EditImportProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_EditImportProduct.UseVisualStyleBackColor = true;
             this.btn_EditImportProduct.Click += new System.EventHandler(this.btn_EditImportProduct_Click);
@@ -548,7 +549,7 @@
             // btn_RefreshDataImport
             // 
             this.btn_RefreshDataImport.Image = ((System.Drawing.Image)(resources.GetObject("btn_RefreshDataImport.Image")));
-            this.btn_RefreshDataImport.Location = new System.Drawing.Point(390, 405);
+            this.btn_RefreshDataImport.Location = new System.Drawing.Point(460, 405);
             this.btn_RefreshDataImport.Name = "btn_RefreshDataImport";
             this.btn_RefreshDataImport.Size = new System.Drawing.Size(130, 50);
             this.btn_RefreshDataImport.TabIndex = 2;
@@ -560,11 +561,11 @@
             // btn_importProduct
             // 
             this.btn_importProduct.Image = ((System.Drawing.Image)(resources.GetObject("btn_importProduct.Image")));
-            this.btn_importProduct.Location = new System.Drawing.Point(540, 405);
+            this.btn_importProduct.Location = new System.Drawing.Point(610, 405);
             this.btn_importProduct.Name = "btn_importProduct";
-            this.btn_importProduct.Size = new System.Drawing.Size(200, 50);
+            this.btn_importProduct.Size = new System.Drawing.Size(130, 50);
             this.btn_importProduct.TabIndex = 1;
-            this.btn_importProduct.Text = "Nhập hàng cho sản phẩm mới";
+            this.btn_importProduct.Text = "Nhập hàng";
             this.btn_importProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_importProduct.UseVisualStyleBackColor = true;
             this.btn_importProduct.Click += new System.EventHandler(this.btn_importProduct_Click);
@@ -594,7 +595,7 @@
             this.tabNaviPage_GiaoHang.Controls.Add(this.btn_InsertShipper);
             this.tabNaviPage_GiaoHang.Controls.Add(this.shippersGridControl);
             this.tabNaviPage_GiaoHang.Name = "tabNaviPage_GiaoHang";
-            this.tabNaviPage_GiaoHang.Size = new System.Drawing.Size(953, 471);
+            this.tabNaviPage_GiaoHang.Size = new System.Drawing.Size(979, 554);
             this.tabNaviPage_GiaoHang.VisibleChanged += new System.EventHandler(this.tabNaviPage_Shipper_VisibleChanged);
             // 
             // btn_ClearShipper
@@ -692,7 +693,7 @@
             this.tabNaviPage_LoaiSanPham.Controls.Add(this.btn_InsertProductType);
             this.tabNaviPage_LoaiSanPham.Controls.Add(this.productTypeGridControl);
             this.tabNaviPage_LoaiSanPham.Name = "tabNaviPage_LoaiSanPham";
-            this.tabNaviPage_LoaiSanPham.Size = new System.Drawing.Size(953, 471);
+            this.tabNaviPage_LoaiSanPham.Size = new System.Drawing.Size(979, 554);
             this.tabNaviPage_LoaiSanPham.VisibleChanged += new System.EventHandler(this.tabNaviPage_ProductType_VisibleChanged);
             // 
             // btn_ClearProductType
@@ -782,7 +783,7 @@
             // btn_ChangePass
             // 
             this.btn_ChangePass.Image = ((System.Drawing.Image)(resources.GetObject("btn_ChangePass.Image")));
-            this.btn_ChangePass.Location = new System.Drawing.Point(12, 538);
+            this.btn_ChangePass.Location = new System.Drawing.Point(12, 529);
             this.btn_ChangePass.Name = "btn_ChangePass";
             this.btn_ChangePass.Size = new System.Drawing.Size(180, 50);
             this.btn_ChangePass.TabIndex = 1;
@@ -795,7 +796,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(997, 599);
+            this.ClientSize = new System.Drawing.Size(997, 602);
             this.Controls.Add(this.btn_ChangePass);
             this.Controls.Add(this.tabPaneMainForm);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

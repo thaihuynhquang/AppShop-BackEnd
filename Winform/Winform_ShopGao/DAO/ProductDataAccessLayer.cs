@@ -37,7 +37,7 @@ namespace DAO
             sqlParameters[4] = new MySqlParameter("@inew", MySqlDbType.Int32) { Value = inew };
             return _mySqlDbConnection.ExecuteInsertQuery(query, sqlParameters);
         }
-
+        
         public DataTable GetProductById(int? rowId)
         {
             const string query = "select * from product where id = @id limit 1";
@@ -58,6 +58,16 @@ namespace DAO
             sqlParameters[3] = new MySqlParameter("@des", MySqlDbType.String) { Value = description };
             sqlParameters[4] = new MySqlParameter("@n", MySqlDbType.Int32) { Value = inew };
             sqlParameters[5] = new MySqlParameter("@id", MySqlDbType.Int32) { Value = id };
+            return _mySqlDbConnection.ExecuteUpdateQuery(query, sqlParameters);
+        }
+
+        public bool UpdateUnitInStock(int? id, uint unitInStock)
+        {
+            const string query = "UPDATE product SET unitInStock=@unitInStock WHERE id=@id";
+
+            var sqlParameters = new MySqlParameter[2];
+            sqlParameters[0] = new MySqlParameter("@unitInStock", MySqlDbType.UInt32) { Value = unitInStock };
+            sqlParameters[1] = new MySqlParameter("@id", MySqlDbType.Int32) { Value = id };
             return _mySqlDbConnection.ExecuteUpdateQuery(query, sqlParameters);
         }
     }

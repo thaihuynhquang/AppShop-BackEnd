@@ -15,8 +15,10 @@ namespace ValueObject
         public uint Price { get; set; }
         public string Description { get; set; }
         public int Inew { get; set; }
+        public uint unitInStock { get; set; }
+        public uint unitOnBill { get; set; }
 
-        public ProductValueObject(int? id, string name, int idType, uint price, string desc, int inew)
+        public ProductValueObject(int? id, string name, int idType, uint price, string desc, int inew, uint unitInStock, uint unitOnBill)
         {
             this.Id = id;
             this.Name = name;
@@ -24,6 +26,8 @@ namespace ValueObject
             this.Price = price;
             this.Description = desc;
             this.Inew = inew;
+            this.unitInStock = unitInStock;
+            this.unitOnBill = unitOnBill;
         }
     }
 }

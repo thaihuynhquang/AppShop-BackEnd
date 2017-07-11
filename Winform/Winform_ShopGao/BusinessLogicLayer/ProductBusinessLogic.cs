@@ -13,7 +13,7 @@ using Winform_ShopGao;
 
 namespace BusinessLogicLayer
 {
-    
+
     public class ProductBusinessLogic
     {
         private readonly ProductDataAccessLayer _productDataAccessLayer;
@@ -23,17 +23,19 @@ namespace BusinessLogicLayer
         public ProductBusinessLogic()
         {
             _productDataAccessLayer = new ProductDataAccessLayer();
-            importDataAccessLayer= new ImportDataAccessLayer();
+            importDataAccessLayer = new ImportDataAccessLayer();
             imageDataAccessLayer = new ImageDataAccessLayer();
         }
 
         public List<ProductValueObject> GetAllProduct()
         {
             var data = _productDataAccessLayer.GetAllProduct();
-             return (from DataRow row in data.Rows select new ProductValueObject(int.Parse(row["id"].ToString()), 
-                 row["name"].ToString(), int.Parse(row["id_type"].ToString()),
-                 uint.Parse(row["price"].ToString()), row["description"].ToString(), int.Parse(row["new"].ToString()))).ToList();
-     
+            return (from DataRow row in data.Rows
+                    select new ProductValueObject(int.Parse(row["id"].ToString()),
+                    row["name"].ToString(), int.Parse(row["id_type"].ToString()), uint.Parse(row["price"].ToString()),
+                    row["description"].ToString(), int.Parse(row["new"].ToString()),
+                    uint.Parse(row["unitInStock"].ToString()), uint.Parse(row["unitOnBill"].ToString()))).ToList();
+
         }
 
         public bool CreateNewProduct(ProductValueObject productValueObject, ImageValueObject image)
@@ -67,9 +69,9 @@ namespace BusinessLogicLayer
         {
             var data = _productDataAccessLayer.GetProductById(rowId);
             return (from DataRow row in data.Rows
-                select new ProductValueObject(int.Parse(row["id"].ToString()), row["name"].ToString(), int.Parse(row["id_type"].ToString()),
-                    uint.Parse(row["price"].ToString()), row["description"].ToString(), 
-                    int.Parse(row["new"].ToString()))).First();
+                    select new ProductValueObject(int.Parse(row["id"].ToString()),
+                     row["name"].ToString(), int.Parse(row["id_type"].ToString()),
+                     uint.Parse(row["price"].ToString()), row["description"].ToString(), int.Parse(row["new"].ToString()), uint.Parse(row["unitInStock"].ToString()), uint.Parse(row["unitOnBill"].ToString()))).First();
         }
 
         public bool UpdateProduct(ProductValueObject productValueObject, ImageValueObject image = null)
@@ -79,8 +81,8 @@ namespace BusinessLogicLayer
                     productValueObject.IdType, productValueObject.Price, productValueObject.Description,
                     productValueObject.Inew);
 
-            var x  = imageDataAccessLayer.UpdateImage(image.idSp, image.link);
-            if (!x )
+            var x = imageDataAccessLayer.UpdateImage(image.idSp, image.link);
+            if (!x)
             {
                 throw new Exception("Cannot update image.");
             }
@@ -88,7 +90,12 @@ namespace BusinessLogicLayer
                 productValueObject.IdType, productValueObject.Price, productValueObject.Description,
                 productValueObject.Inew);
         }
-        
+
+        public bool UpdateUnitInStock(ProductValueObject product)
+        {
+            return _productDataAccessLayer.UpdateUnitInStock(product.Id, product.unitInStock);
+        }
+
         public string GetImageFileName(int? id)
         {
             var data = imageDataAccessLayer.GetImageFileNameByProductId(id);
@@ -100,10 +107,9 @@ namespace BusinessLogicLayer
         {
             var data = Utility.Search("Product", column, value);
             return (from DataRow row in data.Rows
-                select new ProductValueObject(int.Parse(row["id"].ToString()), row["name"].ToString(),
-                    int.Parse(row["id_type"].ToString()),
-                    uint.Parse(row["price"].ToString()), row["description"].ToString(),
-                    int.Parse(row["new"].ToString()))).ToList();
+                    select new ProductValueObject(int.Parse(row["id"].ToString()),
+                 row["name"].ToString(), int.Parse(row["id_type"].ToString()),
+                 uint.Parse(row["price"].ToString()), row["description"].ToString(), int.Parse(row["new"].ToString()), uint.Parse(row["unitInStock"].ToString()), uint.Parse(row["unitOnBill"].ToString()))).ToList();
         }
     }
 }

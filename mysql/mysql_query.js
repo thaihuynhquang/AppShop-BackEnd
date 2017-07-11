@@ -98,7 +98,7 @@ module.exports = {
                 return callback(err, null);
             }
 
-            connection.query('SELECT p.id,p.name as name ,p.id_type as idType, t.name as nameType, p.price, p.description, GROUP_CONCAT(i.link) AS images FROM product p LEFT JOIN images i ON p.id = i.id_product inner join product_type t ON t.id = p.id_type where p.new = 1 group by p.id LIMIT 0,10', function (error, results, fields) {
+            connection.query('SELECT p.id,p.name as name ,p.id_type as idType, t.name as nameType, p.price, p.description, GROUP_CONCAT(i.link) AS images FROM product p LEFT JOIN images i ON p.id = i.id_product inner join product_type t ON t.id = p.id_type where p.new = 1 group by p.id LIMIT 0,6', function (error, results, fields) {
                 //end connection
                 connection.release();
                 //Error handling
@@ -370,7 +370,7 @@ module.exports = {
                 return callback(err, null);
             }
             
-            connection.query('UPDATE import im SET im.unitOnBill = ? WHERE im.productId = ?', [unitOnBill, productId], function (error, results, fields) {
+            connection.query('UPDATE product pro SET pro.unitOnBill = ? WHERE pro.Id = ?', [unitOnBill, productId], function (error, results, fields) {
                 //end connection
                 connection.release();
                 //Error handling

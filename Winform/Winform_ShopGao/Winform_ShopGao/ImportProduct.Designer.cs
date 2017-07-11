@@ -33,7 +33,7 @@
             this.lb_ChooseSupplier = new System.Windows.Forms.Label();
             this.cmb_ChooseProduct = new System.Windows.Forms.ComboBox();
             this.lb_ChooseProduct = new System.Windows.Forms.Label();
-            this.txtB_UnitInStock = new System.Windows.Forms.TextBox();
+            this.txtB_Quantity = new System.Windows.Forms.TextBox();
             this.txtB_UnitPrice = new System.Windows.Forms.TextBox();
             this.lb_ImportPrice = new System.Windows.Forms.Label();
             this.lb_ImportQuantity = new System.Windows.Forms.Label();
@@ -54,8 +54,14 @@
             this.lb_EmailSupplier = new System.Windows.Forms.Label();
             this.lb_SupplierName = new System.Windows.Forms.Label();
             this.btn_Unclock = new System.Windows.Forms.Button();
+            this.lb_UnitInStock = new System.Windows.Forms.Label();
+            this.lb_UnitOnBill = new System.Windows.Forms.Label();
+            this.txtB_UnitInStock = new System.Windows.Forms.TextBox();
+            this.txtB_UnitOnBill = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmb_ChooseSupplier
@@ -94,13 +100,13 @@
             this.lb_ChooseProduct.TabIndex = 3;
             this.lb_ChooseProduct.Text = "Chọn sản phẩm:";
             // 
-            // txtB_UnitInStock
+            // txtB_Quantity
             // 
-            this.txtB_UnitInStock.Location = new System.Drawing.Point(157, 104);
-            this.txtB_UnitInStock.Name = "txtB_UnitInStock";
-            this.txtB_UnitInStock.Size = new System.Drawing.Size(154, 20);
-            this.txtB_UnitInStock.TabIndex = 4;
-            this.txtB_UnitInStock.Leave += new System.EventHandler(this.txtB_UnitInStock_Leave);
+            this.txtB_Quantity.Location = new System.Drawing.Point(157, 104);
+            this.txtB_Quantity.Name = "txtB_Quantity";
+            this.txtB_Quantity.Size = new System.Drawing.Size(154, 20);
+            this.txtB_Quantity.TabIndex = 4;
+            this.txtB_Quantity.Leave += new System.EventHandler(this.txtB_Quantity_Leave);
             // 
             // txtB_UnitPrice
             // 
@@ -143,7 +149,7 @@
             // btn_Exit
             // 
             this.btn_Exit.Image = ((System.Drawing.Image)(resources.GetObject("btn_Exit.Image")));
-            this.btn_Exit.Location = new System.Drawing.Point(572, 292);
+            this.btn_Exit.Location = new System.Drawing.Point(572, 358);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(130, 50);
             this.btn_Exit.TabIndex = 9;
@@ -156,7 +162,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Info;
             this.panel1.Controls.Add(this.txtB_UnitPrice);
-            this.panel1.Controls.Add(this.txtB_UnitInStock);
+            this.panel1.Controls.Add(this.txtB_Quantity);
             this.panel1.Controls.Add(this.lb_ImportQuantity);
             this.panel1.Controls.Add(this.cmb_ChooseProduct);
             this.panel1.Controls.Add(this.btn_importProduct);
@@ -172,27 +178,24 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Info;
+            this.panel2.Controls.Add(this.txtB_UnitOnBill);
+            this.panel2.Controls.Add(this.txtB_UnitInStock);
+            this.panel2.Controls.Add(this.lb_UnitOnBill);
+            this.panel2.Controls.Add(this.lb_UnitInStock);
             this.panel2.Controls.Add(this.txtB_ProductPrice);
             this.panel2.Controls.Add(this.txtB_ProductName);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.lb_ProductPrice);
             this.panel2.Controls.Add(this.lb_ProductName);
-            this.panel2.Controls.Add(this.txtB_SupplierPhone);
-            this.panel2.Controls.Add(this.txtB_SupplierEmail);
-            this.panel2.Controls.Add(this.txtB_SupplierName);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.lb_PhoneSupplier);
-            this.panel2.Controls.Add(this.lb_EmailSupplier);
-            this.panel2.Controls.Add(this.lb_SupplierName);
-            this.panel2.Location = new System.Drawing.Point(12, 12);
+            this.panel2.Location = new System.Drawing.Point(12, 192);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(337, 330);
+            this.panel2.Size = new System.Drawing.Size(337, 216);
             this.panel2.TabIndex = 11;
             // 
             // txtB_ProductPrice
             // 
             this.txtB_ProductPrice.Enabled = false;
-            this.txtB_ProductPrice.Location = new System.Drawing.Point(137, 266);
+            this.txtB_ProductPrice.Location = new System.Drawing.Point(158, 81);
             this.txtB_ProductPrice.Name = "txtB_ProductPrice";
             this.txtB_ProductPrice.Size = new System.Drawing.Size(146, 20);
             this.txtB_ProductPrice.TabIndex = 12;
@@ -200,7 +203,7 @@
             // txtB_ProductName
             // 
             this.txtB_ProductName.Enabled = false;
-            this.txtB_ProductName.Location = new System.Drawing.Point(137, 227);
+            this.txtB_ProductName.Location = new System.Drawing.Point(158, 42);
             this.txtB_ProductName.Name = "txtB_ProductName";
             this.txtB_ProductName.Size = new System.Drawing.Size(146, 20);
             this.txtB_ProductName.TabIndex = 11;
@@ -208,7 +211,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 193);
+            this.label2.Location = new System.Drawing.Point(15, 8);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 13);
             this.label2.TabIndex = 10;
@@ -217,7 +220,7 @@
             // lb_ProductPrice
             // 
             this.lb_ProductPrice.AutoSize = true;
-            this.lb_ProductPrice.Location = new System.Drawing.Point(37, 269);
+            this.lb_ProductPrice.Location = new System.Drawing.Point(15, 84);
             this.lb_ProductPrice.Name = "lb_ProductPrice";
             this.lb_ProductPrice.Size = new System.Drawing.Size(79, 13);
             this.lb_ProductPrice.TabIndex = 8;
@@ -226,7 +229,7 @@
             // lb_ProductName
             // 
             this.lb_ProductName.AutoSize = true;
-            this.lb_ProductName.Location = new System.Drawing.Point(58, 230);
+            this.lb_ProductName.Location = new System.Drawing.Point(15, 45);
             this.lb_ProductName.Name = "lb_ProductName";
             this.lb_ProductName.Size = new System.Drawing.Size(58, 13);
             this.lb_ProductName.TabIndex = 7;
@@ -235,7 +238,7 @@
             // txtB_SupplierPhone
             // 
             this.txtB_SupplierPhone.Enabled = false;
-            this.txtB_SupplierPhone.Location = new System.Drawing.Point(137, 124);
+            this.txtB_SupplierPhone.Location = new System.Drawing.Point(132, 116);
             this.txtB_SupplierPhone.Name = "txtB_SupplierPhone";
             this.txtB_SupplierPhone.Size = new System.Drawing.Size(146, 20);
             this.txtB_SupplierPhone.TabIndex = 6;
@@ -243,7 +246,7 @@
             // txtB_SupplierEmail
             // 
             this.txtB_SupplierEmail.Enabled = false;
-            this.txtB_SupplierEmail.Location = new System.Drawing.Point(137, 86);
+            this.txtB_SupplierEmail.Location = new System.Drawing.Point(132, 78);
             this.txtB_SupplierEmail.Name = "txtB_SupplierEmail";
             this.txtB_SupplierEmail.Size = new System.Drawing.Size(146, 20);
             this.txtB_SupplierEmail.TabIndex = 5;
@@ -251,7 +254,7 @@
             // txtB_SupplierName
             // 
             this.txtB_SupplierName.Enabled = false;
-            this.txtB_SupplierName.Location = new System.Drawing.Point(137, 47);
+            this.txtB_SupplierName.Location = new System.Drawing.Point(132, 39);
             this.txtB_SupplierName.Name = "txtB_SupplierName";
             this.txtB_SupplierName.Size = new System.Drawing.Size(146, 20);
             this.txtB_SupplierName.TabIndex = 4;
@@ -259,7 +262,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 17);
+            this.label1.Location = new System.Drawing.Point(13, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 13);
             this.label1.TabIndex = 3;
@@ -268,7 +271,7 @@
             // lb_PhoneSupplier
             // 
             this.lb_PhoneSupplier.AutoSize = true;
-            this.lb_PhoneSupplier.Location = new System.Drawing.Point(58, 127);
+            this.lb_PhoneSupplier.Location = new System.Drawing.Point(53, 119);
             this.lb_PhoneSupplier.Name = "lb_PhoneSupplier";
             this.lb_PhoneSupplier.Size = new System.Drawing.Size(58, 13);
             this.lb_PhoneSupplier.TabIndex = 2;
@@ -277,7 +280,7 @@
             // lb_EmailSupplier
             // 
             this.lb_EmailSupplier.AutoSize = true;
-            this.lb_EmailSupplier.Location = new System.Drawing.Point(81, 89);
+            this.lb_EmailSupplier.Location = new System.Drawing.Point(76, 81);
             this.lb_EmailSupplier.Name = "lb_EmailSupplier";
             this.lb_EmailSupplier.Size = new System.Drawing.Size(35, 13);
             this.lb_EmailSupplier.TabIndex = 1;
@@ -286,7 +289,7 @@
             // lb_SupplierName
             // 
             this.lb_SupplierName.AutoSize = true;
-            this.lb_SupplierName.Location = new System.Drawing.Point(41, 50);
+            this.lb_SupplierName.Location = new System.Drawing.Point(36, 42);
             this.lb_SupplierName.Name = "lb_SupplierName";
             this.lb_SupplierName.Size = new System.Drawing.Size(75, 13);
             this.lb_SupplierName.TabIndex = 0;
@@ -295,7 +298,7 @@
             // btn_Unclock
             // 
             this.btn_Unclock.Image = ((System.Drawing.Image)(resources.GetObject("btn_Unclock.Image")));
-            this.btn_Unclock.Location = new System.Drawing.Point(426, 292);
+            this.btn_Unclock.Location = new System.Drawing.Point(417, 358);
             this.btn_Unclock.Name = "btn_Unclock";
             this.btn_Unclock.Size = new System.Drawing.Size(130, 50);
             this.btn_Unclock.TabIndex = 8;
@@ -304,11 +307,61 @@
             this.btn_Unclock.UseVisualStyleBackColor = true;
             this.btn_Unclock.Click += new System.EventHandler(this.btn_Unclock_Click);
             // 
+            // lb_UnitInStock
+            // 
+            this.lb_UnitInStock.AutoSize = true;
+            this.lb_UnitInStock.Location = new System.Drawing.Point(15, 120);
+            this.lb_UnitInStock.Name = "lb_UnitInStock";
+            this.lb_UnitInStock.Size = new System.Drawing.Size(100, 13);
+            this.lb_UnitInStock.TabIndex = 13;
+            this.lb_UnitInStock.Text = "Số lượng trong kho:";
+            // 
+            // lb_UnitOnBill
+            // 
+            this.lb_UnitOnBill.AutoSize = true;
+            this.lb_UnitOnBill.Location = new System.Drawing.Point(15, 158);
+            this.lb_UnitOnBill.Name = "lb_UnitOnBill";
+            this.lb_UnitOnBill.Size = new System.Drawing.Size(122, 13);
+            this.lb_UnitOnBill.TabIndex = 14;
+            this.lb_UnitOnBill.Text = "Số lượng trên đơn hàng:";
+            // 
+            // txtB_UnitInStock
+            // 
+            this.txtB_UnitInStock.Enabled = false;
+            this.txtB_UnitInStock.Location = new System.Drawing.Point(158, 117);
+            this.txtB_UnitInStock.Name = "txtB_UnitInStock";
+            this.txtB_UnitInStock.Size = new System.Drawing.Size(146, 20);
+            this.txtB_UnitInStock.TabIndex = 15;
+            // 
+            // txtB_UnitOnBill
+            // 
+            this.txtB_UnitOnBill.Enabled = false;
+            this.txtB_UnitOnBill.Location = new System.Drawing.Point(158, 155);
+            this.txtB_UnitOnBill.Name = "txtB_UnitOnBill";
+            this.txtB_UnitOnBill.Size = new System.Drawing.Size(146, 20);
+            this.txtB_UnitOnBill.TabIndex = 16;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.Info;
+            this.panel3.Controls.Add(this.txtB_SupplierName);
+            this.panel3.Controls.Add(this.lb_SupplierName);
+            this.panel3.Controls.Add(this.lb_EmailSupplier);
+            this.panel3.Controls.Add(this.lb_PhoneSupplier);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.txtB_SupplierEmail);
+            this.panel3.Controls.Add(this.txtB_SupplierPhone);
+            this.panel3.Location = new System.Drawing.Point(12, 12);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(337, 162);
+            this.panel3.TabIndex = 17;
+            // 
             // ImportProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(741, 365);
+            this.ClientSize = new System.Drawing.Size(720, 431);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.btn_Unclock);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -321,6 +374,8 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -331,7 +386,7 @@
         private System.Windows.Forms.Label lb_ChooseSupplier;
         private System.Windows.Forms.ComboBox cmb_ChooseProduct;
         private System.Windows.Forms.Label lb_ChooseProduct;
-        private System.Windows.Forms.TextBox txtB_UnitInStock;
+        private System.Windows.Forms.TextBox txtB_Quantity;
         private System.Windows.Forms.TextBox txtB_UnitPrice;
         private System.Windows.Forms.Label lb_ImportPrice;
         private System.Windows.Forms.Label lb_ImportQuantity;
@@ -352,5 +407,10 @@
         private System.Windows.Forms.Label lb_PhoneSupplier;
         private System.Windows.Forms.Label lb_EmailSupplier;
         private System.Windows.Forms.Button btn_Unclock;
+        private System.Windows.Forms.TextBox txtB_UnitOnBill;
+        private System.Windows.Forms.TextBox txtB_UnitInStock;
+        private System.Windows.Forms.Label lb_UnitOnBill;
+        private System.Windows.Forms.Label lb_UnitInStock;
+        private System.Windows.Forms.Panel panel3;
     }
 }

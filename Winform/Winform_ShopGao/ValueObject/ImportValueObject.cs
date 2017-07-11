@@ -9,26 +9,24 @@ namespace ValueObject
    public class ImportValueObject
     {
         public int? Id { get; set; }
-        public int IdNCC { get; set; }
-        public string NhaCungCap { get; set; }
-        public int IdSP { get; set; }
-        public string SanPham { get; set; }
-        public uint SoLuongTrongKho { get; set; }
-        public int SoLuongTrenDonHang { get; set; }
-        public uint Dongia { get; set; }
-        public int TongTien { get; set; }
+        public int supplierId { get; set; }
+        public string supplierName { get; set; }
+        public int productId { get; set; }
+        public string productName { get; set; }
+        public uint quantity { get; set; }
+        public uint unitPrice { get; set; }
+        public int totalPrice { get; set; }
 
-    public ImportValueObject(int? id, int supplierId, string supplierName, int productId, string productName, uint unitInStock, int unitOnBill, uint unitPrice, int totalPrice)
+    public ImportValueObject(int? id, int supplierId, string supplierName, int productId, string productName, uint quantity, uint unitPrice, int totalPrice)
         {
             this.Id = id;
-            this.IdNCC = supplierId;
-            this.NhaCungCap = supplierName;
-            this.IdSP = productId;
-            this.SanPham = productName;
-            this.SoLuongTrongKho = unitInStock;
-            this.SoLuongTrenDonHang = unitOnBill;
-            this.Dongia = unitPrice;
-            this.TongTien = totalPrice;
+            this.supplierId = supplierId;
+            this.supplierName = supplierName;
+            this.productId = productId;
+            this.productName = productName;
+            this.quantity = quantity;
+            this.unitPrice = unitPrice;
+            this.totalPrice = totalPrice;
 
         }
     }

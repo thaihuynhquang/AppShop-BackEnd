@@ -18,6 +18,7 @@ namespace Winform_ShopGao
         private readonly BillDetailBusinessLogicLayer _billDetailBusinessLogicLayer;
         private readonly ShipperBussinessLogic _shipperBussinessLogic;
         private readonly UserBusinessLogic _userBusinessLogic;
+        private readonly ProductBusinessLogic _productBusinessLogic;
         private int _BillId;
         private int _CusId;
         private int _ShipperId;
@@ -109,6 +110,7 @@ namespace Winform_ShopGao
                     MessageBox.Show("Đơn hàng đã hoàn thành", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     bill = _billBusinessLogic.GetBillById(_BillId);
                     txtB_BillStatus.Text = bill.Status;
+                    
                 }
                 else
                 {
