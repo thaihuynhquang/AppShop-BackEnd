@@ -113,21 +113,7 @@ namespace Winform_ShopGao
                     txtB_BillStatus.Text = bill.Status;
 
                     var billDetails = _billDetailBusinessLogicLayer.GetBillDetailsByBillId(_BillId);
-                    billDetails.ForEach(billDetail =>
-                    {
-                        var product = _productBusinessLogic.GetProductById(billDetail.Id);
-                        var unitOnBill = (long)product.unitOnBill;
-                        var unitInStock = (long)product.unitInStock;
-                        unitInStock = unitInStock - billDetail.Quantity;
-                        unitOnBill = unitOnBill - billDetail.Quantity;
-
-                        if (unitInStock < 0 || unitOnBill < 0) return;
-                        product.unitInStock = (uint)unitInStock;
-                        product.unitOnBill = (uint)unitOnBill;
-                        _productBusinessLogic.UpdateUnitInStock(product);
-                        _productBusinessLogic.UpdateUnitOnBill(product);
-
-                    });
+                    billDetails.ForEach(UpdateXxx);
                 }
                 else
                 {
@@ -145,20 +131,7 @@ namespace Winform_ShopGao
                     txtB_BillStatus.Text = bill.Status;
 
                     var billDetails = _billDetailBusinessLogicLayer.GetBillDetailsByBillId(_BillId);
-                    billDetails.ForEach(billDetail =>
-                    {
-                        var product = _productBusinessLogic.GetProductById(billDetail.Id);
-                        var unitOnBill = (long)product.unitOnBill;
-                        var unitInStock = (long)product.unitInStock;
-                        unitInStock = unitInStock + billDetail.Quantity;
-                        unitOnBill = unitOnBill + billDetail.Quantity;
-                        
-                        product.unitInStock = (uint)unitInStock;
-                        product.unitOnBill = (uint)unitOnBill;
-                        _productBusinessLogic.UpdateUnitInStock(product);
-                        _productBusinessLogic.UpdateUnitOnBill(product);
-
-                    });
+                    billDetails.ForEach(UpdateXxx);
                 }
                 else
                 {
@@ -166,6 +139,21 @@ namespace Winform_ShopGao
                 }
                 
             }
+        }
+
+        private void UpdateXxx(BillDetailValueObject billDetailValueObject)
+        {
+            var product = _productBusinessLogic.GetProductById(billDetailValueObject.Id);
+            var unitOnBill = (long)product.unitOnBill;
+            var unitInStock = (long)product.unitInStock;
+            unitInStock = unitInStock - billDetailValueObject.Quantity;
+            unitOnBill = unitOnBill - billDetailValueObject.Quantity;
+
+            if (unitInStock < 0 || unitOnBill < 0) return;
+            product.unitInStock = (uint)unitInStock;
+            product.unitOnBill = (uint)unitOnBill;
+            _productBusinessLogic.UpdateUnitInStock(product);
+            _productBusinessLogic.UpdateUnitOnBill(product);
         }
 
         private void cmb_Shipper_SelectedIndexChanged(object sender, EventArgs e)
